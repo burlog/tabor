@@ -1,0 +1,154 @@
+Táborová hra:
+    Kazdy tym bude dostavat odmenu ve forme koralku za kazdou hru.
+    Družina s největším počtem korálků se stává Horusovou vezíry.
+    Druhá družina se stává Horusovými čestnou stráží.
+    Třetí družina se stává Horusovými komorníky.
+    Čtvrtá družina se stává Horusovými sluhy.
+
+Sobota (Den 1):
+    Téma:
+        Sethova hostina
+    Odpoledne:
+        Sethova hostina
+            Rozdělení do skupin: budou si hledat zamek?
+            Otevření zámku: v něm bude čepice.
+            Tématické pohoštění: karkade - ibiškový čaj, datle?
+        Ponorky.
+            https://www.hranostaj.cz/hra455
+    Večer:
+        Fotbal, volejbal, ...
+
+Neděle (Den 2):
+    Téma:
+        Sethova zrada
+    Dopoledne:
+        Plavba na pramicích po Středozemním moři za Eset.
+            Nafukovací krokodýli v rybníce.
+            Na každém dvě z písmen K A R O L I N A.
+            Kája bude v kostýmu čekat (někde mimo tábor?) a odvypráví příběh o tom,
+            jak Usira našla, ale Seth ho rozřezal na kousky a roztrousil po celém Egyptě.
+            Papyrus s hieroglyfickým textem, který identifikuje místa, kde jsou Usirovy části.
+        Ty co budou čekat, se budou učit skákat přes švihadlo.
+    Odpoledne:
+        Luštění Rosettské desky.
+            Příprava na výpravu pro Usirovo tělo.
+            Deska se stejným textem ve třech jazycích. Hieroglyfy, angličtina, němčina.
+            Použijí ji pro překlad hieroglyfů z předchozího dne.
+            Dva nejmladší budou moci behat k mudrcum pro nápovědu.
+            V textu bude kam se mají vydat pro první část Usirova těla.
+        Šašek a faraon.
+            https://www.hranostaj.cz/hra758
+    Večer:
+        Fotbal, volejbal, ...
+
+Pondělí (Den 3):
+    Téma:
+        Hledání Usirova těla
+    Dopoledne:
+        Výroba balzamovací masti.
+            Nehodnotí se, jen pro zábavu.
+            Každá mumie musí být balzamována.
+            Výroba masti z medu, bylinek, ...
+        Malomocní.
+            https://www.hranostaj.cz/hra1284
+    Odpoledne:
+        Výprava pro části Usirova těla.
+            Vypouštíme skupiny po 15 minutách, podle pořadí, jak vyluštili Rosettskou desku.
+            Uděláme to jako jsou pohádkové stezky, na každé zastávce někdo z dospělých a zadá úkol. Odměna je část Usirova těla.
+            1. Hod tenisovým míčkem, podle věku.
+            2. Skákání přes švihadlo, každý x-krát.
+            3. Vyndat kus Usira z nádob s zele, krabici s moukou, krabice budou zakryte.
+            4. Poslepu po lane.
+            5. Ujít x metrů s vodou v nádobě na hlavě.
+    Večer:
+        Fotbal, volejbal, ...
+
+Úterý (Den 4):
+    Téma:
+        Usirovo vzkříšení
+    Dopoledne:
+        Olympiáda.
+    Odpoledne:
+        První pomoc.
+            Sehnat někoho, kdo by to vedl.
+        PET raketa.
+            Nebude to součástí programu, jen pro zábavu.
+    Večer:
+        Fotbal, volejbal, ...
+    Noc:
+        Procházka do Usirova nového království.
+            Nebude to součástí programu, jen pro odvážné.
+            Dospělí se obalí folii a budou mumie.
+            Toulají se po tábořišti a okolí.
+            Děti s baterkami/lucernami je hledají a každé nalezené mumii musí sebrat drahokam.
+            Mumie jsou rozespale, takze jsou pomale, ale cim dyl nespi, tim jsou rychlejsi.
+            Ucelem je obrat mumie o vsechny krepaky, ktere maji na sobe.
+
+Středa (Den 5):
+    Téma:
+        Narození a skrývání Horuse
+    Dopoledne:
+        Borůvky.
+            Každý tým bude mít svůj kbelík.
+            Kdo nasbírá nejvíc, vyhrává.
+    Odpoledne:
+        Těhotenské závody.
+            Každý bude mít na břiše batoh s flaškami vody, kameny a spacaky, možná i ovinutý fólií.
+            Bude to závod na čas po fáborkách a překážkách jako opičí dráha.
+            Kazde stanoviste bude bodovano 10 body.
+            Kazde stanoviste by melo mit varianty pro ruzne vekove kategorie.
+            1. Běh do kopce. (čas)
+            2. Zavázat si tkaničky. (čas)
+            3. Prolézání mezi visicími švihadly. (počet doteků)
+            4. Desetkrát si lehnout a zase postavit. (počet chyb)
+            5. Přeskakování přes "kameny". (počet přešlápnutí)
+            6. Složit spacák do pytlíku. (čas)
+    Večer:
+        Fotbal, volejbal, ...
+
+Čtvrtek (Den 6):
+    Téma:
+        Souboj Horuse a Seta
+    Dopoledne:
+        Závody vozů.
+            Jednoosé vozíky s loukoťovými koly.
+            Větší děti budou táhnout menší.
+            Cílem je přepravit tým na určené místo.
+            Na cestě budou překážky.
+            Bude to závod na čas.
+        Překonání Nilu.
+            N odstřižků karimatek.
+            N+1 dobrodruhu, kteří se musí dostat na druhý břeh, aniž by se dotkli vody.
+        Honba tenisáku - ?tematicky popis?.
+            Děti dostanou tenisák a musi ho kutálet do cíle.
+            Cíl bude vzdálený aspoň 1 km.
+    Odpoledne:
+        Malování 3D figurek.
+            Nehodnotí se, jen pro zábavu.
+        Bitva korabů.
+            https://www.hranostaj.cz/hra4239
+    Večer:
+        Fotbal, volejbal, ...
+
+Pátek (Den 7):
+    Téma:
+        Dokončení souboje a korunovace nového faraóna
+    Dopoledne:
+        Malování prostěradel.
+            Vzor na papire, musi byt jednoduchy.
+            Kazdy tym ma prosteradlo, maluje se po jednom.
+            Kazdy maluje jinou casti tela, podle veku (malicek, loket, pata, brada, ...)
+        Presun míčků - ?tematicky popis?.
+            Několik kruhu z lan.
+            Přesun míčků z jednoho kruhu do druhého.
+        Přepravy špičky pyramidy.
+            Jehlan ze dřeva s podlahou, na které bude nejstarší dítě.
+            Bude na kulatinách, které se budou muset přesouvat.
+            Bude to závod na čas.
+    Poledne:
+        Vyhlášení čestné stráže. (odmena?)
+            Hostina.
+    Odpoledne:
+        Příprava táboráku, scének a písniček.
+    Večer:
+        Táborák, scénky, písničky.

@@ -1,0 +1,27 @@
+Berenika        | 5
+Pepík           | 10
+Jáchym          | 11
+Kuba            | 9
+Vojta           | 16
+Týnka           | 9
+Terezka         | 13
+Jindra          | 9
+Eliška A.       | 12
+Filip           | 10
+Rozinka         | 8
+Radomír         | 5
+Eliška H.       | 11
+Ella            | 14
+Stela           | 10
+Anežka B.       | 5
+Dominik A.      | 9
+Tonda           | 9
+Martin          | 13
+Šárka           | 12
+Bětka           | 9
+Domča V.        | 10
+Viktorka        | 8
+Štěpánek        | 8
+Anežka H.       | 13
+Denisa          | 12
+Matěj           | 12

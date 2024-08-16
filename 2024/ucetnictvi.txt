@@ -1,0 +1,32 @@
+Aliexpress:
+    - kostym: 1.332,00 Kč
+    - cepice: 568,00 Kč
+    - cepice: 501,00 Kč
+    - cepice: 4.023,00 Kč
+    - vlajka: 216,00 Kč
+    - tapiserie: 465,00 Kč
+
+    celkem: 7.105,00 Kč
+
+Papirovy doklad:
+    - obalky: 1.036,00 Kč
+    - krepak, modelina, ...: 1.082,00 Kč
+    - smajlici: 195,00 Kč
+
+    celkem: 2.313,00 Kč
+
+Mail:
+    - orisky: 5.005,00 Kč
+    - karkade: 511,00 Kč
+    - krokodylove: 718,00 Kč
+    - kola: 1.316,00 Kč
+    - zamky: 861,00 Kč
+    - barvy: 1.742,00 Kč
+    - prosteradla: 645,00 Kč
+    - masticky: 580,00 Kč
+    - filament: 684,00 Kč
+    - snurka: 609,00 Kč
+
+    celkem: 11.971,00 Kč
+
+Celkem: 21.389,00 Kč

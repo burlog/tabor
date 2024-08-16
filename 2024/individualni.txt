@@ -1,0 +1,32 @@
+Velky sportovec: skok pres svihadlo v kuse
+     - 5-7 let: 5
+     - 8-10 let: 10
+     - 11-13 let: 15
+     - 14+ let: 20
+     - 20+ let: 25
+
+Velky pisar: morseovka
+     - 5-7 let: precte a zapise text o 5 slovech
+     - 8-10 let: precte a zapise text o 10 slovech
+     - 11-13 let: precte a zapise text o 15 slovech
+     - 14+ let: precte a zapise text o 20 slovech
+     - 20+ let: precte a zapise text o 20 slovech
+
+Velky pevec: nauci se zpivat pisnicky, ktere jeste nezna
+     - 5-7 let: 1 pisnicku
+     - 8-10 let: 2 pisnicky
+     - 11-13 let: 3 pisnicek
+     - 14+ let: 4 pisnicek
+     - 20+ let: 5 pisnicek
+
+Velky cestovatel: navstivi vsechny POI
+     - 5-9 let: s doprovodem
+     - 10+: sam
+     - 20+: v noci
+
+Velky botanik: vytvori herbar (ne stromu, sesije sesit, nakresli obrazek, popise rostlinu)
+     - 5-7 let: 3
+     - 8-10 let: 5
+     - 11-13 let: 7
+     - 14+ let: 10
+     - 20+ let: 10

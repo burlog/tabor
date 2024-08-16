@@ -1,0 +1,397 @@
+Pravidla:
+    - Kazdy tym dostane odmenu za kazdou etapovou hru.
+        - prvni misto 4 koralky
+        - druhe misto 3 koralky
+        - treti misto 2 koralky
+        - ctvrte misto 1 koralek
+    - Kazdy tym dostane odmenu za vyhru ve vedlejsich hrach.
+        - prvni misto 2 koralky
+        - druhe misto 1 koralek
+    - Kazdy tym dostane odmenu za kazde 4 splnene individulani ukoly svymi cleny.
+        - 1 koralek
+    - Družina s největším počtem korálků se stává Horusovou vezíry.
+    - Druhá družina se stává Horusovými čestnou stráží.
+    - Třetí družina se stává Horusovými zbrojizri.
+    - Čtvrtá družina se stává Horusovými komorniky.
+
+Seznam materiálu
+    - cedule prosim nebrat je soucasti hry
+    - navod na svihadla
+    - pribeh
+    - pravidla her
+
+Sobota (Den 1):
+    Tema: Sethova hostina
+
+    Seznam materiálu
+        - pyramidy
+        - cepice
+        - zamky
+        - datle, orisky, kokos, ...
+        - karkade
+        - mapa starovekeho Egypta
+        o tymove provazky na koralky
+        o individualni provazky na koralky
+        - tapiserie
+        - info tabulky
+        - kostym Rupert (klobouk, holinky)
+        - tabulka sluzeb
+        - denni rozvrh
+        - satky
+        - vlajka
+        - vodni dymka
+
+    Pred prijezdem:
+        - dovezt veci od Boba
+        - pripravit pyramidy
+        - pripravit hostinu
+        - uvarit karkade
+        - umistit tapiserii + pripravit provazky na koralky
+        - umistit info tabulky
+        - dokreslit do mapy POI
+
+    17:00
+        - seznameni s rozvrhem (dnes bude pozdejsi vecere)
+        - seznameni s prostorem + mapou
+        - seznameni s pravidly celotaborove hry
+        - seznameni s pravidly individualni hry
+        - seznameni se sluzbami
+    17:20
+        - odemykani pyramid
+        - scenka: Rupert vita decka
+    17:45
+        - hostina
+    18:00
+        - hra: ponorky
+            - https://www.hranostaj.cz/hra455
+
+Nedele (Den 2):
+    Tema: Sethova zrada
+
+    POI
+        - krokodyl
+            - misto: u usti Nilu do Stredozemniho more
+            - odmena: samolepka krokodyla
+
+    Seznam materiálu
+        - mozkolamy
+        - krokodylove
+        - klobouk a holinky (Michal)
+        - izolepa + papir na pismena
+        - kostym Nephthys
+        - kostym Rupert (klobouk, holinky)
+        - zasifrovana zprava od Eset
+        - rosettska deska
+        - svihadla
+        - Pyramida
+        - mice
+        - lano
+        - knizka
+
+    8:30
+        - dospelaci umisti krokodyly v rybnice s pismeny K A R O L I N A
+    8:45
+        - mozkolamy
+    9:00
+        - scenka: Eset pribehne a place, ze Seth zavrel Usira do truhly a hodil ho do Nilu
+        - etapovka: hledani Eset
+            - najit krokodyly
+            - precist pismena
+            - slozit jmeno cloveka
+            - najit Nephthys
+            - meri se cas
+            ? pirati komplikujici cestu
+    9:15
+        - prvni skupinka se vydava za Eset
+        - dohled na kanoich se vydava s nimi
+        - zaciname se svihadly
+    9:30
+        - druha skupinka se vydava za Eset
+    9:45
+        - Nephtys se vyda cekat na prvni dobrodruhy, kde jim preda zasifrovanou zpravu od Eset
+        - zmeri cas kdy dorazili
+    X:XX
+        - treti skupinka se vydava za Eset
+    Y:YY
+        - ctvrta skupinka se vydava za Eset
+    Z:ZZ
+        - Bobo se vydava za Eset
+    11:00
+        - postupne nachazeni Nephthys, ktera jim preda vzkaz od Eset
+        - prvni skupinka zacina se svihadly
+    15:30
+        - scenka: Rupert detem vysvetli jak to bylo s Rosettskou deskou
+        - etapovka: lusteni s pomoci rosettske desky
+            - hieroglyficka zprava od Eset
+            - stela oslavujici Mernefera v hieroglyfech, anglictine, nemcine
+            - ukolem je najit vyznam jednotlivych hieroglyfu a prelozit zpravu od Eset
+            - tak ze si spoji slova z anglickych a nemeckych prekladu s hieroglyfickymi znaky
+            - nejmladsi dite z kazdeho tymu muze dobehnout k mudrcovi pro pomoc
+            - pomoc je preklad jednoho hieroglyfu na slovo reps. preklad anglickeho slova do cestiny
+            - s kazdym slovem musi bezet zvlast
+            - meri se cas
+    16:30
+        - hra: sasek a faraon
+            https://www.hranostaj.cz/hra758
+    20:45
+        - cteni
+
+Pondeli (Den 3):
+    Tema: Hledani Usirova tela
+
+    POI
+        -  (desticky s hieroglyfy)
+            - misto: bungr nad spodnim taboristem
+            - odmena: ???
+
+    Seznam materiálu
+        - mozkolamy
+        - masticka
+        - med
+        o bylinky (materidouska, mata, levandule, medunka, hermanek)
+        - kelimky
+        - satky
+        - prusiky
+        - 5x usirovo telo
+        - knizka
+
+    8:45
+        - mozkolamy
+    9:00
+        - pribeh: Rupert povida o mumiich
+    9:15
+        - vyroba masticky
+            - nehodnoti se, jen pro zabavu
+    10:15
+        - hra: malomocni
+            https://www.hranostaj.cz/hra1284
+    14:30
+        - dospelaci si rozdeli stanoviste a pripravi si je
+            1. Hod tenisovým míčkem, podle věku. Andrea
+            2. Skákání přes švihadlo, každý x-krát. Anita
+            3. Vyndat kus Usira z nádob s zele, z krabice s moukou, krabice budou zakryte. Kaja
+            4. Poslepu po lane. Jana
+            5. Ujít x metrů s vodou v nádobě na hlavě. Hanka
+    XX:XX
+        - etapovka: Vyprava pro usirovo telo
+            - prvni stanoviste je v sakkare
+            - na kazdem stanovisti se deti dozvi kam jit dal
+            - na kazdem stanovisti dostanou cast Usirova tela
+            - meri se cas
+        - Bobo se vydava pro Usirovo telo
+    15:30
+        - prvni skupinka se vydava pro prvni cast Usirova tela
+    15:45
+        - druha skupinka se vydava pro druhou cast Usirova tela
+    16:00
+        - treti skupinka se vydava pro treti cast Usirova tela
+    16:15
+        - ctvrta skupinka se vydava pro ctvrtou cast Usirova tela
+    17:30
+        - skakani pres svihadla pro rodice a deti
+    20:45
+        - cteni
+
+Utery (Den 4):
+    Tema: Usirovo znovuzrozeni
+
+    POI
+        - fontana mladi
+            - misto: studanka u koupaciho mista
+            - odmena: ???
+
+    Seznam materiálu
+        - mozkolamy
+        - tabulka na olympiadu
+        - veci na olympiadu
+        - koralky
+        - folie na mumie
+        - baterky
+        - PET lahve
+        - startovaci rampa raket
+        - kostym Usir, Eset
+        - pumpicka
+        - knizka
+        o krepak
+
+    8:45
+        - mozkolamy
+    9:00
+        - scenka: Eset ozivuje Usira, pocnou Horuse a Usir odchazi do podsveti
+    9:15
+        - olympiada
+    15:30
+        - VOLNO
+    17:00
+        - start raket
+    20:30
+        - priprava mumii
+    20:45
+        - cteni
+    21:00
+        - neetapovka: Vyprava do Usirova noveho kralovstvi
+            - nehodnoti se, jen pro zabavu
+            - dospeli se obali folii a budou se toulat po okoli
+            - budou mit kolem pasu prouzky krepaku
+            - dite s baterkou musi najit mumii a sebrat ji prouzek a odnest ho na start
+            - cim dele to diteti bude trvat, tim vic mumie bude deti chytat
+            - na zacatku budou mumie ospale
+            - kdyz mumie dite chyti, dite musi nechat krepak mumii a vratit se na start
+            - ukolem deti je posbirat vsechny prouzky a tim mumie znicit
+
+Streda (Den 5):
+    Tema: POČETÍ A NAROZENÍ HORUSE
+
+    POI
+        - Kilimanjaro
+            - misto: Bida, bude tam plysova opice
+            - odmena: ???
+
+    Seznam materiálu
+        o mozkolamy
+        - batohy
+        - PET lahve
+        - folie?
+        - svihadla
+        - karimatkove ctverce
+        - knizka
+        - opice - plysak
+
+    8:45
+        - mozkolamy
+    9:00
+        - pribeh/scenka: Jak Seth pronasledoval Eset a Horuse
+    9:15
+        - etapovka: boruvky
+            - deti si vyzkousi, jake je to se zivit jen tim co najdou
+            - jako tym sbiraji boruvky
+            - hodnoti se, kdo ma nejvice boruvek
+    15:00
+        - dospelaci si rozdeli stanoviste a pripravi si je
+            1. Běh do kopce. (čas)
+            2. Zavázat si tkaničky (snurku kolem bot). (čas)
+            3. Prolézání mezi visicími švihadly. (počet doteků)
+            4. Desetkrát si lehnout a zase postavit. (počet chyb)
+            5. Přeskakování přes "kameny". (počet přešlápnutí)
+            6. Složit spacák do pytlíku. (čas)
+    15:30
+        - etapovka: tehotensky zavod
+            - každý bude mít na břiše batoh s flaškami vody, kameny a spacaky, možná i ovinutý fólií
+            - meri prumerne poradi na stanovištich
+    15:45
+        - prvni skupinka se vydava na trasu
+    16:00
+        - druha skupinka se vydava na trasu
+    16:15
+        - treti skupinka se vydava na trasu
+    16:30
+        - ctvrta skupinka se vydava na trasu
+    16:45
+        - Bobo se vydava na trasu
+    20:45
+        - cteni
+
+Ctvrtek (Den 6):
+    Tema: SKRÝVÁNÍ HORUSE
+
+    POI
+        - zlate pruty
+            - misto: ve vode, bokem od koupaciho mista
+            - odmena: svitici tycinky
+
+    Seznam materiálu
+        - mozkolamy
+        - akrylove barvy
+        - 3D figurky
+        - kaminky
+        - kuze
+        - plastove micky
+        - tenisaky
+        - ctverce z karimatky
+        - voziky
+        - provazky
+        - plastove micky
+        - svitici tycinky
+
+    8:45
+        - mozkolamy
+    9:00
+        - pribeh: Jak Horus se prihlasil o trun a musi o nej zapasit se Sethem pred Radou bohu
+    9:15
+        - vyroba alumetu, barveni 3D figurek a kaminku
+            - nehotovi se, jen pro zabavu
+            - kazdy si vyrobi neco na pamatku
+    10:45
+        - dospelaci pripravi hriste pro boj korabu
+        - deti si jdou pripravit korab
+    11:00
+        - hra: korab (tenisaky jako perly, plastaky jako munice)
+            https://www.hranostaj.cz/hra4239
+    15:00
+        - dospelaci si rozdeli souboje a pripravi si je
+    15:30
+        - vysvetleni jednotlivych souboju
+        - skupinky jdou na jednotlive souboje
+            - etapovka: prekonani Nilu
+                - kazdy dostane odstřižek karimatky
+                - skupinka vytvori hada a posledni si musi prenest karimatku na druhou stranu
+                - nesmi slapnout na vodu
+                - hodoti se cas a pocet preslapu
+            - etapovka: zavodu vozu
+                - jednoosé vozíky s loukoťovými koly
+                - deti se po jednom musi prevezt na urcene misto
+                - na voziku jede vzdy jen jedno dite
+                - jedno dite bude tahat vozik
+                - posledni tahac zustava na miste se svym nakladem
+                ? prekazky
+                - hodnoti se cas a pocet vyklopeni
+            - etapovka: honba tenisaku
+                - děti dostanou tenisák a musi ho kutálet do cíle
+                - pri kutaleni se postupne stridaji
+                - cíl bude vzdálený aspoň 1 km
+                - hodnoti se cas
+    20:45
+        - cteni
+
+Patek (Den 7):
+    Tema: Souboj Horuse a Setha o trun horni i dolni zeme
+
+    Seznam materiálu
+        - mozkolamy
+        - prosteradla
+        - tempery
+        - kulatiny
+        - pyramidy
+        - plastove micky
+        - tenisaky
+        - lana
+        - diplomy
+
+    8:45
+        - mozkolamy
+        - dospelaci si rozdeli souboje a pripravi si je
+    9:00
+        - vysvetleni jednotlivych souboju
+        - skupinky jdou na jednotlive souboje
+            - etapovka: malovani
+                - na papire bude jednoducha sfinga
+                - kazdy tym ma prosteradlo, maluje se po jednom
+                - kazdy maluje jinou casti tela, podle veku (malicek, loket, pata, brada, ...)
+                - hodnoti se vseobecnym hlasovani nezucastnenych
+            - etapovka: stavba pyramid
+                - model spicky pyramidy
+                - pomoci kulatin presun do urceneho mista
+                - netezsi dite bude sedet na modelu a ridit ostatni
+                - hodnoti se cas
+            - etapovka: presun micku
+                - dva az tri kruhy z lan
+                - do prvniho se nasypou micky
+                - ukolem deti je presunout micky do dalsiho kruhu
+                - a tak postupne az do posledniho
+                - hodnoti se cas
+    12:00
+        - pribeh/scenka: Horus je korunovan faraonem
+        - vyhlaseni vitezu a predani diplomu
+        - hostina
+    15:00
+        - taborak
