@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>sedelska-pravda-2</title>
+  <style>
+    body {
+      background: #ccc;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Georgia, serif;
+      hyphens: auto;
+
+      counter-reset: page_counter 1;
+    }
+
+    .page {
+      background: white;
+      width: 210mm;
+      height: 297mm;
+      padding: 10mm;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      margin-bottom: 1rem;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-header {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #000;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .main-header img {
+      height: 4rem;
+      width: 4rem;
+      margin-right: 1rem;
+      position: absolute;
+    }
+
+    .main-header-title {
+      flex-grow: 1;
+    }
+
+    .main-header-title h1 {
+      margin: 0;
+      font-size: 3.1rem;
+      text-transform: uppercase;
+      text-align: center;
+      hyphens: none;
+    }
+
+    .main-header-title p {
+      margin: 0;
+      text-align: center;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #000;
+    }
+
+    .teaser {
+      border: 1px solid #000;
+      margin: 0px;
+      padding: 0.5rem;
+    }
+
+    .teaser h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin: 0;
+      text-align: left;
+      hyphens: none;
+    }
+
+    .teaser ul {
+      font-size: 0.8rem;
+      list-style: square;
+      padding: 0;
+      margin: 0.2rem 0.8rem;
+      list-style-position: outside;
+    }
+
+    .main-article h2, .article h2 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem 0;
+      text-align: center;
+      hyphens: none;
+    }
+
+    .main-article h3, .article h3 {
+      font-size: 1.0rem;
+      font-style: italic;
+      text-align: center;
+      margin: 0 0 1rem 0;
+      hyphens: none;
+    }
+
+    .main-article h4, .article-first-part h4, .article-last-part h4, .article h4, .horoscope h4 {
+      font-size: 1.2rem;
+      margin: 0 0 0.8rem 0;
+      text-transform: uppercase;
+      text-align: left;
+      hyphens: none;
+    }
+
+    .main-article h5, .article-first-part h5, .article-last-part h5, .article h5, .horoscope h5, .joke h5 {
+      font-size: 1.0rem;
+      margin: 0 0 0.6rem 0;
+      text-transform: uppercase;
+      text-align: left;
+      hyphens: none;
+    }
+
+    .main-article p, .article-first-part p, .article-last-part p, .article p, .horoscope li {
+      font-size: 0.8rem;
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    .main-article p, .article-first-part p, .article-last-part p, .article p {
+      margin: 0;
+      padding: 0 0 0.5rem 0;
+    }
+
+    .main-article img {
+      float: left;
+      width: 120mm;
+      margin: 0 5mm 5mm 0;
+    }
+
+    .header {
+      font-size: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #000;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      text-transform: uppercase;
+      font-size: inherit;
+      margin: 0px;
+      padding: 0px;
+      text-decoration: none;
+      hyphens: none;
+    }
+
+    .article-first-part p:last-of-type:after {
+      content: "podrobnosti najdete uvnitř čísla";
+      display: block;
+      font-style: italic;
+      font-size: 0.5rem;
+    }
+
+    .article p:last-of-type:after, .article-last-part p:last-of-type:after {
+      content: "\00A0\25A1";
+    }
+
+    .article-last-part p:first-of-type::before {
+      content: "pokračování z úvodní strany";
+      display: block;
+      font-style: italic;
+      font-size: 0.5rem;
+    }
+
+    .columns {
+      flex: 1;
+      column-count: 3;
+      column-gap: 10mm;
+      column-fill: auto;
+      overflow: hidden;
+    }
+
+    .columns > div {
+      margin-top: 1rem;
+    }
+
+    .columns > div:first-child {
+      margin-top: 0rem;
+    }
+
+    .columns img {
+      width: 100%;
+      margin: 0;
+    }
+
+    .joke {
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      text-align: left;
+    }
+
+    .joke p {
+      font-size: 0.8rem;
+      line-height: 1;
+      margin: 0.2rem 0;
+    }
+
+    .crime {
+      border-left: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 0 0 0 0.5rem;
+      margin: 0 0 0.5rem 0;
+      font-size: 0.8rem;
+    }
+
+    .crime ul {
+      list-style: square;
+      list-style-position: inside;
+      padding: 0;
+      margin: 0.5rem 0 0 0;
+    }
+
+    .crime ul li {
+      margin-bottom: 0.2rem;
+    }
+
+    .horoscope ul {
+      list-style: none;
+      list-style-position: inside;
+      padding-left: 0;
+      margin: 0.8rem 0 0 0;
+      font-size: 0.8rem;
+    }
+
+    .horoscope ul li {
+      position: relative;
+      padding-left: 0rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .horoscope ul li::before {
+      content: attr(data-symbol);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .horoscope ul li::first-letter {
+      margin-left: 1.5rem;
+    }
+
+    .imprint {
+      font-size: 0.7rem;
+      text-align: center;
+      margin-top: 1rem;
+      color: #666;
+      border-top: 1px solid #000;
+    }
+
+    .imprint p {
+      margin: 0.1rem 0;
+      text-align: left;
+    }
+
+    .date::before {
+      content: "Neděle 10. srpna 2025";
+    }
+
+    .issue-number::after {
+      content: "0002";
+    }
+
+    .page-number::before {
+      counter-increment: page_counter;
+      content: counter(page_counter);
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        padding: 10mm;
+        box-shadow: none;
+        margin: 0 auto;
+        page-break-after: always;
+        box-sizing: border-box;
+        overflow: hidden;
+        page-break-after: always;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body lang="cs">
+  <!-- STRANA 1 -->
+  <div class="page">
+    <div class="main-header">
+      <img src="logo.png" alt="Logo">
+      <div class="main-header-title">
+        <h1>Sedelská pravda</h1>
+        <p>Fakta, názory a konspirační teorie bez repelentu</p>
+      </div>
+    </div>
+
+    <div class="meta">
+      <span class="issue-number">Číslo </span>
+      <span class="date"></span>
+      <span>Cena: 1 úsměv</span>
+    </div>
+
+    <div class="main-article">
+      <div class="article-first-part">
+	<img src="bunkr.png">
+	<h2></h2>
+	<h3></h3>
+	<p>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="article-first-part">
+        <h4></h4>
+      </div>
+      <div class="article">
+	<h4></h4>
+      </div>
+      <div class="teaser">
+	<h2>Dnes uvnitř</h2>
+	<ul>
+	  <li>
+	  <li>
+	  <li>
+	  <li>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRANA 2 -->
+  <div class="page">
+    <div class="header">
+      <span class="page-number"></span>
+      <h1>Sedelská pravda</h1>
+      <span class="date"></span>
+    </div>
+
+    <div class="columns">
+      <div class="article-last-part">
+	<h4></h4>
+	<p>
+	<h5></h5>
+	<p>
+      </div>
+      <div class="article">
+	<h4></h4>
+	<p>
+      </div>
+      <div class="article-last-part">
+        <h4></h4>
+	<p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRANA 3 -->
+  <div class="page">
+    <div class="header">
+      <span class="page-number"></span>
+      <h1>Sedelská pravda</h1>
+      <span class="date"></span>
+    </div>
+
+    <div class="columns">
+      <div class="article">
+        <h2></h2>
+        <h3></h3>
+        <p>
+	<h5></h5>
+      </div>
+      <div class="article">
+        <h4></h4>
+	<p>
+        <div class="crime">
+	  <h4>Letem Sedlem</h4>
+	  <ul>
+	    <li>
+	    <li>
+	    <li>
+	  </ul>
+	</div>
+	<p style="font-weight: bold;">
+	<p>
+      </div>
+      <div class="joke">
+	<h5>Vtip dne</h5>
+	<p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRANA 4 -->
+  <div class="page">
+    <div class="header">
+      <span class="page-number"></span>
+      <h1>Sedelská pravda</h1>
+      <span class="date"></span>
+    </div>
+
+    <div class="columns">
+      <div class="article">
+        <h2 style="text-align: left; font-size: 1.3rem;">Ze světa sportu</h2>
+	<h4></h4>
+	<p>
+      </div>
+      <div class="imprint">
+        <p><strong>Název:</strong> <em>Sedelská pravda</em>
+	<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.
+	<p><strong>Adresa:</strong> Sedlo 47, Česká republika
+	<p><strong>Email:</strong> info@sedelska.cz
+	<p><strong>Telefon:</strong> +420 123 456 789
+	<p><strong>Šéfredaktorka:</strong> Karolína Bukovská
+	<p><strong>Výkonný redaktor:</strong> Michal Bukovský
+	<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi
+	<p><strong>Grafická úprava:</strong> Michal Bukovský
+	<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice
+	<p><strong>Datum vydání:</strong> <span class="date"></span>
+	<p><strong>Číslo vydání:</strong> <span class="issue-number"></span>
+	<p style="margin-top:2em; font-size:0.8em;">
+		&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
+		Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
+      </div>
+      <div class="article">
+	<h4></h4>
+	<p>
+      </div>
+      <div class="article">
+	<h4></h4>
+	<p>
+      </div>
+      <div class="horoscope">
+	<h4>Dnešní horoskop</h4>
+	<ul>
+	  <li data-symbol="♈️">
+	  <li data-symbol="♉️">
+	  <li data-symbol="♊️">
+	  <li data-symbol="♋️">
+	  <li data-symbol="♌️">
+	  <li data-symbol="♍️">
+	  <li data-symbol="♎️">
+	  <li data-symbol="♏️">
+	  <li data-symbol="♐️">
+	  <li data-symbol="♑️">
+	  <li data-symbol="♒️">
+	  <li data-symbol="♓️">
+	</ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
