@@ -1,577 +1,476 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <title>sedelska-pravda-1</title>
-  <style>
-    body {
-      background: #ccc;
-      margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: Georgia, serif;
-      hyphens: auto;
+	<head>
+		<meta charset="UTF-8">
+		<title>sedelska-pravda-5</title>
+		<link rel="stylesheet" href="../styles.css">
+		<script src="../script.js"></script>
+		<style>
+			.date::before {
+				content: "Středa 13. srpna 2025";
+			}
 
-      counter-reset: page_counter 1;
-    }
+			.issue-number::after {
+				content: "0005";
+			}
+		</style>
+	</head>
+	<body lang="cs">
+		<!-- STRANA 1 -->
+		<div class="page">
+			<div class="main-header">
+				<img src="../logo.png" alt="Logo">
+				<div class="main-header-title">
+					<h1>Sedelská pravda</h1>
+					<p>Fakta, názory a konspirační teorie bez repelentu</p>
+				</div>
+			</div>
 
-    .page {
-      background: white;
-      width: 210mm;
-      height: 297mm;
-      padding: 10mm;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      margin-bottom: 1rem;
-      position: relative;
-      box-sizing: border-box;
-      overflow: hidden;
-      page-break-after: always;
-      display: flex;
-      flex-direction: column;
-    }
+			<div class="meta">
+				<span class="issue-number">Číslo </span>
+				<span class="date"></span>
+				<span>Cena: 1 úsměv</span>
+			</div>
 
-    .main-header {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #000;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.2rem;
-    }
+			<div class="main-article">
+				<div class="article-first-part">
+					<img src="zilvarova.jpg">
+					<h2>Ve špatný čas na špatném místě?</h2>
+					<h3>Co skrývá Marie Zilvarová?</h3>
+					<p>
+						V pondělí byla u shořelého skladu za Sedlem zadržena Marie Zilvarová, drobná žena ve středních letech, která podle svědků <em>podezřele kroužila</em> kolem místa záhadného požáru. Právě tam, kde bylo nalezeno ohořelé tělo neštastného Jakuba K.
+					</p>
+					<p>
+						Podle policie Zilvarová nebyla schopna vysvětlit, co tam dělala. Její verze o tom, že se tam jen náhodou prochází, vyvolává spoustu otázek. Proč tam byla v pracovním oblečení? A proč měla v batohu staré nářadí a prázdný kanistr? Ostatně její osoba je silně nedůveryhodná. V obci je nechvalně známá a její jméno se objevuje i v interních záznamech policie jako osoba „potenciálně riziková“. Zilvarová má totiž bohatou a — slušně řečeno — barvitou minulost.
+					</p>
+				</div>
+			</div>
+			<div class="columns">
+				<div class="article-first-part">
+					<h4>Pevnostní areál Slavonice</h4>
+					<p>
+						Pevnostní areál Slavonice je unikátní ukázkou československého pohraničního opevnění vybudovaného v letech 1935–1938 jako součást obranné linie proti možnému vpádu z nacistického Německa. Nachází se přibližně dva kilometry od města Slavonice v malebné krajině zvané Česká Kanada.
+					</p>
+					<p>
+						V areálu najdete jedenáct rekonstruovaných lehkých bunkrů typu řopík vz. 37 (typy A, C a D) a jeden typ 36‑C, včetně palebných a pozorovacích průseků, protitankových a protipěchotních překážek dlouhých téměř 200 metrů. Dva bunkry jsou veřejně přístupné ve stavu mobilizace 1938 a ve stádiu studené války (1963). Interiéry obsahují originální kulomety, pušky, samopaly, pistole, funkční ventilátory, periskopy i vojenskou výstroj z různých dob.
+					</p>
+				</div>
+				<div class="article-first-part">
+					<h4>Zubní kartáček jako tajná zbraň vítězů?</h4>
+					<p>
+						Včerejší olympijské hry v Sedle přinesly napínavé souboje i emociální okamžiky, které zůstanou v paměti nejen sportovců, ale i diváků. Zatímco se všichni soustředili na sportovní výkony, naše redakce si všimla jednoho podivuhodného trendu: nejlepší sportovci měli nejlépe vyčištěné zuby.
+					</p>
+				</div>
+				<div class="teaser">
+					<h2>Dnes uvnitř</h2>
+					<ul>
+						<li>Jumanji: Návrat do říše snů</li>
+						<li>Olympijské hry skončily</li>
+				</div>
+			</div>
+		</div>
 
-    .main-header img {
-      height: 4rem;
-      width: 4rem;
-      margin-right: 1rem;
-      position: absolute;
-    }
+		<!-- STRANA 2 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
+			<div class="columns">
+				<div class="article-last-part">
+					<h4>Ve špatný čas na špatném místě?</h4>
+					<h5>Problémová už od dětství</h5>
+					<p>
+						Podle školních záznamů z archivu místní základní školy byla Marie v dětství často trestána za drobné přestupky, útěky z domova a opakované záškoláctví. Navíc figuruje i v případu krádeže vycpaného medvěda ze školního kabinetu přírodopisu, který se našel v lese za obcí, kde vyděsil učitelku mateřské školky a způsobil paniku mezi dětmi. Následkem čehož měla místní prádelna plno velkého i malého prádla.
+					</p>
+					<p>
+						<em>„Byla to taková známá firma. V kolektivu oblíbená, ale kde se objevila, tam se něco stalo a nikdo ji však nikdy nic nedokázal.“</em> vzpomíná paní M. K., která ji učila v deváté třídě.
+					</p>
+					<p>
+						<em>„Vždycky se kolem ní motalo spousta mladíků, kteří to nakonec schytali. Ona se jen smála a dělala, že nic.</em>
+					</p>
+					<h5>Náhoda, nebo vzorec?</h5>
+					<p>
+						Redakci se podařilo zjistit, že Marie byla spatřena i v blízkosti dalších nedávných incidentů – například v okolí Bídy, pouhý den před osudnou střelbou. Když pak později poskytla výpověď, tvrdila, že <em>jen sbírala borůvky</em>. Někdy je těch náhod zkrátka až moc.
+					</p>
+					<p>
+						A právě proto se místní ptají: nehraje Marie Zilvarová ve všech těchto událostech nějakou roli? Není to ona, kdo tahá za nitky v pozadí, zatímco ostatní plní titulky? Neexistuje sice žádný přímý důkaz, ale… není už těch náhod trochu příliš?
+					</p>
+					<p>
+						Je také možné, že Marie Zilvarová má čisté svědomí. Konečně, v Sedle se říká, že <em>„kdo nic nedělá, nic nezkazí“</em>. Ale její minulost a okolnosti zadržení vyvolávají spoustu otázek. Proč byla na místě požáru? Co dělala s prázdným kanistrem? A proč se zdá, že se snaží vyhnout odpovědím? Je možné, že se zase jen ocitla na špatném místě ve špatný čas? Tak jako vždycky?
+					</p>
+				</div>
+				<div class="article-last-part">
+					<h4>Zubní kartáček jako tajná zbraň vítězů?</h4>
+					<p>
+						<em>Ano, čtete správně.</em> Na prvních příčkách se podle záznamů z ranní umývárky umístili ti, co si ráno nejpečlivěji čistily chrup. Ti co čištění odflákli, vetšinou skončili hluboko v poli poražených a teď toho hořce litují.
+					</p>
+					<p>
+						<em>„To není náhoda,“</em> říká vedoucí olympiády paní Lenka C. <em>„Dítě s čistými zuby má prostě čistčí styl. Navíc jsme zaznamenali, že ti, kteří se ráno pořádně opláchli, lépe dýchali při vytrvalostním běhu. A v běhu na 1000 metrů rozhoduje každý nádech.“</em>
+					</p>
+					<p>
+						Zda jde skutečně o přímou souvislost mezi svěžími dásněmi a sportovním výkonem, nebo jen o náhodu, bude možná předmětem dalšího vědeckého výzkumu. Každopádně si z letošního ročníku odnášíme jedno důležité poučení:
+					</p>
+					<p class="quote">
+						„Kdo čistí, ten vyhrává.“
+					</p>
+					<p>
+						A kdo ne, ten si aspoň odnese plaketu za účast… a zápach z úst.
+					</p>
+				</div>
+				<div class="crime">
+					<h4>Letem Sedlem</h4>
+					<ul>
+						<li>Na Bídě objeven mobilní signál, bohužel jen E a brzy nato zmizel.</li>
+						<li>Challenge dne! kdo nejrychleji složí svůj stan, vyhrává noc pod širákem.</li>
+						<li>Včerejší stezka odvahy se prý obešla skoro bez následků, potvrzují místní pradleny spodního prádla.</li>
+					</ul>
+				</div>
+				<div class="article">
+					<h4>Jóžin z bážin opět spatřen</h4>
+					<p>
+						Již podruhé byl spatřen Jóžin z bážin u sedelského rybníka, tentokrát se podařilo ho i vyfotografovat. Jedná se o velmi vzácnou bytost, která je velmi krotká, dokud není vyprovokována příliš doťernými turisty. V takových případech může dojít i zabahnění provokatéra.
+					</p>
+					<img src="jozin.jpg">
+					<p>
+						Podle našich informací, starosta obce již zajistil práškovací letadlo, a tak by snad v brzké době mohlo být řádění Jóžina z bážin ukončeno. Do té doby je koupání v sedelském rybníce pouze na vlastní nebezpečí a velmi silně se nedoporučuje.
+					</p>
+				</div>
+				<div class="joke">
+					<h5>Vtip dne</h5>
+					<p>
+						<em>„Za takové vysvědčení se dává pár facek!“</em> rozčiluje se otec.<br/>
+						<em>„Máš pravdu tati, pojď, pan učitel bydlí hned za rohem.“</em>
+				</div>
+			</div>
+		</div>
 
-    .main-header-title {
-      flex-grow: 1;
-    }
+		<!-- STRANA 3 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .main-header-title h1 {
-      margin: 0;
-      font-size: 3.1rem;
-      text-transform: uppercase;
-      text-align: center;
-      hyphens: none;
-    }
+			<div class="columns">
+				<div class="article">
+					<h2>Jumanji: Návrat do říše snů</h2>
+					<h3>Eliška Vondrová přichází s nečekaně temnou a poetickou kapitolou dobrodružné ságy</h3>
+					<p>
+						Je to už několik let, co se digitální džungle Jumanji naposledy rozezněla hlasem bubnů. Tentokrát se ale neozývá z herní konzole, ani z deskovky zapomenuté na půdě. Země je vydává sama – tlumeně, hluboko, jako by ji někdo pomalu rozezníval zevnitř. Bubnování se šíří mezi stromy, v ozvěnách kanalizačních potrubí, dokonce i skrze kmeny na školním dvoře. Neptá se, neprosí – svolává. V novém snímku „Jumanji: Návrat do říše snů“ česká režisérka Eliška Vondrová přenáší diváky do světa, kde rostliny cítí, mravenci přemýšlejí a minulost není minulostí, ale živým organizmem.
+					</p>
+					<p>
+						Džungle čekala dlouho a bubny duní pro ty, kdo se už nevejdou do běžného dne. A tak se skupina dětí, která by se normálně nepotkala ani na školním hřišti, ocitá ve světě
+					</p>
+					<div class="column-break"></div>
+					<img src="jumanji.jpg" style=" position: absolute; top: 205mm; left: 2rem; width: 130mm; height: auto; z-index: 10;">
+					<p>
+						Jumanji. Jako by se džungle sama rozhodla svolat shromáždění nejrůznějších věků a povah.
+					</p>
+					<p>
+						Vedle sebe tak kráčí batole s plyšovým medvídkem, ostýchavý sběratel brouků, dvojčata komunikující jen pohledem i dívka, která se nebojí ničeho, kromě vlastního stínu. Společně musí čelit nástrahám hlubokého deštného pralesa, kde čas běží pozpátku a stromům se zdají sny.
+					</p>
+					<p>
+						Vrchol filmu přichází ve scéně napadení tábora lidožravými mravenci velikosti dětské pěsti. Jejich organizace, precizní strategie a děsivý klid ve chvíli útoku působí, jako by se divák díval na dokument z apokalypsy přírody. Kamera dlouho zůstává bez hudby – slyšíme jen drcení listí, vrzání chitinu a tlumené výkřiky. Působivé. Děsivé. Nečekaně hluboké.
+					</p>
+					<p>
+						Přesto nejde o čistou akční jízdu. Vondrová pracuje s tématy ztráty, paměti a identity. A právě zde se objevuje prvek, který novinářům nedá spát – záhadná postava, kterou nikdo ve filmu fyzicky nevidí, ale všichni na ni reagují. Postava, jež nikdy nepromluví, a přesto ovlivňuje vše, co se ve světě Jumanji stane.
+					</p>
+					<div class="column-break"></div>
+					<div class="advert">
+						<img src="tee-pee.jpg">
+					</div>
+					<p>
+						Na tiskové konferenci jsme se režisérky zeptali:
+					</p>
+					<p>
+						<strong>„Ve filmu se často mluví o Neviditelném poutníkovi, ale nakonec nebyl nikdy odhalen. Je pravda, že tuto roli ztvárnil váš manžel?“</strong>
+					</p>
+					<p>
+						Eliška Vondrová se na chvíli odmlčela, usmála se a řekla:
+					</p>
+					<p>
+						<strong>„Byl jako mech na kameni. Tichý, ale bez něj by se vše rozpadlo.“</strong>
+					</p>
+					<p>
+						Na další otázky už odmítla odpovídat a jen se tajemně usmívala.
+					</p>
+				</div>
+				<div class="article-last-part">
+					<h4>Pevnostní areál Slavonice</h4>
+					<p>
+						Celým areálem vede naučná stezka o délce 2,5 km s 13 zastaveními, která návštěvníky provede historií opevňování Československa, lokálními zajímavostmi a taktickými detaily obranné linie na Slavonicku.
+					</p>
+					<p>
+						Každý rok se tu koná tradiční bojová ukázka „Přepadení řopíků 1938“, která přibližuje dramatické události z doby mobilizace. Scénky s historickou výzbrojí, uniformami, granáty a kulomety vytvářejí autentický zážitek pro návštěvníky.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .main-header-title p {
-      margin: 0;
-      text-align: center;
-      font-style: italic;
-      font-size: 1rem;
-    }
+		<!-- STRANA 4 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
+			<div class="columns">
+				<div class="article olymp">
+					<h2 style="text-align: left; font-size: 23px;">Olympijské hry skončily</h2>
 
-    .meta {
-      font-size: 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid #000;
-    }
+					<p>
+						Přinášíme vám excluzivně kompletní výsledkové tabulky a gratulujeme jak vítězům, tak i těm, co překonali samy sebe, neboť to bývá vítězství nejcennější.
+					</p>
 
-    .teaser {
-      border: 1px solid #000;
-      margin: 0px;
-      padding: 0.5rem;
-    }
+					<h4>Běh 1000m</h4>
 
-    .teaser h2 {
-      font-size: 1rem;
-      text-transform: uppercase;
-      margin: 0;
-      text-align: left;
-      hyphens: none;
-    }
+					<h5>Děti</h5>
+					<img src="beh1001.jpg">
+					<table>
+						<tr><th colspan=2>Dívky</th>       <th colspan=2>Chlapci</th></tr>
+						<tr><td>Emilka</td><td>4:44</td>   <td>Jindra</td><td>4:52</td></tr>
+						<tr><td>Rozárka</td><td>4:45</td>  <td>Štěpán</td><td>4:53</td></tr>
+						<tr><td>Týnka</td><td>4:50</td>    <td>Ráďa</td><td>5:44</td></tr>
+						<tr><td>Anežka&nbsp;B.</td><td>5:38</td><td>Dominik&nbsp;A.</td><td>6:23</td></tr>
+						<tr><td>Berenika</td><td>5:39</td> <td>Kuba</td><td>6:41</td></tr>
+						<tr><td>Bětka</td><td>5:45</td>    <td>&ndash;</td><td>&ndash;</td></tr>
+						<tr><td>Viki</td><td>6:14</td>     <td>&ndash;</td><td>&ndash;</td></tr>
+					</table>
 
-    .teaser ul {
-      font-size: 0.8rem;
-      list-style: square;
-      padding: 0;
-      margin: 0.2rem 0.8rem;
-      list-style-position: outside;
-    }
+					<h5>Mládežníci</h5>
+					<table>
+						<img src="beh1000.jpg">
+						<tr><th colspan=2>Slečny</th>      <th colspan=2>Mládenci</th></tr>
+						<tr><td>Ella</td><td>4:24</td>     <td>Pepík</td><td>4:13</td></tr>
+						<tr><td>Eliška&nbsp;H.</td><td>4:36</td><td>Jája</td><td>4:35</td></tr>
+						<tr><td>Stela</td><td>4:37</td>    <td>Matýsek</td><td>4:51</td></tr>
+						<tr><td>Šárka</td><td>5:21</td>    <td>Martin</td><td>5:18</td></tr>
+						<tr><td>Anežka&nbsp;H.</td><td>6:16</td><td>Bobo ml.</td><td>6:05</td></tr>
+						<tr><td>Terezka</td><td>6:40</td>  <td>Filip</td><td>6:19</td></tr>
+					</table>
 
-    .main-article h2, .article h2 {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      margin: 0 0 0.5rem 0;
-      text-align: center;
-      hyphens: none;
-    }
+					<h5>Dospěláci</h5>
+					<img src="beh1002.jpg">
+					<table>
+						<tr><th colspan=2>Ženy</th>         <th colspan=2>Muži</th></tr>
+						<tr><td>Katka</td><td>4:56</td>     <td>Vojta</td><td>3:48</td></tr>
+						<tr><td>Kája</td><td>4:58</td>      <td>Michal&nbsp;C.</td><td>3:49</td></tr>
+						<tr><td>Lenka</td><td>5:01</td>     <td>Karel</td><td>3:59</td></tr>
+						<tr><td>Eliška</td><td>6:16</td>    <td>Bobo</td><td>4:12</td></tr>
+						<tr><td>Jana</td><td>6:37</td>      <td>Michal&nbsp;B.</td><td>5:12</td></tr>
+						<tr><td>&ndash;</td><td>&ndash;</td><td>Zbyněk</td><td>5:53</td>
+					</table>
 
-    .main-article h3, .article h3 {
-      font-size: 1.0rem;
-      font-style: italic;
-      text-align: center;
-      margin: 0 0 1rem 0;
-      hyphens: none;
-    }
+					<h4>Běh 50m</h4>
 
-    .main-article h4, .article-first-part h4, .article-last-part h4, .article h4, .horoscope h4 {
-      font-size: 1.2rem;
-      margin: 0 0 0.8rem 0;
-      text-transform: uppercase;
-      text-align: left;
-      hyphens: none;
-    }
+					<h5>Děti</h5>
+					<img src="beh53.jpg">
+					<table>
+						<tr><th colspan=2>Dívky</th>       <th colspan=2>Chlapci</th></tr>
+						<tr><td>Týnka</td><td>8:44</td>    <td>Štěpánek</td><td>9:73</td></tr>
+						<tr><td>Viki</td><td>9:21</td>     <td>Jindra</td><td>10:13</td></tr>
+						<tr><td>Emilka</td><td>9:52</td>   <td>Kuba</td><td>10:16</td></tr>
+						<tr><td>Rozárka</td><td>10:03</td>  <td>Ráďa</td><td>10:18</td></tr>
+						<tr><td>Anežka&nbsp;B.</td><td>10:65</td><td>Dominik&nbsp;A.</td><td>10:24</td></tr>
+						<tr><td>Bětka</td><td>10:69</td>    <td>Jeník</td><td>19:70</td></tr>
+						<tr><td>Berenika</td><td>10:70</td> <td>&ndash;</td><td>&ndash;</td></tr>
+					</table>
 
-    .main-article h5, .article-first-part h5, .article-last-part h5, .article h5, .horoscope h5, .joke h5 {
-      font-size: 1.0rem;
-      margin: 0 0 0.6rem 0;
-      text-transform: uppercase;
-      text-align: left;
-      hyphens: none;
-    }
+					<h5>Mládežníci</h5>
+					<img src="beh50.jpg">
+					<table>
+						<tr><th colspan=2>Slečny</th>            <th colspan=2>Mládenci</th></tr>
+						<tr><td>Ella</td><td>8:08</td>           <td>Martin</td><td>8:20</td>         </tr>
+						<tr><td>Eliška&nbsp;H.</td><td>8:40</td> <td>Matýsek</td><td>8:20</td>        </tr>
+						<tr><td>Stela</td><td>8:42</td>          <td>Jája</td><td>8:82</td>           </tr>
+						<tr><td>Šárka</td><td>8:93</td>          <td>Pepík</td><td>8:99</td>          </tr>
+						<tr><td>Eliška&nbsp;A.</td><td>9:79</td> <td>Filip</td><td>9:33</td>          </tr>
+						<tr><td>Anežka&nbsp;H.</td><td>10:27</td><td>Dominik&nbsp;V.</td><td>9:35</td></tr>
+						<tr><td>Terezka</td><td>10:27</td>       <td>Bobo ml.</td><td>10:13</td>      </tr>
+					</table>
 
-    .main-article p, .article-first-part p, .article-last-part p, .article p, .horoscope li {
-      font-size: 0.8rem;
-      text-align: justify;
-      line-height: 1.5;
-    }
+					<h5>Dospěláci</h5>
+					<img src="beh51.jpg">
+					<table>
+						<tr><th colspan=2>Ženy</th>         <th colspan=2>Muži</td></tr>
+						<tr><td>Eliška</td><td>9:50</td>    <td>Vojta</td><td>7:29</td></tr>
+						<tr><td>Katka</td><td>9:52</td>     <td>Bobo</td><td>7:93</td></tr>
+						<tr><td>Kája</td><td>9:61</td>      <td>Karel</td><td>8:53</td></tr>
+						<tr><td>Lenka</td><td>9:96</td>     <td>Michal&nbsp;C.</td><td>8:59</td></tr>
+						<tr><td>Andrea</td><td>10:97</td>    <td>Zbyněk</td><td>9:97</td></tr>
+						<tr><td>&ndash;</td><td>&ndash;</td><td>Michal&nbsp;B.</td><td>10:01</td></tr>
+					</table>
+					<img src="beh52.jpg">
 
-    .main-article p, .article-first-part p, .article-last-part p, .article p {
-      margin: 0;
-      padding: 0 0 0.5rem 0;
-    }
+				</div>
+			</div>
+		</div>
 
-    .main-article img {
-      float: left;
-      width: 120mm;
-      margin: 0 5mm 5mm 0;
-    }
+		<!-- STRANA 5 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
+			<div class="columns">
+				<div class="article olymp">
+					<h2 style="text-align: left; font-size: 23px;">Olympijské hry skončily</h2>
 
-    .header {
-      font-size: 0.6rem;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      border-bottom: 2px solid #000;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
+					<h4>Hod pravou</h4>
+					<img src="hod.jpg">
 
-    .header h1 {
-      text-transform: uppercase;
-      font-size: inherit;
-      margin: 0px;
-      padding: 0px;
-      text-decoration: none;
-      hyphens: none;
-    }
+					<h5>Děti</h5>
+					<table>
+						<tr><th colspan=2>Dívky</th>       <th colspan=2>Chlapci</th></tr>
+						<tr><td>Emilka</td><td>16</td><td>Štěpánek</td><td>17</td></tr>
+						<tr><td>Bětka</td><td>16</td><td>Jindra</td><td>16</td></tr>
+						<tr><td>Viki</td><td>15,5</td><td>Dominik&nbsp;A.</td><td>16</td></tr>
+						<tr><td>Týnka</td><td>13,5</td><td>Ráďa</td><td>14</td></tr>
+						<tr><td>Rozárka</td><td>11,5</td><td>Kuba</td><td>13</td></tr>
+						<tr><td>Anežka&nbsp;B.</td><td>8,5</td><td>Jeník</td><td>4</td></tr>
+						<tr><td>Berenika</td><td>6,5</td><td>&ndash;</td><td>&ndash;</td></tr>
+					</table>
 
-    .article-first-part p:last-of-type:after {
-      content: "podrobnosti najdete uvnitř čísla";
-      display: block;
-      font-style: italic;
-      font-size: 0.5rem;
-    }
+					<h5>Mládežníci</h5>
+					<table>
+						<tr><td>Šárka</td><td>21,5</td><td>Pepa</td><td>32,5</td></tr>
+						<tr><td>Ella</td><td>21</td><td>Matýsek</td><td>25</td></tr>
+						<tr><td>Stela</td><td>17</td><td>Dominik&nbsp;V.</td><td>25</td></tr>
+						<tr><td>Eliška&nbsp;A.</td><td>17</td><td>Bobo&nbsp;ml.</td><td>24</td></tr>
+						<tr><td>Eliška&nbsp;H.</td><td>16,5</td><td>Filip</td><td>23</td></tr>
+						<tr><td>Terezka</td><td>13,5</td><td>Jáchym</td><td>22,5</td></tr>
+						<tr><td>Anežka&nbsp;H.</td><td>13</td><td>Martin</td><td>19</td></tr>
+					</table>
 
-    .article p:last-of-type:after, .article-last-part p:last-of-type:after {
-      content: "\00A0\25A1";
-    }
+					<h4>Hod levou</h4>
 
-    .article-last-part p:first-of-type::before {
-      content: "pokračování z úvodní strany";
-      display: block;
-      font-style: italic;
-      font-size: 0.5rem;
-    }
+					<h5>Dospěláci</h5>
+					<table>
+						<tr><th colspan=2>Ženy</th>         <th colspan=2>Muži</th></tr>
+						<tr><td>Jana</td><td>18</td>        <td>Lukáš M.</td><td>21,5</td></tr>
+						<tr><td>Eliška</td><td>14,5</td>    <td>Jarda</td><td>21</td></tr>
+						<tr><td>Kája</td><td>12</td>        <td>Radim</td><td>20</td></tr>
+						<tr><td>Katka</td><td>12,5</td>     <td>Michal&nbsp;C.</td><td>20,5</td></tr>
+						<tr><td>Helča</td><td>12,5</td>     <td>Michal&nbsp;B.</td><td>18</td></tr>
+						<tr><td>Andrea</td><td>12</td>      <td>Bobo</td><td>18,5</td></tr>
+						<tr><td>Lenka</td><td>11</td>       <td>Karel</td><td>17</td></tr>
+						<tr><td>Lucka</td><td>9</td>        <td>Zbyněk</td><td>16,5</td></tr>
+						<tr><td>Hanka</td><td>9</td>        <td>Luboš</td><td>16,5</td></tr>
+						<tr><td>&ndash;</td><td>&ndash;</td><td>Lukáš&nbsp;T.</td><td>15</td></tr>
+					</table>
 
-    .columns {
-      flex: 1;
-      column-count: 3;
-      column-gap: 10mm;
-      column-fill: auto;
-      overflow: hidden;
-    }
+					<div class="column-break"></div>
+					<h4>Skok do dálky</h4>
+					<img src="skok.jpg">
 
-    .columns > div {
-      margin-top: 1rem;
-    }
+					<h5>Děti</h5>
+					<table>
+						<tr><td>Týnka</td><td>172</td><td>Jindra</td><td>160</td></tr>
+						<tr><td>Viki</td><td>150</td><td>Kuba</td><td>129</td></tr>
+						<tr><td>Emilka</td><td>147</td><td>Dominik&nbsp;A.</td><td>123</td></tr>
+						<tr><td>Rozárka</td><td>142</td><td>Ráďa</td><td>115</td></tr>
+						<tr><td>Anežka&nbsp;B.</td><td>118</td><td>Jeník</td><td>31</td></tr>
+						<tr><td>Bětka</td><td>110</td><td>&ndash;</td><td>&ndash;</td></tr>
+						<tr><td>Berenika</td><td>100</td><td>&ndash;</td><td>&ndash;</td></tr>
+					</table>
 
-    .columns > div:first-child {
-      margin-top: 0rem;
-    }
+					<h5>Mládežníci</h5>
+					<table>
+						<tr><td>Ella</td><td>186</td><td>Jája</td><td>191</td></tr>
+						<tr><td>Eliška&nbsp;H.</td><td>168</td><td>Martin</td><td>187</td></tr>
+						<tr><td>Stela</td><td>166</td><td>Matýsek</td><td>179</td></tr>
+						<tr><td>Šárka</td><td>160</td><td>Filip</td><td>171</td></tr>
+						<tr><td>Eliška&nbsp;A.</td><td>145</td><td>Pepík</td><td>168</td></tr>
+						<tr><td>Terezka</td><td>126</td><td>Dominik&nbsp;V.</td><td>160</td></tr>
+						<tr><td>Anežka&nbsp;H.</td><td>119</td><td>Štepánek</td><td>154</td></tr>
+						<tr><td>&ndash;</td><td>&ndash;</td><td>Bobo&nbsp;ml.</td><td>150</td></tr>
+					</table>
 
-    .columns img {
-      width: 100%;
-      margin: 0;
-    }
+					<h5>Dospěláci</h5>
+					<table>
+						<tr><td>Kája</td><td>210</td><td>Bobo</td><td>233</td></tr>
+						<tr><td>Katka</td><td>180</td><td>Vojta</td><td>230</td></tr>
+						<tr><td>Jana</td><td>174</td><td>Jarda</td><td>227</td></tr>
+						<tr><td>Eliška</td><td>163</td><td>Karel</td><td>204</td></tr>
+						<tr><td>Lenka</td><td>157</td><td>Luboš</td><td>200</td></tr>
+						<tr><td>Andrea</td><td>154</td><td>Michal&nbsp;C.</td><td>198</td></tr>
+						<tr><td>Hanka</td><td>135</td><td>Michal&nbsp;B.</td><td>180</td></tr>
+						<tr><td>Lucka</td><td>122</td><td>Zbyněk 152</td></tr>
+						<tr><td>Helča</td><td>103</td><td>Lukáš&nbsp;T.</td><td>140</td></tr>
+						<tr><td>&ndash;</td><td>&ndash;</td><td>Radim</td><td>130</td></tr>
+					</table>
 
-    .joke {
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #000;
-      text-align: left;
-    }
+					<p></p> <!--schvalne-->
+				</div>
+				<div class="column-break"></div>
+				<div class="horoscope" style="margin-top: 0px;">
+					<h4>Dnešní horoskop</h4>
+					<ul>
+						<li data-symbol="♈">
+							Dnes ulovíte zlatou rybku, ale bude vám vyčítat, že jste ji vyrušili při čtení.
+						</li>
+						<li data-symbol="♉">
+							Z vaší lednice se může stát portál, pokud do ní vložíte lžičku s dětskou fantazií.
+						</li>
+						<li data-symbol="♊">
+							Dostanete zprávu v lahvi, ale bude to limonáda s bublinkami a vzkazem „Pšššt!“
+						</li>
+						<li data-symbol="♋">
+							Při obouvání ponožek si dejte pozor, některé dnes můžou být teleportovací.
+						</li>
+						<li data-symbol="♌">
+							Váš stín dnes bude o krok napřed, zřejmě se rozhodl hrát na schovávanou.
+						</li>
+						<li data-symbol="♍">
+							Někdo vám nabídne dort, ale jen pokud uhádnete heslo k jeho tajné vrstvě.
+						</li>
+						<li data-symbol="♎">
+							Rovnováha bude zachována, pokud sníte stejně čokolády jako pochybností.
+						</li>
+						<li data-symbol="♏">
+							Vaše dnešní charisma by mohlo rozplakat i plastovou kačenku.
+						</li>
+						<li data-symbol="♐">
+							Skočíte po hlavě do nápadu a přistanete na matraci z lentilek.
+						</li>
+						<li data-symbol="♑">
+							Budete mít jasno v plánech, pokud si je namalujete fixou na banán.
+						</li>
+						<li data-symbol="♒">
+							Váš deštník se dnes může stát drakem, stačí trochu větru a hodně představivosti.
+						</li>
+						<li data-symbol="♓">
+							Přeskočíte kaluž, potkáte kouzelnou kachnu a zapomenete proč jste vyšli ven – klasická středa.
+						</li>
+					</ul>
+				</div>
+				<div class="imprint">
+					<p><strong>Název:</strong> <em>Sedelská pravda</em></p>
+					<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.</p>
+					<p><strong>Adresa:</strong> Sedlo 47, Česká republika</p>
+					<p><strong>Email:</strong> info@sedelska-pravda.cz</p>
+					<p><strong>Telefon:</strong> +420 123 456 789</p>
+					<p><strong>Šéfredaktorka:</strong> Karolína Bukovská</p>
+					<p><strong>Výkonný redaktor:</strong> Michal Bukovský</p>
+					<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi</p>
+					<p><strong>Grafická úprava:</strong> Michal Bukovský</p>
+					<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice</p>
+					<p><strong>Datum vydání:</strong> <span class="date"></span></p>
+					<p><strong>Číslo vydání:</strong> <span class="issue-number"></span></p>
+					<p style="margin-top:2em; font-size:0.8em;">
+						&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
+						Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .joke p {
-      font-size: 0.8rem;
-      line-height: 1;
-      margin: 0.2rem 0;
-    }
-
-    .crime {
-      border-left: 1px solid #000;
-      border-bottom: 1px solid #000;
-      padding: 0 0 0 0.5rem;
-      margin: 0 0 0.5rem 0;
-      font-size: 0.8rem;
-    }
-
-    .crime ul {
-      list-style: square;
-      list-style-position: inside;
-      padding: 0;
-      margin: 0.5rem 0 0 0;
-    }
-
-    .crime ul li {
-      margin-bottom: 0.2rem;
-    }
-
-    .horoscope ul {
-      list-style: none;
-      list-style-position: inside;
-      padding-left: 0;
-      margin: 0.8rem 0 0 0;
-      font-size: 0.8rem;
-    }
-
-    .horoscope ul li {
-      position: relative;
-      padding-left: 0rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .horoscope ul li::before {
-      content: attr(data-symbol);
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .horoscope ul li::first-letter {
-      margin-left: 1.5rem;
-    }
-
-    .imprint {
-      font-size: 0.7rem;
-      text-align: center;
-      margin-top: 1rem;
-      color: #666;
-      border-top: 1px solid #000;
-    }
-
-    .imprint p {
-      margin: 0.1rem 0;
-      text-align: left;
-    }
-
-    .date::before {
-      content: "Pondělí 23. června 2025";
-    }
-
-    .issue-number::after {
-      content: "0001";
-    }
-
-    .page-number::before {
-      counter-increment: page_counter;
-      content: counter(page_counter);
-    }
-
-    @media print {
-      body {
-        background: white;
-        padding: 0;
-      }
-
-      .page {
-        width: 210mm;
-        height: 297mm;
-        padding: 10mm;
-        box-shadow: none;
-        margin: 0 auto;
-        page-break-after: always;
-        box-sizing: border-box;
-        overflow: hidden;
-        page-break-after: always;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body lang="cs">
-  <!-- STRANA 1 -->
-  <div class="page">
-    <div class="main-header">
-      <img src="logo.png" alt="Logo">
-      <div class="main-header-title">
-        <h1>Sedelská pravda</h1>
-        <p>Fakta, názory a konspirační teorie bez repelentu</p>
-      </div>
-    </div>
-
-    <div class="meta">
-      <span class="issue-number">Číslo </span>
-      <span class="date"></span>
-      <span>Cena: 1 úsměv</span>
-    </div>
-
-    <div class="main-article">
-      <div class="article-first-part">
-	<img src="bunkr.png">
-	<h2>Záhadné zmizení pana Klečky</h2>
-	<h3>Naše redakce získala exkluzivní informace o záhadném zmizení pana Klečky.</h3>
-	<p>
-		V pondělí časně ráno bylo oficiálně oznámeno zmizení Františka Klečky (38), dlouholetého obyvatele Sedla. Podle svědectví jeho manželky se odebral do sklepa pro zavařeniny – a už se nevrátil. Sklep byl uzamčen zevnitř, bez známek násilí. Uvnitř se našly jen jeho stopy – končící u zadní stěny. Žádný východ. Žádná těla. Žádné vysvětlení.
-	<p>
-		Tato událost by mohla být považována za izolovaný případ. Nebýt ovšem skutečnosti, že během posledních dvou let zmizeli nebo zemřeli další dva lidé, kteří s panem Klečkou sdíleli více než jen trvalé bydliště ve stejné obci. Sdíleli i minulost.
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="article-first-part">
-        <h4>Zrazen vlastním tělem</h4>
-        <p>
-  		Francouzská policie zaznamenala zásadní průlom v oblasti kriminalistiky. Nová identifikační technika, založená na přesném měření částí lidského těla, pomohla nedávno odhalit zločince, který se dlouhé měsíce skrýval pod falešnou identitou.
-	<p>
-		Tato metoda, známá jako bertillonáž, využívá soubor tělesných údajů – například délku nosu, šířku uší, obvod hlavy nebo délku levého předloktí – a vytváří z nich jedinečný „tělesný profil“ každé osoby.
-        <p>
-  		Poprvé byla tato technika úspěšně nasazena minulý měsíc při případu muže, který byl zadržen kvůli podezření z podvodu. Při zatčení předložil doklady na jméno Louis Garnier, a nic nenasvědčovalo tomu, že by lhal.
-      </div>
-      <div class="article">
-	<h4>Řízky budou!</h4>
-	<p>
-		Naše redakce získala exkluzivní informace od zdrojů blízkých táborové kuchyni. Přestože oficiální menu ještě nebylo zveřejněno, kuchyně počítá s tradičními řízky na konci týdne. Podle našich informací se jedná o oblíbenou pochoutku, která se v Sedle těší velké oblibě. „Je to klasika, kterou si každý rád dá,“ řekl náš zdroj z kuchyně. „A navíc, když jsou řízky dobře udělané, jsou prostě neodolatelné.“ Takže se máme na co těšit!
-      </div>
-      <div class="teaser">
-	<h2>Dnes uvnitř</h2>
-	<ul>
-	  <li>Toaletní skandál!!!
-	  <li>Willy Fog se vrátil do Sedla
-	  <li>Rozhovor s panem L
-	  <li>Fotbalový zápas roku
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 2 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article-last-part">
-	<h4>Záhadné zmizení pana Klečky</h4>
-	<p>
-	<h5>Požár, který neměl hořet</h5>
-	<p>
-		Učitelka Jarmila Drahotová (37) tragicky zahynula při požáru zahradní chatky, kterou dlouhodobě užívala. Oheň vypukl uprostřed deště, bez elektřiny, bez zdroje vznícení. Podle svědků šla večer do chatky s krabicí starých alb a vzkázala, že „potřebuje najít jednu zapomenutou věc z dětství“. Nikdy se nevrátila. Tělo bylo nalezeno v popelu, držící nečitelný zčernalý snímek.
-	<h5>Zmizení ve stínu pohraničí</h5>
-	<p>
-		Oldřich Mareš (39) byl naposledy spatřen, jak v ranní mlze míří k lesům směrem ke starým pohraničním bunkrům. Jeho auto bylo nalezeno se zapnutými výstražnými světly, motor běžel, dveře dokořán, mobil v držáku. Na záznamu z palubní kamery se na pár vteřin mihne postava – snad dítěte – s podivně zastřeným obličejem. Není jasné o co vlastně šlo.
-	<h5>Spojuje je stará vina?</h5>
-	<p>
-		Redakce Sedelské Pravdy zjistila, že všichni tři – Klečka, Drahotová i Mareš – byli v dětství součástí skupiny místních dětí, které si v polovině 90. let často hrávaly v okolí bunkrů. Podle dosud nezveřejněných zápisků a výpovědí několika pamětníků se tehdy odehrála událost, jež nikdy nebyla vysvětlena.
-	<p>
-		Při jedné z her mělo dojít k úmyslnému zavření chlapce do bunkru. Děti měly údajně uprchnout, snad vystrašené zvuky, snad vlastním svědomím. Zavřený chlapec tam údajně zůstal několik dní. Nikdo nikdy nepodal vysvětlení. A nikdo z tehdejších aktérů o tom dodnes nemluvil.
-      </div>
-      <div class="article">
-	<h4>Toaletní skandál otřásá obecní stráží</h4>
-	<p>
-		V poklidné obci Sedlo, kde největší kriminální hrozbou býval zatoulaný jezevčík nebo občasné zcizení třešní, došlo k nečekanému odhalení.
-	<p>
-		Při rutinním přezkumu obecního rozpočtu bylo zjištěno, že obecní policie spotřebovala za pouhé tři měsíce 240 rolí toaletního papíru. Pro srovnání: místní mateřská školka spotřebuje za stejné období jen 58 rolí – a to včetně kreativního tvoření a dvou školních nehod týdně.
-        <p>
-	      „Každý člověk má trochu jinak dlouhé prsty, jinou šířku nosu nebo tvar uší. A to se nedá tak snadno změnit.“ Možná jsme právě svědky začátku nové éry kriminalistiky.
-	<h5>Ztracené role, ztracená důvěra?</h5>
-	<p>
-		Policisté na první výzvu odmítli podezření z přehnané hygieny. Strážník R., muž v nejlepších letech, se hájil: „My jsme poctiví. Toaleta u nás funguje, ale že bych tam seděl osmkrát denně? To popírá fyziku.“
-	<p>
-		Na dotaz, kam papír mizel, se objevily různé teorie – od samovznícení rolí, přes nelegální export do Jindřichova Hradce, až po zřízení tajné papírové pevnosti ve sklepě služebny.
-	<h5>Vyšetřování pokračuje</h5>
-	<p>
-		Starosta se nechal slyšet, že bude požadovat „detailní rolový audit“. Dočasně byly všechny zásoby papíru uzamčeny v trezoru městského úřadu a vydány nové směrnice o používání toaletního papíru.
-	<p>
-		Zda se jedná o pouhou byrokratickou chybu, dobře maskovanou obchodní síť, nebo zvláštní formu hygienického fetiše – ukáže čas.
-      </div>
-      <div class="article-last-part">
-        <h4>Zrazen vlastním tělem</h4>
-	<p>
-		 Policii ale něco nehrálo – mužův obličej se nápadně podobal hledanému recidivistovi. Proto kriminalisté poprvé sáhli po nové metodě bertillonáže. Podezřelý byl pečlivě změřen a jeho rozměry byly porovnány s tajnou databází hledaných osob.
-	 <p>
-  		Výsledek byl překvapivý – všechny míry přesně odpovídaly muži jménem Henri Delon, který už dříve utekl z vězení a byl hledán kvůli několika případům podvodů a krádeží. Přestože měl jiný účes, jiný vous a nové doklady, jeho tělo ho zradilo. Soud přijal výsledky měření jako důkaz a muž se přiznal k podvodu a dalším trestným činům, které spáchal pod falešnou identitou.
-        <p>
-  	      Policie považuje případ za důkaz, že bertillonáž má velký potenciál stát se běžnou součástí kriminalistické praxe. „Je to jako tělesný otisk prstu,“ uvedl vyšetřovatel Jean Moreau.
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 3 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article">
-        <h2>Willy Fog se vrátil</h2>
-        <h3>S princeznou Romy po boku se vrátil tam, kde se začal psát jejich společný příběh.</h3>
-        <img src="kostel.png">
-        <p>
-		<em>Sedlo, 22. června 2025</em> — Po dlouhých letech se do našeho milovaného Sedla vrátila slavná dvojice dobrodruhů: britský gentleman Willy Fog a jeho půvabná společnice princezna Romy. Jejich návrat způsobil doslova senzaci – na náves se přišly podívat desítky místních obyvatel, kteří chtěli na vlastní oči spatřit hrdiny, kteří procestovali celý svět za 80 dní.
-	<p>
-
-		Podle důvěryhodných zdrojů dorazili stylově – v parním kočáře doprovázeném pochodujícím slonem, údajně jejich starým přítelem z Indie.
-		Willy Fog, stále dokonale upravený s kloboukem na hlavě a hůlkou
-		<img src="chocolax.png" style="margin-top: 1rem;">
-		v ruce, ochotně odpovídal na otázky a rozdával autogramy. Princezna Romy po jeho boku zářila, oblečená ve splývavých šatech, které kombinovaly evropskou eleganci s orientálními prvky.
-	<p>
-		„Chtěli jsme se vrátit tam, kde naše společná cesta opravdu začala,“ prohlásil pan Fog s lehkým úsměvem. „Sedlo je pro nás místem srdce. Právě tady jsme poprvé pochopili, co znamená přátelství, odvaha a důvěra.“
-	<p>
-		Přestože své další plány tají, podle všeho zde hodlají zůstat alespoň několik týdnů. Místní radnice jim nabídla ubytování v historickém domě u lesa a obec se prý chystá uspořádat slavnostní večer na jejich počest.
-	<p>
-
-	<h5>Přijde i Rigodon?</h5>
-	<p>
-		Na dotaz, zda se k nim připojí i jejich věrní přátelé Rigodon a Tico, Willy Fog odpověděl tajemně: „Nechte se překvapit. Můžu jen prozradit, že Sedlo brzy uslyší nejednu melodii z harmoniky.“
-	<p>
-		Zpráva o jejich příjezdu se rychle šíří a Sedlo se tak možná znovu stane centrem úžasných dobrodružství.
-      </div>
-      <div class="article">
-        <h4>Odsouzen k zábavě</h4>
-	<p>
-		Někteří se na léto těší kvůli dobrodružství a novým zážitkům. Pro pana L. to však znamená nevyhnutelnou realitu – další ročník rodinného tábora. Zeptali jsme se ho, jak se s touto "tradicí" vyrovnává.
-	<p style="font-weight: bold;">
-		Dobrý den, pane L. Blíží se léto a s ním i pravidelný rodinný tábor.
-        <div class="crime">
-	  <h4>Letem Sedlem</h4>
-	  <ul>
-	    <li>Včera byla na kraji lesa nalezena opuštěná bota. Po několika hodinách pátrání se ukázalo, že patří místnímu důchodci panu J, který v ní „už nechtěl pokračovat“. Bota byla zajištěna, majitel odvezen na oběd.
-	    <li>Z domácnosti pana V. utekla kočka. O den později byla nalezena v sousedním bytě, kde prý „dostává kvalitnější granule“.
-	    <li>Obecní kamera zachytila neidentifikovatelný objekt, který se po hřbitově pohyboval pozpátku a držel zrcadlo. Po přiblížení se ukázalo, že šlo o puberťáka trénujícího TikTok „reverse challenge“.
-	  </ul>
-	</div>
-	<p style="font-weight: bold;">
-		Jak se na něj připravujete a co je pro vás nejtěžší?
-	<p>
-		Připravuji? Spíš se smiřuji. Kdybych mohl, zůstal jsem doma v klidu, ale rodina rozhodla. Tři proti jednomu, tak je to vždycky. Nejtěžší je ten neustálý program a žádný klid.
-	<p>
-		Ráno rozcvičky, pak hry, výlety, večerní programy. No řekněte, kdo to má vydržet.
-	<p style="font-weight: bold;">
-		A najde se přece jen něco, co vám na táboře přináší alespoň trochu radosti?
-	<p>
-		Jasně, když se večer konečně uklidní a děti usnou, mám chvíli klidu. Nejhorší je však ta představa, že místo do postele půjdu spát do spacáku ve stanu a společnost mi budou dělat komáři a další havěť.
-      </div>
-      <div class="joke">
-	<h5>Vtip dne</h5>
-	<p>
-	„Jsem slyšel, že při Černobylu zařvali jen dva lidi.”
-	<p>
-	„Jo?”
-	<p>
-	„Jeden řval: Vypni to!”
-	<p>
-	„A druhý: Nejde to!”
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 4 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article">
-        <h2 style="text-align: left; font-size: 1.3rem;">Ze světa sportu</h2>
-	<h4>Fotbalový zápas roku</h4>
-	<p>
-		Místní fotbalový tým FC Sedláci již brzy přivítá na svém hřišti soupeře z dalekého města. Podle informací z klubu se jedná o velmi silného protivníka, který v posledních letech dominuje regionálnímu fotbalu. „Je to pro nás velká výzva,“ říká trenér týmu Michal Caudr. „Ale věříme, že s podporou našich fanoušků dokážeme překvapit.“
-	</p>
-	<img src="caudr.png" alt="Michal Caudr">
-	<p>
-		Přípravy na zápas jsou v plném proudu a fanoušci se mohou těšit na bohatý doprovodný program. „Chceme, aby to byl zážitek pro celou rodinu,“ dodává Caudr. Zápas se uskuteční v sobotu 9. srpna a vstupenky jsou již v prodeji.
-      </div>
-      <div class="imprint">
-        <p><strong>Název:</strong> <em>Sedelská pravda</em>
-	<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.
-	<p><strong>Adresa:</strong> Sedlo 47, Česká republika
-	<p><strong>Email:</strong> info@sedelska.cz
-	<p><strong>Telefon:</strong> +420 123 456 789
-	<p><strong>Šéfredaktorka:</strong> Karolína Bukovská
-	<p><strong>Výkonný redaktor:</strong> Michal Bukovský
-	<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi
-	<p><strong>Grafická úprava:</strong> Michal Bukovský
-	<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice
-	<p><strong>Datum vydání:</strong> <span class="date"></span>
-	<p><strong>Číslo vydání:</strong> <span class="issue-number"></span>
-	<p style="margin-top:2em; font-size:0.8em;">
-		&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
-		Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
-      </div>
-      <div class="article">
-	<h4>Dopingová aféra na loňském olympiádě má dohru</h4>
-	<p>
-		Loňská dopingová aféra nakonec přinesla své ovoce. Mezinárodní olympijský výbor dnes oznámil, že zlatou medaili v běhu na 1000 metrů získá Bohumil Boreš, který původně skončil na druhém místě. Důvodem je pozitivní test Vojtěcha Bukovského, který byl odhalen až po skončení her.
-	<p>
-		Zatím není jasné, zda Bukovskému bude umožněno nastoupit do závodů na letošních hrách, které se konají začátkem srpna v Sedle. Podle informací z jeho týmu hluboce lituje svého činu a je připraven nést následky. „Je to pro mě obrovské ponaučení,“ řekl Bukovský v prohlášení. „Nikdy jsem nechtěl podvádět a teď vím, že jsem udělal chybu, která mě bude pronásledovat celý život.“
-      </div>
-      <div class="article">
-	<h4>Nový rekord v hodu kládou</h4>
-	<p>
-		Místní atletka Lucie Borešová dnes překonala vlastní rekord v hodu kládou. Její výkon 45,3 metru je nejlepším výsledkem v historii Sedla. Borešová se stala první ženou, která překonala hranici 45 metrů.
-	<p>
-		„Jsem nadšená,“ řekla Borešová po závodě. „Trénovala jsem tvrdě a jsem ráda, že se mi podařilo překonat svůj vlastní rekord. Doufám, že to bude inspirací pro další mladé sportovkyně v našem městě.“
-	<p>
-		Borešová se nyní připravuje na nadcházející mistrovství republiky, které se koná v září. Její trenérka Karolína Bukovská věří, že Lucie má šanci na medaili. „Je to talentovaná atletka a má před sebou skvělou budoucnost,“ řekla Bukovská.
-      </div>
-      <div class="horoscope">
-	<h4>Dnešní horoskop</h4>
-	<ul>
-	  <li data-symbol="♈️">
-		  Dnes budeš mít tolik energie, že bys mohl rozsvítit celé Sedlo. Ale pozor, abys později nelitoval.
-	  <li data-symbol="♉️">
-		  Trpělivost je tvá tajná zbraň. Když počkáš, odměna přijde.
-	  <li data-symbol="♊️">
-		  Komunikace je tvůj klíč k úspěchu. Dej pozor, aby tvá slova nezpůsobila víc zmatku než radosti.
-	  <li data-symbol="♋️">
-		  Emoce dnes budou jako horská dráha – chvíli nahoře, chvíli dole. Nezapomeň, že i slzy mohou být začátkem nového.
-	  <li data-symbol="♌️">
-		  Tvůj šarm a sebevědomí září jasněji než slunce. Využij je moudře a nezapomeň, že občas je fajn nechat i druhé zazářit.
-	  <li data-symbol="♍️">
-		  Drobné detaily dnes hrají velkou roli. Buď pečlivý, ale nezapomeň se také usmát.
-	  <li data-symbol="♎️">
-		  Hledání rovnováhy může být dnes o něco náročnější. Naslouchej své intuici a nezapomínej, že ne vše je černobílé.
-	  <li data-symbol="♏️">
-		  Intuice tě dnes neopustí. Pokud narazíš na záhadu, je čas ji rozluštit.
-	  <li data-symbol="♐️">
-		  Dobrodružství volá! Neboj se vykročit vstříc neznámému, ale radši si nezapomeň doma klíče.
-	  <li data-symbol="♑️">
-		  Vytrvalost a pevná vůle tě dnes dostanou daleko.
-	  <li data-symbol="♒️">
-		  Dnes můžeš přijít s nápadem, který všem vyrazí dech. Neboj se být jiný a ukázat světu svou jedinečnost.
-	  <li data-symbol="♓️">
-		  Tvá fantazie dnes pracuje na plné obrátky. Nech se unášet sny, ale zůstaň nohama na zemi, aby ses neztratil.
-	</ul>
-      </div>
-    </div>
-  </div>
-</body>
+		<script>
+			fixFirefoxGap();
+		</script>
+	</body>
 </html>
-

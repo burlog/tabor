@@ -1,0 +1,1900 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>kartoteka</title>
+		<script type="text/javascript">
+			/**
+			* Sorts all div elements with the class "page" in the document body
+			 * based on the text value of the input field with type="text" inside their forms.
+			 */
+			function sortPagesByName() {
+				// Get all the div elements with class "page" from the document body
+				const pages = document.querySelectorAll('body > .page');
+
+				// Convert the NodeList of pages into an array to use the sort method
+				const pagesArray = Array.from(pages);
+
+				// Sort the array of page elements
+				pagesArray.sort((pageA, pageB) => {
+					// Find the input field inside the form of the first page element
+					const nameAElement = pageA.querySelector('form input[type="text"]');
+					const nameA = nameAElement ? nameAElement.value.trim() : '';
+
+					// Find the input field inside the form of the second page element
+					const nameBElement = pageB.querySelector('form input[type="text"]');
+					const nameB = nameBElement ? nameBElement.value.trim() : '';
+
+					// Use String.prototype.localeCompare for robust, language-aware sorting.
+					// 'cs' specifies the Czech locale, which correctly handles diacritics.
+					// { sensitivity: 'base' } ensures that the sort is case-insensitive and ignores diacritics
+					// (e.g., 'á' and 'a' are treated as equal for sorting purposes).
+					return nameA.localeCompare(nameB, 'cs', { sensitivity: 'base' });
+				});
+
+				// Get the body element to append the sorted pages
+				const body = document.querySelector('body');
+
+				// Re-append the sorted page elements to the body.
+				// Appending an element that is already in the DOM automatically moves it,
+				// effectively reordering the elements.
+				pagesArray.forEach(page => body.appendChild(page));
+			}
+
+			// Example of how to use the function:
+			// You can call it when the DOM is fully loaded to sort the pages automatically.
+			document.addEventListener('DOMContentLoaded', sortPagesByName);
+		</script>
+    <style type="text/css">
+      /* --- General Styles for Both Screen and Print --- */
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page {
+				position: relative;
+        background: white;
+        width: 210mm;
+        min-height: 297mm;
+        padding: 10mm;
+        box-sizing: border-box;
+				counter-increment: page;
+      }
+
+			.page::after {
+				content: counter(page);
+				position: absolute;
+				top: 10px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 12px;
+				color: #555;
+			}
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* --- Form-specific Styles --- */
+      .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .form-group label {
+        flex: 0 0 100px;
+        font-weight: bold;
+        padding-right: 10px;
+      }
+
+      .form-group input[type='text'],
+      .form-group textarea {
+        flex-grow: 1;
+        border: 1px solid #ccc;
+        padding: 5px;
+        font-size: 14px;
+        line-height: 1.5;
+        background: #f9f9f9;
+      }
+
+      .form-group textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      /* --- NEW: Photo placeholder that floats to the right --- */
+      .photo-placeholder {
+        float: right; /* This makes the element "float" and allows content to wrap around it */
+        width: 80mm;
+        height: 100mm;
+        border: 1px solid #ccc;
+        background: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: italic;
+        color: #666;
+        margin-left: 20px; /* Add some space to the left of the photo */
+        margin-bottom: 15px; /* Add some space below the photo */
+				overflow: hidden; /* Ensures that the content does not overflow the box */
+      }
+
+			.photo-placeholder img {
+				width: auto;
+				height: 100%;
+			}
+
+      /* New: Fingerprint placeholder for the bottom of the page */
+      .fingerprint-placeholder {
+        clear: both; /* Ensures this element appears below any floated elements */
+        width: 60mm;
+        height: 60mm;
+        border: 1px solid #ccc;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        margin-left: auto; /* Pushes it to the far right */
+        margin-top: 20px;
+      }
+
+			.logo-placeholder {
+				width: 5cm; /* Nastavte šířku a výšku podle velikosti loga */
+				height: 5cm;
+				position: absolute; /* Umožní absolutní pozicování uvnitř .page */
+				bottom: 10px; /* Vzdálenost od spodního okraje */
+				left: 10px; /* Vzdálenost od levého okraje */
+			}
+
+			.logo-placeholder img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+      /* --- Screen-Specific Styles --- */
+      @media screen {
+        body {
+          background-color: #f0f0f0;
+        }
+
+        .page {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+          margin: 18px auto;
+        }
+
+        .page:not(:last-child) {
+          page-break-after: always;
+        }
+      }
+
+      /* --- Print-Specific Styles --- */
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .page {
+          box-shadow: none;
+          margin: 0;
+          page-break-after: always;
+        }
+
+        .form-group input[type='text'],
+        .form-group textarea {
+          border-color: #000;
+          border-width: 1px 0;
+          background: none;
+        }
+
+        .photo-placeholder,
+        .fingerprint-placeholder {
+          border-color: #000;
+          background: none;
+        }
+      }
+    </style>
+	</head>
+	<body style="counter-reset: page;">
+		<div class="page">
+			<h1>Identifikační karta</h1>
+
+			<form>
+				<div class="photo-placeholder">
+					<img src="klecka.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Klečka František" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="6.2. 1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 12" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="160 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="113 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Plnoštíhlá postava, nevyrovnaná povaha.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="kotel.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Kotel Jakub" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="18.6.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 421" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="rozvedený" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="170 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="65 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="tmavě hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Hubená postavy běžně nosí strniště. Častý klient místní protialkoholní záchytné stanice. Toho času bez zaměstnání.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="dvorakova-dana.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Dvořáková Dana" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="1.11.1954" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 565" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="vdova" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="158 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="68 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="šedé" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes"></textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="dvorakova.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Dvořáková Naděžda" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="1.11.1988" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 565" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="svobodná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="163 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="78 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="blond obarvené" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Plnoštíhlé postavy. Říká se jí Šťastná Naďa. V mládí několikrát zjišťována na ekoligických protestech.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="nadvornik.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Nádvorník Alois" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="5.3.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="U lípy 14, Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="rozvedený" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="180 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="95 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="zrzavá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="zelenohnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Člen motorkářského gagnu Black Angels.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="pridrzel.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Přidržel Josef" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum naročení:</label>
+					<input readonly type="text" value="28.12.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Uhelná 1001/8" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Ostrava" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="Svobodný" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="158 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="50 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="popelavě hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Psychicky labilní, po nešťastné události v dětství několikrát léčen v psychiatrické léčebně. Nepředvídatelný.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="maly.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Malý Vilém" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="8.1.1985" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Seldo 527" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="190 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="105 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="kaštanově hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="světle modrá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Agresivní povahy, zavalitý. Trestán pro ublížení na zdraví.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="drahotova.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Drahotová Jarmila" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="3.10.1988" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 792" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="svobodná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="168 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="45 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="šedá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="vyhaslá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Rachytické postavy. Pozor, učitelka!. Vyšetřovaná pro zadávaní nepřiměřeně težkých domácích úkolů.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="mares.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Mareš Oldřich" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="18.3.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Tábor" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 74" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="176 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="68 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="blond" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="modrá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="AB" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Atletické postavy. V roce 2021 zadržen za rvačku.
+					</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="vratny.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Vrátný Vlastimil" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="15.11.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="České Budějovice" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 840" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="182 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="93 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="hnědá, prokvetlá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="čokoládově hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Opakované pokuty za rychlou jízdu.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="budska.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Budská Viktorie" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="1.1.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Praha-západ" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 921" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="rozvedená" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="185 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="62 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="křiklavě zrzavá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="zelená" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">V obci známá svým nezřízeným životním stylem. Dvakrát rozvedená pro nevěru.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="novakova.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Nováková Antonie" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="16.9.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 236" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="rozvedená" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="170 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="58 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="neurčitě hnědé" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="patrně hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Pokutována za odpírání styku dětí.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="novak.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Novák Pavel" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="4.6.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Seldo 111" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="160 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="132 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="plešatý" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Bez řidičského průkazu kvůli opakovanému řízení pod vlivem alkoholu.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="riha.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Říha Pavel" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="22.2.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 158" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="165 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="85 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="obarvený blond" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Opakovaně zadržen pro obtěžování.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="horka.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Horká Vilma" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="9.12.1988" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Nová Bystřice" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="vdaná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="164 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="63 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="medově zlatá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="šedá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes"></textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="pokorna.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Pokorná Libuše" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="23.4.1986" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Seldo 999" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="vdaná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="165 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="68 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="blond" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="modrá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">V obci známá jako milovnice koček, které obtěžují sousedy.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="hlubocek.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Hluboček Petr" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="11.11.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="nezadáno" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="188 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="95 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="černá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Kulturista. Podezřelý z napojení na převaděčkou síť. Živí se jako vyhazovač.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="novotna-karolina.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Novotná Karolína" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="14.2.1989" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Světlá 88, Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="svobodná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="172 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="60 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="zelená" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Trestána pro drobné krádeže.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="smetana.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Smetana Václav" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="2.3.1985" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 822" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="svobodný" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="175 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="80 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="černá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Trestán za drobné krádeže a přestupky proti veřejnému pořádku. V současnosti pracuje jako řidič autobusu.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="svobodova.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Svobodová Jana" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="5.9.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 822" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="svobodná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="160 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="55 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="kaštanová" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">V mládí prošla protidrogovou léčbou. Nyní se živí jako prodavačka v místním supermarketu.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="novak-tomas.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Novák Tomáš" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="2.1.1988" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Nová ves 249" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="180 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="99 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="plešatý" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="B" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes"></textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="dedek.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Dědek Jiří" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="17.7.1985" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Číměř 651" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="178 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="102 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="šedivá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Silnější postavy. Místní fotbalový fanoušek.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="novotna-eliska.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Novotná Eliška" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="28.8.1989" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 277" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="vdaná" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="163 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="60 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="blond" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="modrá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="0" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">V mládí se živila nejstarším řemeslem.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="pekar.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Pekař Michal" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="1.5.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Číměr 333" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="ženatý" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="175 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="78 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="modrá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Fotbalový rozhodčí. Několikrát podezřelý z ovlivňování zápasů.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+
+		<div class="page">
+			<h1>Identifikační karta</h1>
+			<form>
+				<div class="photo-placeholder">
+					<img src="zilvarova2.jpg">
+				</div>
+				<div class="form-group">
+					<label for="name">Jméno:</label>
+					<input readonly type="text" value="Zilvarová Marie" />
+				</div>
+				<div class="form-group">
+					<label for="date-of-birth">Datum narození:</label>
+					<input readonly type="text" value="23.4.1987" />
+				</div>
+				<div class="form-group">
+					<label for="place-of-birth">Místo narození:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="address">Bydliště:</label>
+					<input readonly type="text" value="Sedlo 73" />
+				</div>
+				<div class="form-group">
+					<label for="city">Okres:</label>
+					<input readonly type="text" value="Jindřichův Hradec" />
+				</div>
+				<div class="form-group">
+					<label for="State">Státní příslušnost:</label>
+					<input readonly type="text" value="Česká" />
+				</div>
+				<div class="form-group">
+					<label for="marital-status">Stav:</label>
+					<input readonly type="text" value="rozvedená" />
+				</div>
+				<div class="form-group">
+					<label for="height">Výška:</label>
+					<input readonly type="text" value="162 cm" />
+				</div>
+				<div class="form-group">
+					<label for="weight">Hmotnost:</label>
+					<input readonly type="text" value="52 kg" />
+				</div>
+				<div class="form-group">
+					<label for="hair">Barva vlasů:</label>
+					<input readonly type="text" value="havraní černá" />
+				</div>
+				<div class="form-group">
+					<label for="eyes">Barva očí:</label>
+					<input readonly type="text" value="hnědá" />
+				</div>
+				<div class="form-group">
+					<label for="blood">Krevní skupina:</label>
+					<input readonly type="text" value="A" />
+				</div>
+				<div class="form-group">
+					<label for="notes">Další údaje:</label>
+					<textarea readonly id="notes" name="notes">Barvitá historie s mnoha muži. V současnosti se živí jako masérka. Byla velmi často podezřelá z mnoha různých trestných činů a přestupků, ale nikdy nebyla usvědčena.</textarea>
+				</div>
+				<div class="form-group" style="justify-content: flex-end; margin-top: 20px;">
+					<div class="fingerprint-placeholder">
+					</div>
+				</div>
+				<div class="logo-placeholder">
+					<img src="policie.png" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

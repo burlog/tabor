@@ -1,0 +1,39 @@
+#!/bin/bash
+
+cp vydani-1/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-1/noviny.html
+cp vydani-2/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-2/noviny.html
+cp vydani-3/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-3/noviny.html
+cp vydani-4/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-4/noviny.html
+cp vydani-5/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-5/noviny.html
+cp vydani-6/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-6/noviny.html
+cp vydani-7/noviny.html ~/git/github.com/burlog/sedlo-web/vydani-7/noviny.html
+
+cp vydani-1/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-1/
+cp vydani-2/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-2/
+cp vydani-3/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-3/
+cp vydani-4/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-4/
+cp vydani-5/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-5/
+cp vydani-6/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-6/
+cp vydani-7/*.jpg       ~/git/github.com/burlog/sedlo-web/vydani-7/
+
+cp vydani-1/*.png       ~/git/github.com/burlog/sedlo-web/vydani-1/
+cp vydani-2/*.png       ~/git/github.com/burlog/sedlo-web/vydani-2/
+cp vydani-3/*.png       ~/git/github.com/burlog/sedlo-web/vydani-3/
+cp vydani-4/*.png       ~/git/github.com/burlog/sedlo-web/vydani-4/
+cp vydani-5/*.png       ~/git/github.com/burlog/sedlo-web/vydani-5/
+cp vydani-6/*.png       ~/git/github.com/burlog/sedlo-web/vydani-6/
+cp vydani-7/*.png       ~/git/github.com/burlog/sedlo-web/vydani-7/
+
+cp styles.css           ~/git/github.com/burlog/sedlo-web/styles.css
+cp script.js            ~/git/github.com/burlog/sedlo-web/script.js
+cp logo.png             ~/git/github.com/burlog/sedlo-web/logo.png
+cp favicon.ico          ~/git/github.com/burlog/sedlo-web/favicon.ico
+cp black-square.png     ~/git/github.com/burlog/sedlo-web/black-square.png
+
+if [ "$1" = "1" ]; then
+    cd ~/git/github.com/burlog/sedlo-web
+    git add .
+    git commit -m "Update"
+    git push
+fi
+

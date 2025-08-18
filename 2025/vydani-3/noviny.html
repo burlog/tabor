@@ -1,577 +1,422 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <title>sedelska-pravda-1</title>
-  <style>
-    body {
-      background: #ccc;
-      margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: Georgia, serif;
-      hyphens: auto;
+	<head>
+		<meta charset="UTF-8">
+		<title>sedelska-pravda-3</title>
+		<link rel="stylesheet" href="../styles.css">
+		<script src="../script.js"></script>
+		<style>
+			.date::before {
+				content: "Pondělí 11. srpna 2025";
+			}
 
-      counter-reset: page_counter 1;
-    }
+			.issue-number::after {
+				content: "0003";
+			}
+		</style>
+	</head>
+	<body lang="cs">
+		<!-- STRANA 1 -->
+		<div class="page">
+			<div class="main-header">
+				<img src="../logo.png" alt="Logo">
+				<div class="main-header-title">
+					<h1>Sedelská pravda</h1>
+					<p>Fakta, názory a konspirační teorie bez repelentu</p>
+				</div>
+			</div>
 
-    .page {
-      background: white;
-      width: 210mm;
-      height: 297mm;
-      padding: 10mm;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      margin-bottom: 1rem;
-      position: relative;
-      box-sizing: border-box;
-      overflow: hidden;
-      page-break-after: always;
-      display: flex;
-      flex-direction: column;
-    }
+			<div class="meta">
+				<span class="issue-number">Číslo </span>
+				<span class="date"></span>
+				<span>Cena: 1 úsměv</span>
+			</div>
 
-    .main-header {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #000;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.2rem;
-    }
+			<div class="main-article">
+				<div class="article-first-part">
+					<h2>Požár v opuštěném skladu</h2>
+					<h3>Z oběti zbyly jen zuby, její totožnost je neznámá</h3>
+					<p>
+					Včera krátce po třiadvacáté hodině byl v lesním pásmu u bývalého skladu nářadí nahlášen požár. Když dorazili hasiči, nalezli již jen doutnající zbytky – ohořelé dřevo, kovové součástky a popel.
+					</p>
+					<img src="hasici.jpg" style="margin-bottom: 2px; float: right; margin-right: -10px; margin-left: 10px;">
+					<p>
+						Při prohledávání místa události však objevili i lidské ostatky. Podle prvotních informací se jednalo o zbytky ohořelých kostí a několik zubů, které byly nalezeny v popelu. Policie nyní pracuje na identifikaci oběti, která zřejmě zemřela v důsledku požáru. Vzhledem k tomu, že místo bylo dlouhodobě opuštěné a nepoužívané, není jasné, kdo zde mohl být přítomen v době požáru.
+					</p>
+					<p>
+						Mluvčí krajské policie uvedla, že v okolí se v posledních týdnech nikdo pohřešovaný neobjevil. <em>„V tuto chvíli pracujeme s několika verzemi, ale žádná nebyla potvrzena. Bude důležité zjistit, zda se jednalo o náhodné přespání, úkryt nebo jiný důvod, proč se daná osoba na místě nacházela,“</em> sdělila. Na místě nebyly nalezeny žádné osobní věci ani stopy oblečení, které by mohly pomoci při identifikaci oběti.
+					</p>
+					<p>
+						Místní obyvatelé jsou událostí znepokojeni. <em>„V noci jsme slyšeli praskání a cítili kouř, ale netušili jsme, že hoří přímo ve skladu,“</em> řekla jedna z obyvatelek nedaleké usedlosti. Někteří si v předchozích dnech všimli podezřelého pohybu v okolí, ale nepřikládali tomu větší význam. Okolní lesy jsou často využívány jako místo pro táboření, a tak to nikomu nepřišlo podezřelé.
+					</p>
+				</div>
+			</div>
+			<div class="columns">
+				<div class="article-first-part">
+					<h4>Zločin pod podrážkou</h4>
+					<p>
+						V kriminalistice se již od 19. století využívá analýza stop. Nejen otisků bot, ale i specifické chůze. Podiatři mohou ze série stop rozpoznat unikátní rysy, jako je postavení prstů, způsob došlapu, tlak chodidla nebo nepravidelné poranění, a porovnat je s referenčními otisky podezřelého. Tento proces se řídí osvědčenou metodikou ACE‑V: <i>Assessment, Comparison, Evaluation, Verification</i>
+						<br />
+					</p>
+				</div>
+				<div class="teaser">
+					<h2>Dnes uvnitř</h2>
+					<ul>
+						<li>Skandál u Tří lžic</li>
+						<li>Výprava do pravěku</li>
+						<li>Muzeum bylo vykradeno</li>
+				</div>
+				<div class="article">
+					<h4>Střelba na Bídě</h4>
+					<p>
+						Na světoznámém vrchu Bída došlo včera odpoledne ke střelbě, která vyvolala paniku mezi turisty. Podrobnosti zatím nejsou dostupné, protože policie na ně uvalila informační embargo. Redakci se v době uzávěrky tohoto vydáníi podařilo získat exkluzivní informace, které budou zveřejněny v příštím čísle.<br/>
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .main-header img {
-      height: 4rem;
-      width: 4rem;
-      margin-right: 1rem;
-      position: absolute;
-    }
+		<!-- STRANA 2 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .main-header-title {
-      flex-grow: 1;
-    }
+			<div class="columns">
+				<div class="article-last-part">
+					<h4>Požár v opuštěném skladu</h4>
+					<p>
+						Na místo byli přivoláni specialisté z kriminalistické laboratoře, kteří provádějí další šetření. Podle dostupných informací bude identifikace ztížena kvůli rozsahu poškození těla. Policie zároveň vyzývá veřejnost, aby se přihlásil kdokoli, kdo mohl v poslední době v okolí vidět něco neobvyklého.
+					</p>
+					<p>
+						Sedelská pravda bude případ nadále sledovat.
+					</p>
+				</div>
+				<div class="article-last-part">
+					<h4>Zločin pod podrážkou</h4>
+					<p></p>
+					<h5>Jak funguje forenzní analýza stop a chůze</h5>
+					<p>
+						Pokud jsou k dispozici dynamické otisky (např. řada střídavých stop), odborník pozná tzv. „ghosting“ — tedy dvojí stíny kolem paty a prstů, které vznikají při skutečné chůzi.
+						Expert pak odebere referenční otisky od podezřelých (např. inkem nebo speciální sadou) — a nejlépe ve stejném režimu chůze, jakým byl čin proveden.
+						Porovnáním liniových měření (např. vzdálenosti mezi body) a tvarových rysů (prsty, oblouk chodidla, špičky) se výsledek ověří a vyhodnotí.
+					</p>
+					<p>
+						Kromě stop na zemi se dnes stále častěji analyzuje chůze z videodohledu. Forenzní gait‑analýza sleduje parametry jako délka kroku, postoj těla, pohyb paží či ramenní rotace. Moderní algoritmy, často využívající umělou inteligenci, umí s vysokou přesností rozeznat osobu podle jejího způsobu chůze i z videozáznamu — a to i když je obličej skrytý nebo nekvalitně zachycený.
+					</p>
+					<h5>Historie a další vývoj</h5>
+					<p>
+						Přestože lidské stopy v bahně nebo krvi na zemi jako důkaz sahají až do 19. století (například případ Jessie McLachlan z roku 1862), formální disciplína <em>forensic podiatry</em> vznikla až v 90. letech 20. století. První použití gait‑analýzy jako soudního důkazu pochází z roku 2000 u britského soudu Old Bailey (případ R v. Saunders).
+						Od té doby vznikla například americká společnost ASFP, kurzy na univerzitě Huddersfield (UK) a mezinárodní standardy odborné praxe ve forensic podiatry.
+					</p>
+					<h5>Co mají společného pneumatiky a stopy bot?</h5>
+					<p>
+Stejný princip najde dnes využití i v identifikaci pneumatik u vozidel. Na místě činu lze najít skid marks — otisky pneumatik po brzdění nebo smyku. Tyto stopy se fotografují s měřítkem, nebo se odlévají do sádry či speciálních materiálů (např. prill sulfur ve sněhu)
+					</p>
+					<p>
+						Díky databázím vzorů pneumatik (např. databáze SICAR) lze alespoň určit značku, model či velikost pneumatiky.
+						Pokud je k dispozici vozidlo podezřelého, slouží analýza otěrů nebo poškození běhounu k individuálnímu přiřazení stopy konkrétnímu autu.
+					</p>
+					<p>
+						Forenzní analýza stop a chůze zůstává důležitým nástrojem – i v době, kdy máme DNA či biometrické systémy. Jak staré stopy vedou k identifikaci pachatele, tak moderní stopy pneumatik mohou odhalit, jaké auto projelo scénou crime. Techniky se změnily, princip zůstává: každý zanechává svou jedinečnou stopu.
+					</p>
+				</div>
+				<div class="article">
+					<h4>Skandál u Tří lžic</h4>
+					<p>
+						Včera v podvečer došlo k menší společenské erupci v jinak klidné sedelské michelinské restauraci U Tří lžic. Neznámá postarší dáma s výrazným make-upem, blond trvalou a hlasem laděným do tónu připálené pánve si nechala třikrát vyměnit hlavní chod – pokaždé kvůli blonďatému vlasu zamotanému mezi mušlemi.
+					</p>
+					<p>
+						„Je to nehoráznost! Já jsem si přišla pochutnat, ne česat mušle!“ rozčilovala se, zatímco personál postupně ztrácel barvu – obrazně i doslova.
+					</p>
+					<p>
+						Celá záležitost však nabrala zcela jiný rozměr ve chvíli, kdy šéfkuchař Radim A. zmínil, že všichni členové kuchyně i obsluhy mají tmavé vlasy. Přesněji – od tmavě hnědé po havraní čerň.
+					</p>
+					<p>
+						„To je jasné, že to není můj vlas! Já mám vlasy jako sláma, ne jako nějaká odbarvená blondýna!“ křičela dáma na celou restauraci, zatímco jí z očí sršely blesky.
+					</p>
+					<p>
+						Nakonec tato dáma opustila restauraci hladová s tím, že si na personál bude stěžovat u hygienické stanice a že si nechá udělat test DNA, aby prokázala, že to není její vlas.
+					</p>
+					<p>Podle posledních zpráv si dáma skutečně objednala genetickou analýzu. Laboratoř však požádala, aby nejdříve odstranila lak, tužidlo, zbytky melíru a třpytky, jinak prý hrozí výbuch přístroje. Restaurace zvažuje zavedení bezvlasového menu.</p>
+				</div>
+				<div class="joke">
+					<h5>Vtip dne</h5>
+					<p>
+						Proč mají slepé děti rády makové rohlíky?
+					</p>
+					<p>
+						Protože je na každém jiná pohádka.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .main-header-title h1 {
-      margin: 0;
-      font-size: 3.1rem;
-      text-transform: uppercase;
-      text-align: center;
-      hyphens: none;
-    }
+		<!-- STRANA 3 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .main-header-title p {
-      margin: 0;
-      text-align: center;
-      font-style: italic;
-      font-size: 1rem;
-    }
+			<div class="columns">
+				<div class="article">
+					<h4>Výprava do pravěku</h4>
+					<p>
+						Skupina zvídavých dětí podnikla výpravu proti proudu času – lodí se vydaly podél tajemné řeky, která je zavedla do dob dávno minulých. Jak pokračovaly hlouběji do krajiny plné podivných zvuků a mlžných lesů, měnila se příroda kolem nich. Brzy kráčely mezi mamuty, pozorovaly praještěry u jezera a přespávaly v jeskyni s prvními lidmi.
+					</p>
+					<p>
+						Pralidé děti naučili rozdělávat oheň pomocí pazourku, péct hady na rožni, lovit pomocí oštěpů a rozeznat stopy šelem. Jednoho večera dokonce zahlédly obrovského šavlozubého tygra, jak se tiše plíží mezi stromy – naštěstí měl plný žaludek a nestál o zákusek.
+					</p>
+					<p>
+						Největší překvapení ale čekalo až na samém konci výpravy. V hlubokém kapradinovém lese, kde se slunce jen
+					</p>
+					<div class="column-break"></div>
+					<img src="pravek.jpg" style=" position: absolute; top: 165mm; left: 2rem; width: 130mm; height: auto; z-index: 10;">
+					<p>
+						stěží prodíralo skrz husté listoví, děti narazily na něco nečekaného. V mechovém dolíčku objevily děti obrovské hnízdo s několika zvláštními vajíčky. Když se nad nimi sklonily, skořápky začaly praskat – a z nich se vylíhli malí dinosauři. Místo útěku se tvorečci tulili k dětem, tiše pískali a vypadali, že si je oblíbili.
+					</p>
+					<p>
+						Po návratu si každý malého ještěra odnesl s sebou. Podle všeho se jim daří dobře – mají chuť k jídlu, rádi spí v batohu a milují mazlení za uchem (nebo co to vlastně mají).
+					</p>
+				</div>
+				<div class="article">
+					<h4>Muzeum bylo vykradeno</h4>
+					<p>
+						Včera během obědové pauzy došlo v sedelském muzeu k drzé krádeži. Pachatel si z expozice druhé světové války odnesl pistoli <em>Walther P38</em>, jenž byla součástí sbírky historických zbraní. Zbraň byla vystavena
+					</p>
+					<div class="column-break"></div>
+					<div class="crime">
+						<h4>Letem Sedlem</h4>
+						<ul>
+							<li>Neoznačená lahev s oranžovou tekutinou se objevila v lednici. Pět lidí ji ochutnalo. Nikdo ji nedopil. Všichni tvrdí, že chutná <em>„jako minulost“</em>.</li>
+							<li>Párky se ohřívaly natřikrát. Kuchařka tvrdí, že detektivové přišli na poslední chvíli, jinak mohlo dojít ke katastrofě.</li>
+						</ul>
+					</div>
+					<p>
+						v uzamykatelné vitríně a chráněna alarmem. Podle prvotních informací se zloději podařilo během krátké doby alarm deaktivovat, násilně otevřít vitrínu a zbraň ukrást. Kromě zbraně si pachatel odnesl i náboje, které byly vystaveny vedle ní.
+					</p>
+					<p>
+						Krádež zjistila hlídačka, když se vrátila do služby po obědové pauze. „Šla jsem jen na oběd jako vždycky. Když jsem se vrátila, všimla jsem si, že je vitrína otevřená a zbraň chybí. Alarm byl vypnutý, což je zvláštní, protože ho vždycky kontroluji, když odcházím,“ uvedla Dvořáková.
+					</p>
+					<p>
+						Zákon č. 119/2002 Sb. nařizuje, že všechny zbraně musí být v muzeích znefunkčněny. Je však nejisté, zda byla pistole <em>P38</em> v souladu s těmito předpisy. Sbírka totiž pochází z doby, kdy ještě nebyly předpisy tak přísné a zbraně se často vystavovaly v původním stavu. Policie při ohledání místa činu zjistila, že ne všechny zbraně v muzeu jsou znehodnoceny, což může znamenat, že i tato pistole byla funkční.
+					</p>
+					<p>
+						Policie apeluje na veřejnost, aby se přihlásil kdokoli, kdo by mohl mít informace o krádeži. <em>„Zbraň může být použita k trestné činnosti. Pokud máte jakékoli informace, prosíme, ozvěte se,“</em> uvedla mluvčí policie.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .meta {
-      font-size: 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid #000;
-    }
+		<!-- STRANA 4 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .teaser {
-      border: 1px solid #000;
-      margin: 0px;
-      padding: 0.5rem;
-    }
+			<div class="columns">
+				<h2 style="line-height: 1.2; font-size: 27px; text-transform: uppercase; margin: 0 0 9px 0; padding: 0; text-align: center; hyphens: none;">Nad dopisy čtenářů</h2>
+				<p style="font-size: 0.6em">
+					Redakce upozorňuje, že dopisy nejsou redakčně upraveny a neprošli jazykovou korekturou.
+				</p>
+				<div class="article">
+					<h5>Dopis od E.B.</h5>
+					<p style="font-style: italic;">
+						bohužel se ve vašem článku o dobrodruhu jedlickovi vyskytla chyba. Článek je nekompletní a velmi mě zajímal. Opravdu mě urazilo že pokračování článku chybělo. Chtěla bych abyste napsali pokračování do dalších novin a veřejně se omluvili za chybu. Jinak zažaluju vaše noviny za zatajování pravdy. Určitě máte noviny k dohledání a nebudete mi tvrdit že zbylá část článku nechybí.
+					</p>
+					<p>
+						Vážená milovaná čtenářko,<br>
+						předně nás těší váš zájem o naše noviny. Hluboce litujeme, že jste si nemohla přečíst celý článek o vašem idolovi, dobrodruhovi Jedličkovi, noviny teď tiskneme ve stížených podmínkách. Abyste nemusela čekat na další výtisk, zde je i něco článku:
+					</p>
+					<p>
+						<strong>........ vyhrožují, že dokončí to, co bílý žralok začal.</strong>
+					</p>
+				</div>
+				<div class="article">
+					<h5>Dopis od V.B.</h5>
+					<p style="font-style: italic;">
+						Brej den,<br>
+					</p>
+					<p style="font-style: italic;">
+						Nuže dnes ráno jsem se dočetl o ušmiklé ruce poblíž rybníka a chcu se doptat na nějaké věci..
+					</p>
+					<p style="font-style: italic;">
+						1. Chtěl bych se zeptat jste si jistí že nešlo o fyzické násilí?<br>
+						2. Pokud ne udělali ty forenzní technici nějaký test na DNA? jestli ne jsou květaci vyřiďte to a jestli ano proč jste to nemohli napsat?<br>
+						3. A chirurgická preciznost? Nemáme info o lidech co mají vystudovanou medicínu a mohli by se tak snížit počty podezřelých..<br>
+						5! A ta kampaaň co to jako jeee? Za prvý já jsem Bukovskej a za druhý jsem nepodváděl. Pokud bych ovšem podváděl jako tak bych v životě nic nepřiznal a kdyby se na to přišlo v životě by mi to nebylo líto jo.<br>
+					</p>
+					<p>
+						Vážený čtenáři,<br>
+						ptáte se nás na otázky, na které byste se měl ptát spiše obecní policie. My jsme vydavatelství, jež pracuje s informacemi, které se mnohdy obtížné získávají. Tím jsme vám, předpokládám, odpověděli o na otázku týkající se údajné kampaně.<br>
+						S pozdravem,<br>
+						Sedelská pravda
+					</p>
+				</div>
+				<div class="article">
+					<h4>Ochotníci chystají novou komedii</h4>
+					<p>
+						Místní ochotnický soubor je opět v plném nasazení. Redakci se exkluzivně podařilo získat několik fotografií z tajných zkoušek, na nichž jsou herci zachyceni v pestré směsici kostýmů. Podle jejich charakteru to
+					</p>
+					<img src="divadlo.jpg" style=" position: absolute; top: 185mm; left: 75mm; width: 130mm; height: auto; z-index: 10;">
+					<p class="column-break"></p>
+					<p>
+					vypadá, že nás čeká další komediální pecka.
+					</p>
+					<p>
+					Po loňském fenomenálním úspěchu hry Jomeo a Rulie, která rozesmála publikum od prvního po poslední potlesk, jsou očekávání vysoká. Místní diváci už teď spekulují, co se chystá. Nejčastěji padají tipy na komediální zpracování klasické pohádky Sněhurka a sedm trpaslíků.
+					</p>
+					<p>
+						Oficiální potvrzení ale od souboru zatím nepřišlo. “Řekneme jen tolik, že to bude něco, co tu ještě nebylo, a že se diváci rozhodně pobaví,” uvedl režisér souboru s tajemným úsměvem.
+					</p>
+					<p>
+						Premiéra by se podle zákulisních informací mohla odehrát už na konci týdne. Ať už to bude Sněhurka, nebo něco úplně jiného, jedno je jisté – smíchu bude dost.
+					</p>
+				</div>
+				<div class="article">
+					<h4>Máme plno</h4>
+					<p>
+						Sedelská detektivní hlásí, že přestala přijímat další žádosti o přijetí, neboť došlo k naplnění stavů.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .teaser h2 {
-      font-size: 1rem;
-      text-transform: uppercase;
-      margin: 0;
-      text-align: left;
-      hyphens: none;
-    }
+		<!-- STRANA 5 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .teaser ul {
-      font-size: 0.8rem;
-      list-style: square;
-      padding: 0;
-      margin: 0.2rem 0.8rem;
-      list-style-position: outside;
-    }
+			<div>
+				<h2 style="text-align: center; font-size: 27px; text-transform: uppercase; margin: 0 0 9px 0; padding: 0;">Prodám neviditelného psa</h2>
+				<p style="font-size: 14px;">
+					Je velmi poslušný a nikdy neštěká. Ideální společník pro lidi, co hodně cestují. Projde hotelovou recepcí bez povšimnutí, nevyžaduje žádné očkování ani veterinární pas. Cena dohodou. Foto níže.
+			</div>
+		</div>
 
-    .main-article h2, .article h2 {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      margin: 0 0 0.5rem 0;
-      text-align: center;
-      hyphens: none;
-    }
+		<!-- STRANA 4 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .main-article h3, .article h3 {
-      font-size: 1.0rem;
-      font-style: italic;
-      text-align: center;
-      margin: 0 0 1rem 0;
-      hyphens: none;
-    }
+			<div class="columns">
+				<div class="article">
+					<h2 style="text-align: left; font-size: 23px;">Ze světa sportu</h2>
+					<h4>Olympiáda již zítra!</h4>
+					<p>
+					Už zítra to vypukne. Proběhne další ročník Sedelské Olympiády, tradičního sportovního klání, které dává šanci všem věkovým kategoriím a sportovcům všech úrovní. Od nejmenších dětí až po zkušené dospělé, každý si najde svou disciplínu a možnost poměřit síly s ostatními. Ať už jste sprinter, skokan do dálky nebo kriketový nadšenec, zítra se na vás těšíme!
+					</p>
+					<h4>Malý výlet do historie</h4>
+					<p>
+						Olympiáda má dlouhou tradici a letos se koná již po osmé. První ročník se konal v roce 2018 a od té doby se stala nedílnou součástí naší kultury. Vždyť kdo by neznal legendární závody v běhu na 50 metrů, skoku do dálky nebo kriketovém hodu? Ať už jste se účastnili jako sportovec nebo jen jako divák, jistě si pamatujete na nezapomenutelné okamžiky a výkony.
+					</p>
+					<p>
+						Hned v prvním roce teprve dvouletá Rozinka hodila krikeťákem 1,5 metru a vyhrála tak svou první zlatou medaili v kategorii nejmenších sportovců. Od té doby se výrazně zlepšila a v roce 2024 už hodila krikeťákem pětkrát tak daleko.
+					</p>
+					<p>
+						Mezi legendy také jednoznačně patří Jarda V., který má na kontě snad všechny možné rekordy: v roce 2022 dal 50m sprint za 7,38 sekundy a o rok dříve poslal krikeťák až do vzdálenosti 23 metrů – a to házel levou rukou, jak přikazuje pravidlo pro dospělé.
+					</p>
+					<h4>Kdo zazáří letos?</h4>
+					<p>
+					Zatímco mladá generace roste, běhá rychlejí, hází i skáče dál, zkušení sportovci jako Bobo B., Andrea V. nebo Helča Z. stále dokazují, že se s nimi musí počítat. Vojta Bukovský se například loni blýskl v krikeťáku výkonem 25 metrů, přestože pro něj začalo platit pravidlo o levé ruce. Uvidíme, zda letos překoná svůj vlastní rekord, protože podle zákulisních informací dost fláká trénink a vynechal i poslední soustředění na klubovém kempu.
+					</p>
+					<h4>Kdy to všechno začne?</h4>
+					<p>
+					Závody začínají zítra po ranním nástupu.
+					<br/>
+					Sportovci, nezapomeňte na:
+					<ul style="margin-bottom: 0px;">
+						<li>pitný režim,</li>
+						<li>rozcvičku,</li>
+						<li>dobrou náladu,</li>
+						<li>dospělí levou ruku na krikeťák!</li>
+					</ul>
+					</p>
+					<p>
+						Připravte si tretry, zavažte tkaničky a pamatujte: olympiáda není jen o vítězství, ale hlavně o tom, kolik písku si donesete ve spoďárech ze skoku do dálky.
+					</p>
+				</div>
+				<div class="article">
+					<h4>Dopingové kontroly</h4>
+					<p>
+						Jako v minulých letech budou i letos probíhat dopingové kontroly. Aby se udržela férovost a čistota soutěže, je potřeba se vyvarovat užívání podpůrných látek, jako je čokoláda, káva či nepovolené sbližování. Kontroly budou probíhat náhodně a neohlášeně. Kdokoliv bude přistižen při porušení pravidel, bude diskvalifikován a jeho výkony budou anulovány.
+					</p>
+				</div>
+				<div class="horoscope">
+					<h4>Dnešní horoskop</h4>
+					<ul>
+						<li data-symbol="♈">
+							Váš milostný život nabere tempo, bohužel do protisměru.
+						</li>
+						<li data-symbol="♉">
+							Dnes ucítíte motýlky v břiše nebo to bude včerejší večeře, těžko říct.
+						</li>
+						<li data-symbol="♊">
+							Vaše srdce je otevřené dokořán, ale zámek na něm nikdo neumí ovládat.
+						</li>
+						<li data-symbol="♋">
+							Někdo vás dnes dojme, ať už pohledem nebo tím, jak sní párek na dva hryzy.
+						</li>
+						<li data-symbol="♌">
+							Budete dnes zářit jako slunce – jen pozor, ať si někdo nespálí city.
+						</li>
+						<li data-symbol="♍">
+							Romantika vás mine obloukem, ale zato si dobře uklidíte komoru.
+						</li>
+						<li data-symbol="♎">
+							Dnes se možná zamilujete… do hlasu ve sluchátkách MHD hlásiče zastávek.
+						</li>
+						<li data-symbol="♏">
+							Dejte průchod svým touhám, ideálně v bezpečné vzdálenosti a pod dohledem.
+						</li>
+						<li data-symbol="♐">
+							Vaše srdce je připravené, ale vaše pantofle pro návštěvu ještě ne.
+						</li>
+						<li data-symbol="♑">
+							Budete působit přitažlivě – zejména na kočky, psy a nevyžádané nápadníky.
+						</li>
+						<li data-symbol="♒">
+							Láska vám dýchá na krk a je to dost nekomfortní.
+						</li>
+						<li data-symbol="♓">
+							Možná dnes potkáte spřízněnou duši nebo aspoň někoho, kdo má rád stejné rohlíky.
+						</li>
+						</ul>
+				</div>
+				<div class="imprint">
+					<p><strong>Název:</strong> <em>Sedelská pravda</em></p>
+					<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.</p>
+					<p><strong>Adresa:</strong> Sedlo 47, Česká republika</p>
+					<p><strong>Email:</strong> info@sedelska-pravda.cz</p>
+					<p><strong>Telefon:</strong> +420 123 456 789</p>
+					<p><strong>Šéfredaktorka:</strong> Karolína Bukovská</p>
+					<p><strong>Výkonný redaktor:</strong> Michal Bukovský</p>
+					<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi</p>
+					<p><strong>Grafická úprava:</strong> Michal Bukovský</p>
+					<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice</p>
+					<p><strong>Datum vydání:</strong> <span class="date"></span></p>
+					<p><strong>Číslo vydání:</strong> <span class="issue-number"></span></p>
+					<p style="margin-top:2em; font-size:0.8em;">
+						&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
+						Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .main-article h4, .article-first-part h4, .article-last-part h4, .article h4, .horoscope h4 {
-      font-size: 1.2rem;
-      margin: 0 0 0.8rem 0;
-      text-transform: uppercase;
-      text-align: left;
-      hyphens: none;
-    }
-
-    .main-article h5, .article-first-part h5, .article-last-part h5, .article h5, .horoscope h5, .joke h5 {
-      font-size: 1.0rem;
-      margin: 0 0 0.6rem 0;
-      text-transform: uppercase;
-      text-align: left;
-      hyphens: none;
-    }
-
-    .main-article p, .article-first-part p, .article-last-part p, .article p, .horoscope li {
-      font-size: 0.8rem;
-      text-align: justify;
-      line-height: 1.5;
-    }
-
-    .main-article p, .article-first-part p, .article-last-part p, .article p {
-      margin: 0;
-      padding: 0 0 0.5rem 0;
-    }
-
-    .main-article img {
-      float: left;
-      width: 120mm;
-      margin: 0 5mm 5mm 0;
-    }
-
-    .header {
-      font-size: 0.6rem;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      border-bottom: 2px solid #000;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .header h1 {
-      text-transform: uppercase;
-      font-size: inherit;
-      margin: 0px;
-      padding: 0px;
-      text-decoration: none;
-      hyphens: none;
-    }
-
-    .article-first-part p:last-of-type:after {
-      content: "podrobnosti najdete uvnitř čísla";
-      display: block;
-      font-style: italic;
-      font-size: 0.5rem;
-    }
-
-    .article p:last-of-type:after, .article-last-part p:last-of-type:after {
-      content: "\00A0\25A1";
-    }
-
-    .article-last-part p:first-of-type::before {
-      content: "pokračování z úvodní strany";
-      display: block;
-      font-style: italic;
-      font-size: 0.5rem;
-    }
-
-    .columns {
-      flex: 1;
-      column-count: 3;
-      column-gap: 10mm;
-      column-fill: auto;
-      overflow: hidden;
-    }
-
-    .columns > div {
-      margin-top: 1rem;
-    }
-
-    .columns > div:first-child {
-      margin-top: 0rem;
-    }
-
-    .columns img {
-      width: 100%;
-      margin: 0;
-    }
-
-    .joke {
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #000;
-      text-align: left;
-    }
-
-    .joke p {
-      font-size: 0.8rem;
-      line-height: 1;
-      margin: 0.2rem 0;
-    }
-
-    .crime {
-      border-left: 1px solid #000;
-      border-bottom: 1px solid #000;
-      padding: 0 0 0 0.5rem;
-      margin: 0 0 0.5rem 0;
-      font-size: 0.8rem;
-    }
-
-    .crime ul {
-      list-style: square;
-      list-style-position: inside;
-      padding: 0;
-      margin: 0.5rem 0 0 0;
-    }
-
-    .crime ul li {
-      margin-bottom: 0.2rem;
-    }
-
-    .horoscope ul {
-      list-style: none;
-      list-style-position: inside;
-      padding-left: 0;
-      margin: 0.8rem 0 0 0;
-      font-size: 0.8rem;
-    }
-
-    .horoscope ul li {
-      position: relative;
-      padding-left: 0rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .horoscope ul li::before {
-      content: attr(data-symbol);
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .horoscope ul li::first-letter {
-      margin-left: 1.5rem;
-    }
-
-    .imprint {
-      font-size: 0.7rem;
-      text-align: center;
-      margin-top: 1rem;
-      color: #666;
-      border-top: 1px solid #000;
-    }
-
-    .imprint p {
-      margin: 0.1rem 0;
-      text-align: left;
-    }
-
-    .date::before {
-      content: "Pondělí 23. června 2025";
-    }
-
-    .issue-number::after {
-      content: "0001";
-    }
-
-    .page-number::before {
-      counter-increment: page_counter;
-      content: counter(page_counter);
-    }
-
-    @media print {
-      body {
-        background: white;
-        padding: 0;
-      }
-
-      .page {
-        width: 210mm;
-        height: 297mm;
-        padding: 10mm;
-        box-shadow: none;
-        margin: 0 auto;
-        page-break-after: always;
-        box-sizing: border-box;
-        overflow: hidden;
-        page-break-after: always;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body lang="cs">
-  <!-- STRANA 1 -->
-  <div class="page">
-    <div class="main-header">
-      <img src="logo.png" alt="Logo">
-      <div class="main-header-title">
-        <h1>Sedelská pravda</h1>
-        <p>Fakta, názory a konspirační teorie bez repelentu</p>
-      </div>
-    </div>
-
-    <div class="meta">
-      <span class="issue-number">Číslo </span>
-      <span class="date"></span>
-      <span>Cena: 1 úsměv</span>
-    </div>
-
-    <div class="main-article">
-      <div class="article-first-part">
-	<img src="bunkr.png">
-	<h2>Záhadné zmizení pana Klečky</h2>
-	<h3>Naše redakce získala exkluzivní informace o záhadném zmizení pana Klečky.</h3>
-	<p>
-		V pondělí časně ráno bylo oficiálně oznámeno zmizení Františka Klečky (38), dlouholetého obyvatele Sedla. Podle svědectví jeho manželky se odebral do sklepa pro zavařeniny – a už se nevrátil. Sklep byl uzamčen zevnitř, bez známek násilí. Uvnitř se našly jen jeho stopy – končící u zadní stěny. Žádný východ. Žádná těla. Žádné vysvětlení.
-	<p>
-		Tato událost by mohla být považována za izolovaný případ. Nebýt ovšem skutečnosti, že během posledních dvou let zmizeli nebo zemřeli další dva lidé, kteří s panem Klečkou sdíleli více než jen trvalé bydliště ve stejné obci. Sdíleli i minulost.
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="article-first-part">
-        <h4>Zrazen vlastním tělem</h4>
-        <p>
-  		Francouzská policie zaznamenala zásadní průlom v oblasti kriminalistiky. Nová identifikační technika, založená na přesném měření částí lidského těla, pomohla nedávno odhalit zločince, který se dlouhé měsíce skrýval pod falešnou identitou.
-	<p>
-		Tato metoda, známá jako bertillonáž, využívá soubor tělesných údajů – například délku nosu, šířku uší, obvod hlavy nebo délku levého předloktí – a vytváří z nich jedinečný „tělesný profil“ každé osoby.
-        <p>
-  		Poprvé byla tato technika úspěšně nasazena minulý měsíc při případu muže, který byl zadržen kvůli podezření z podvodu. Při zatčení předložil doklady na jméno Louis Garnier, a nic nenasvědčovalo tomu, že by lhal.
-      </div>
-      <div class="article">
-	<h4>Řízky budou!</h4>
-	<p>
-		Naše redakce získala exkluzivní informace od zdrojů blízkých táborové kuchyni. Přestože oficiální menu ještě nebylo zveřejněno, kuchyně počítá s tradičními řízky na konci týdne. Podle našich informací se jedná o oblíbenou pochoutku, která se v Sedle těší velké oblibě. „Je to klasika, kterou si každý rád dá,“ řekl náš zdroj z kuchyně. „A navíc, když jsou řízky dobře udělané, jsou prostě neodolatelné.“ Takže se máme na co těšit!
-      </div>
-      <div class="teaser">
-	<h2>Dnes uvnitř</h2>
-	<ul>
-	  <li>Toaletní skandál!!!
-	  <li>Willy Fog se vrátil do Sedla
-	  <li>Rozhovor s panem L
-	  <li>Fotbalový zápas roku
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 2 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article-last-part">
-	<h4>Záhadné zmizení pana Klečky</h4>
-	<p>
-	<h5>Požár, který neměl hořet</h5>
-	<p>
-		Učitelka Jarmila Drahotová (37) tragicky zahynula při požáru zahradní chatky, kterou dlouhodobě užívala. Oheň vypukl uprostřed deště, bez elektřiny, bez zdroje vznícení. Podle svědků šla večer do chatky s krabicí starých alb a vzkázala, že „potřebuje najít jednu zapomenutou věc z dětství“. Nikdy se nevrátila. Tělo bylo nalezeno v popelu, držící nečitelný zčernalý snímek.
-	<h5>Zmizení ve stínu pohraničí</h5>
-	<p>
-		Oldřich Mareš (39) byl naposledy spatřen, jak v ranní mlze míří k lesům směrem ke starým pohraničním bunkrům. Jeho auto bylo nalezeno se zapnutými výstražnými světly, motor běžel, dveře dokořán, mobil v držáku. Na záznamu z palubní kamery se na pár vteřin mihne postava – snad dítěte – s podivně zastřeným obličejem. Není jasné o co vlastně šlo.
-	<h5>Spojuje je stará vina?</h5>
-	<p>
-		Redakce Sedelské Pravdy zjistila, že všichni tři – Klečka, Drahotová i Mareš – byli v dětství součástí skupiny místních dětí, které si v polovině 90. let často hrávaly v okolí bunkrů. Podle dosud nezveřejněných zápisků a výpovědí několika pamětníků se tehdy odehrála událost, jež nikdy nebyla vysvětlena.
-	<p>
-		Při jedné z her mělo dojít k úmyslnému zavření chlapce do bunkru. Děti měly údajně uprchnout, snad vystrašené zvuky, snad vlastním svědomím. Zavřený chlapec tam údajně zůstal několik dní. Nikdo nikdy nepodal vysvětlení. A nikdo z tehdejších aktérů o tom dodnes nemluvil.
-      </div>
-      <div class="article">
-	<h4>Toaletní skandál otřásá obecní stráží</h4>
-	<p>
-		V poklidné obci Sedlo, kde největší kriminální hrozbou býval zatoulaný jezevčík nebo občasné zcizení třešní, došlo k nečekanému odhalení.
-	<p>
-		Při rutinním přezkumu obecního rozpočtu bylo zjištěno, že obecní policie spotřebovala za pouhé tři měsíce 240 rolí toaletního papíru. Pro srovnání: místní mateřská školka spotřebuje za stejné období jen 58 rolí – a to včetně kreativního tvoření a dvou školních nehod týdně.
-        <p>
-	      „Každý člověk má trochu jinak dlouhé prsty, jinou šířku nosu nebo tvar uší. A to se nedá tak snadno změnit.“ Možná jsme právě svědky začátku nové éry kriminalistiky.
-	<h5>Ztracené role, ztracená důvěra?</h5>
-	<p>
-		Policisté na první výzvu odmítli podezření z přehnané hygieny. Strážník R., muž v nejlepších letech, se hájil: „My jsme poctiví. Toaleta u nás funguje, ale že bych tam seděl osmkrát denně? To popírá fyziku.“
-	<p>
-		Na dotaz, kam papír mizel, se objevily různé teorie – od samovznícení rolí, přes nelegální export do Jindřichova Hradce, až po zřízení tajné papírové pevnosti ve sklepě služebny.
-	<h5>Vyšetřování pokračuje</h5>
-	<p>
-		Starosta se nechal slyšet, že bude požadovat „detailní rolový audit“. Dočasně byly všechny zásoby papíru uzamčeny v trezoru městského úřadu a vydány nové směrnice o používání toaletního papíru.
-	<p>
-		Zda se jedná o pouhou byrokratickou chybu, dobře maskovanou obchodní síť, nebo zvláštní formu hygienického fetiše – ukáže čas.
-      </div>
-      <div class="article-last-part">
-        <h4>Zrazen vlastním tělem</h4>
-	<p>
-		 Policii ale něco nehrálo – mužův obličej se nápadně podobal hledanému recidivistovi. Proto kriminalisté poprvé sáhli po nové metodě bertillonáže. Podezřelý byl pečlivě změřen a jeho rozměry byly porovnány s tajnou databází hledaných osob.
-	 <p>
-  		Výsledek byl překvapivý – všechny míry přesně odpovídaly muži jménem Henri Delon, který už dříve utekl z vězení a byl hledán kvůli několika případům podvodů a krádeží. Přestože měl jiný účes, jiný vous a nové doklady, jeho tělo ho zradilo. Soud přijal výsledky měření jako důkaz a muž se přiznal k podvodu a dalším trestným činům, které spáchal pod falešnou identitou.
-        <p>
-  	      Policie považuje případ za důkaz, že bertillonáž má velký potenciál stát se běžnou součástí kriminalistické praxe. „Je to jako tělesný otisk prstu,“ uvedl vyšetřovatel Jean Moreau.
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 3 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article">
-        <h2>Willy Fog se vrátil</h2>
-        <h3>S princeznou Romy po boku se vrátil tam, kde se začal psát jejich společný příběh.</h3>
-        <img src="kostel.png">
-        <p>
-		<em>Sedlo, 22. června 2025</em> — Po dlouhých letech se do našeho milovaného Sedla vrátila slavná dvojice dobrodruhů: britský gentleman Willy Fog a jeho půvabná společnice princezna Romy. Jejich návrat způsobil doslova senzaci – na náves se přišly podívat desítky místních obyvatel, kteří chtěli na vlastní oči spatřit hrdiny, kteří procestovali celý svět za 80 dní.
-	<p>
-
-		Podle důvěryhodných zdrojů dorazili stylově – v parním kočáře doprovázeném pochodujícím slonem, údajně jejich starým přítelem z Indie.
-		Willy Fog, stále dokonale upravený s kloboukem na hlavě a hůlkou
-		<img src="chocolax.png" style="margin-top: 1rem;">
-		v ruce, ochotně odpovídal na otázky a rozdával autogramy. Princezna Romy po jeho boku zářila, oblečená ve splývavých šatech, které kombinovaly evropskou eleganci s orientálními prvky.
-	<p>
-		„Chtěli jsme se vrátit tam, kde naše společná cesta opravdu začala,“ prohlásil pan Fog s lehkým úsměvem. „Sedlo je pro nás místem srdce. Právě tady jsme poprvé pochopili, co znamená přátelství, odvaha a důvěra.“
-	<p>
-		Přestože své další plány tají, podle všeho zde hodlají zůstat alespoň několik týdnů. Místní radnice jim nabídla ubytování v historickém domě u lesa a obec se prý chystá uspořádat slavnostní večer na jejich počest.
-	<p>
-
-	<h5>Přijde i Rigodon?</h5>
-	<p>
-		Na dotaz, zda se k nim připojí i jejich věrní přátelé Rigodon a Tico, Willy Fog odpověděl tajemně: „Nechte se překvapit. Můžu jen prozradit, že Sedlo brzy uslyší nejednu melodii z harmoniky.“
-	<p>
-		Zpráva o jejich příjezdu se rychle šíří a Sedlo se tak možná znovu stane centrem úžasných dobrodružství.
-      </div>
-      <div class="article">
-        <h4>Odsouzen k zábavě</h4>
-	<p>
-		Někteří se na léto těší kvůli dobrodružství a novým zážitkům. Pro pana L. to však znamená nevyhnutelnou realitu – další ročník rodinného tábora. Zeptali jsme se ho, jak se s touto "tradicí" vyrovnává.
-	<p style="font-weight: bold;">
-		Dobrý den, pane L. Blíží se léto a s ním i pravidelný rodinný tábor.
-        <div class="crime">
-	  <h4>Letem Sedlem</h4>
-	  <ul>
-	    <li>Včera byla na kraji lesa nalezena opuštěná bota. Po několika hodinách pátrání se ukázalo, že patří místnímu důchodci panu J, který v ní „už nechtěl pokračovat“. Bota byla zajištěna, majitel odvezen na oběd.
-	    <li>Z domácnosti pana V. utekla kočka. O den později byla nalezena v sousedním bytě, kde prý „dostává kvalitnější granule“.
-	    <li>Obecní kamera zachytila neidentifikovatelný objekt, který se po hřbitově pohyboval pozpátku a držel zrcadlo. Po přiblížení se ukázalo, že šlo o puberťáka trénujícího TikTok „reverse challenge“.
-	  </ul>
-	</div>
-	<p style="font-weight: bold;">
-		Jak se na něj připravujete a co je pro vás nejtěžší?
-	<p>
-		Připravuji? Spíš se smiřuji. Kdybych mohl, zůstal jsem doma v klidu, ale rodina rozhodla. Tři proti jednomu, tak je to vždycky. Nejtěžší je ten neustálý program a žádný klid.
-	<p>
-		Ráno rozcvičky, pak hry, výlety, večerní programy. No řekněte, kdo to má vydržet.
-	<p style="font-weight: bold;">
-		A najde se přece jen něco, co vám na táboře přináší alespoň trochu radosti?
-	<p>
-		Jasně, když se večer konečně uklidní a děti usnou, mám chvíli klidu. Nejhorší je však ta představa, že místo do postele půjdu spát do spacáku ve stanu a společnost mi budou dělat komáři a další havěť.
-      </div>
-      <div class="joke">
-	<h5>Vtip dne</h5>
-	<p>
-	„Jsem slyšel, že při Černobylu zařvali jen dva lidi.”
-	<p>
-	„Jo?”
-	<p>
-	„Jeden řval: Vypni to!”
-	<p>
-	„A druhý: Nejde to!”
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 4 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article">
-        <h2 style="text-align: left; font-size: 1.3rem;">Ze světa sportu</h2>
-	<h4>Fotbalový zápas roku</h4>
-	<p>
-		Místní fotbalový tým FC Sedláci již brzy přivítá na svém hřišti soupeře z dalekého města. Podle informací z klubu se jedná o velmi silného protivníka, který v posledních letech dominuje regionálnímu fotbalu. „Je to pro nás velká výzva,“ říká trenér týmu Michal Caudr. „Ale věříme, že s podporou našich fanoušků dokážeme překvapit.“
-	</p>
-	<img src="caudr.png" alt="Michal Caudr">
-	<p>
-		Přípravy na zápas jsou v plném proudu a fanoušci se mohou těšit na bohatý doprovodný program. „Chceme, aby to byl zážitek pro celou rodinu,“ dodává Caudr. Zápas se uskuteční v sobotu 9. srpna a vstupenky jsou již v prodeji.
-      </div>
-      <div class="imprint">
-        <p><strong>Název:</strong> <em>Sedelská pravda</em>
-	<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.
-	<p><strong>Adresa:</strong> Sedlo 47, Česká republika
-	<p><strong>Email:</strong> info@sedelska.cz
-	<p><strong>Telefon:</strong> +420 123 456 789
-	<p><strong>Šéfredaktorka:</strong> Karolína Bukovská
-	<p><strong>Výkonný redaktor:</strong> Michal Bukovský
-	<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi
-	<p><strong>Grafická úprava:</strong> Michal Bukovský
-	<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice
-	<p><strong>Datum vydání:</strong> <span class="date"></span>
-	<p><strong>Číslo vydání:</strong> <span class="issue-number"></span>
-	<p style="margin-top:2em; font-size:0.8em;">
-		&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
-		Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
-      </div>
-      <div class="article">
-	<h4>Dopingová aféra na loňském olympiádě má dohru</h4>
-	<p>
-		Loňská dopingová aféra nakonec přinesla své ovoce. Mezinárodní olympijský výbor dnes oznámil, že zlatou medaili v běhu na 1000 metrů získá Bohumil Boreš, který původně skončil na druhém místě. Důvodem je pozitivní test Vojtěcha Bukovského, který byl odhalen až po skončení her.
-	<p>
-		Zatím není jasné, zda Bukovskému bude umožněno nastoupit do závodů na letošních hrách, které se konají začátkem srpna v Sedle. Podle informací z jeho týmu hluboce lituje svého činu a je připraven nést následky. „Je to pro mě obrovské ponaučení,“ řekl Bukovský v prohlášení. „Nikdy jsem nechtěl podvádět a teď vím, že jsem udělal chybu, která mě bude pronásledovat celý život.“
-      </div>
-      <div class="article">
-	<h4>Nový rekord v hodu kládou</h4>
-	<p>
-		Místní atletka Lucie Borešová dnes překonala vlastní rekord v hodu kládou. Její výkon 45,3 metru je nejlepším výsledkem v historii Sedla. Borešová se stala první ženou, která překonala hranici 45 metrů.
-	<p>
-		„Jsem nadšená,“ řekla Borešová po závodě. „Trénovala jsem tvrdě a jsem ráda, že se mi podařilo překonat svůj vlastní rekord. Doufám, že to bude inspirací pro další mladé sportovkyně v našem městě.“
-	<p>
-		Borešová se nyní připravuje na nadcházející mistrovství republiky, které se koná v září. Její trenérka Karolína Bukovská věří, že Lucie má šanci na medaili. „Je to talentovaná atletka a má před sebou skvělou budoucnost,“ řekla Bukovská.
-      </div>
-      <div class="horoscope">
-	<h4>Dnešní horoskop</h4>
-	<ul>
-	  <li data-symbol="♈️">
-		  Dnes budeš mít tolik energie, že bys mohl rozsvítit celé Sedlo. Ale pozor, abys později nelitoval.
-	  <li data-symbol="♉️">
-		  Trpělivost je tvá tajná zbraň. Když počkáš, odměna přijde.
-	  <li data-symbol="♊️">
-		  Komunikace je tvůj klíč k úspěchu. Dej pozor, aby tvá slova nezpůsobila víc zmatku než radosti.
-	  <li data-symbol="♋️">
-		  Emoce dnes budou jako horská dráha – chvíli nahoře, chvíli dole. Nezapomeň, že i slzy mohou být začátkem nového.
-	  <li data-symbol="♌️">
-		  Tvůj šarm a sebevědomí září jasněji než slunce. Využij je moudře a nezapomeň, že občas je fajn nechat i druhé zazářit.
-	  <li data-symbol="♍️">
-		  Drobné detaily dnes hrají velkou roli. Buď pečlivý, ale nezapomeň se také usmát.
-	  <li data-symbol="♎️">
-		  Hledání rovnováhy může být dnes o něco náročnější. Naslouchej své intuici a nezapomínej, že ne vše je černobílé.
-	  <li data-symbol="♏️">
-		  Intuice tě dnes neopustí. Pokud narazíš na záhadu, je čas ji rozluštit.
-	  <li data-symbol="♐️">
-		  Dobrodružství volá! Neboj se vykročit vstříc neznámému, ale radši si nezapomeň doma klíče.
-	  <li data-symbol="♑️">
-		  Vytrvalost a pevná vůle tě dnes dostanou daleko.
-	  <li data-symbol="♒️">
-		  Dnes můžeš přijít s nápadem, který všem vyrazí dech. Neboj se být jiný a ukázat světu svou jedinečnost.
-	  <li data-symbol="♓️">
-		  Tvá fantazie dnes pracuje na plné obrátky. Nech se unášet sny, ale zůstaň nohama na zemi, aby ses neztratil.
-	</ul>
-      </div>
-    </div>
-  </div>
-</body>
+		<script>
+			fixFirefoxGap();
+		</script>
+	</body>
 </html>
-

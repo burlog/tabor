@@ -1,475 +1,337 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <title>sedelska-pravda-2</title>
-  <style>
-    body {
-      background: #ccc;
-      margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: Georgia, serif;
-      hyphens: auto;
+	<head>
+		<meta charset="UTF-8">
+		<title>sedelska-pravda-2</title>
+		<link rel="stylesheet" href="../styles.css">
+		<script src="../script.js"></script>
+		<style>
+			.date::before {
+				content: "Neděle 10. srpna 2025";
+			}
 
-      counter-reset: page_counter 1;
-    }
+			.issue-number::after {
+				content: "0002";
+			}
+		</style>
+	</head>
+	<body lang="cs">
+		<!-- STRANA 1 -->
+		<div class="page">
+			<div class="main-header">
+				<img src="../logo.png" alt="Logo">
+				<div class="main-header-title">
+					<h1>Sedelská pravda</h1>
+					<p>Fakta, názory a konspirační teorie bez repelentu</p>
+				</div>
+			</div>
 
-    .page {
-      background: white;
-      width: 210mm;
-      height: 297mm;
-      padding: 10mm;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      margin-bottom: 1rem;
-      position: relative;
-      box-sizing: border-box;
-      overflow: hidden;
-      page-break-after: always;
-      display: flex;
-      flex-direction: column;
-    }
+			<div class="meta">
+				<span class="issue-number">Číslo </span>
+				<span class="date"></span>
+				<span>Cena: 1 úsměv</span>
+			</div>
 
-    .main-header {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #000;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.2rem;
-    }
+			<div class="main-article">
+				<div class="article-first-part">
+					<h2>Děsivý nález u Sedelského rybníka</h2>
+					</h2>
+					<h3>Záhada pokračuje: Čí je nalezená ruka?</h3>
+					<p>
+						Dnes brzy ráno došlo k děsivému nálezu: poblíž rybníka, jen pár metrů od břehu, byla nalezena lidská ruka. Objev učinila dvojice táborníků během ranního běhu. „Mysleli jsme, že je to gumová hračka,“ popsali krátce poté, „ale pak jsme si všimli krve.“
+					</p>
+					<p>
+						Sedelská obecní policie nález potvrdila a oblast byla okamžitě uzavřena. Ruka byla ohledána forenzními experty, kteří zjistili, že jde o pravou ruku dospělého člověka a je v dobrém stavu. Podle prvotních informací se nejedná o žádný starý nález, ale o čerstvý případ. Podle našeho informátora nenesla žádné známky zranění, které by nasvědčovaly násilnému činu. „Vypadá to, že byla odříznuta čistě a s chirurgickou precizností,“ uvedl náš zdroj z vyšetřovacího týmu.
+					</p>
+					<img src="rybnik.jpg" style="margin-bottom: 5px;">
+					<h4>Patří Klečkovi či někomu jinému?</h4>
+					<p>
+						Další šok přišel, když se ukázalo, že ruka nikomu v okolí nechybí. Její majitel se zatím nepřihlásil a policie spekuluje, že by mohla patřit panu Klečkovi, který před několika týdny zmizel z obce. „Je to jedna z možností, ale zatím nemáme žádné důkazy,“ uvedl policejní mluvčí. Vzhledem k čerstvosti nálezu se to však zdá nepravděpodobné, a tak policie zvažuje i další varianty. „Může jít o nějaký podivný žert, nebo o součást většího případu,“ dodal mluvčí.
+					</p>
+					<p>
+						Tím ale záhada nekončí. Podle svědků se v noci v okolí rybníka pohybovala postava v plášti, která mohla být pachatelem nebo svědkem. „Viděl jsem ji, ale byla tak rychlá, že jsem si ani nevšiml, jestli měla ruce,“ uvedl jeden z místních rybářů.
+				</div>
+			</div>
 
-    .main-header img {
-      height: 4rem;
-      width: 4rem;
-      margin-right: 1rem;
-      position: absolute;
-    }
+			<div class="columns">
+				<div class="article-first-part">
+					<h4>Sedlo má konečně zubaře!</h4>
+					<p>
+						Obec Sedlo se dočkala historického okamžiku – po letech, kdy si místní museli kvůli každému kazu objednávat taxi nebo poprosit souseda o svezení, se do obce opět stěhuje zubař. S velkou radostí ho vítáme a přinášíme vám s ním krátký rozhovor.
+					</p>
+				</div>
+				<div class="article">
+					<h4></h4>
+				</div>
+				<div class="teaser">
+					<h2>Dnes uvnitř</h2>
+					<ul>
+						<li>Muzeum vykradeno</li>
+						<li>Výprava mezi Šošony</li>
+						<li>Domácí nestačili</li>
+				</div>
+			</div>
+		</div>
 
-    .main-header-title {
-      flex-grow: 1;
-    }
+		<!-- STRANA 2 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .main-header-title h1 {
-      margin: 0;
-      font-size: 3.1rem;
-      text-transform: uppercase;
-      text-align: center;
-      hyphens: none;
-    }
+			<div class="columns">
+				<div class="article-last-part">
+					<h4>Děsivý nález u Sedelského rybníka</h4>
+					<p></p> <!-- schvalne -->
+					<h5>Klečka není jediný</h5>
+					<p>
+						Přestože pan Klečka je nezvěstný více jak měsíc, je možné, že ruka přece jen patří jemu. Policie však pracuje s více variantami. Ostatně pan Klečka není jediným, kdo v Sedle v poslední době zmizel. Připomeňme si například případ pana Mareše u starých pohraničních bunkrů nebo náhlý odjezd pana Hroně, který popíjející pivo na zahrádce Sedelské hospody prohlásil, že „jede na chvíli do Hradce“. A od té doby ho nikdo neviděl. Samozřejmě se nabízí i možnost, že ruka patří někomu z daleka, kdo se do Sedla dostal náhodou.
+					</p>
+					<p>
+						„Je to zvláštní, ale v Sedle se ztrácí lidé jako ponožky v pračce,“ říká náš redaktor. „A teď máme ruku, která může patřit komukoli. Možná je to jen nějaký podivný žert, ale kdo ví?“
+					</p>
+				</div>
+				<div class="article-last-part">
+					<h4>Rozhovor s MDDr. Václavem Drtěm</h4>
+					<p></p> <!-- schvalne -->
+					<p>
+						<strong>Pane doktore, vítejte v Sedle! Co vás sem přivedlo?</strong><br>
+						<em>Popravdě? Ticho. Po dvaceti letech v městské ordinaci, kde jsem slyšel víc klaksonů než „děkuji“, je Sedlo jako balzám na nervy – a dásně.</em>
+					</p>
+					<p>
+						<strong>Převzal jste ordinaci po dlouholetém působení MDDr. Vrtáka. Jaké to pro vás bylo?</strong><br>
+						<em>Vrták byl legenda. Dokázal dostat i toho nejnezodpovědnějšího pacienta na preventivku, a tak měl naprosto dokonalou zubní kartotéku. Když jsem viděl ty jeho záznamy, myslel jsem, že jsem se ocitl v nějakém zubařském ráji. Na toho se bude těžko navazovat.</em>
+					</p>
+					<p>
+						<strong>Máte už objednané první pacienty?</strong><br>
+						<em>Ano, lidé se zapisují rychle. Jeden pán chtěl preventivku, druhý jen "ukázat jedničky", a jeden mě žádal o vytetování zubu na rameno, což jsem musel odmítnout. (smích)</em>
+					</p>
+					<p>
+						<strong>Máte nějakou radu pro naše čtenáře, jak nezapomenout na preventivní prohlídky?</strong><br>
+						<em>Nejlepší je si nastavit připomínku v mobilu, nebo ještě lépe – si nechat vytetovat datum poslední prohlídky na zub! Ale vážně – prevence je základ. Když už vás najdu jen podle osmiček, je na opravu trochu pozdě.</em>
+					</p>
+					<p>
+						<strong>Říká se, že zuby každého člověka jsou unikátní. Je to pravda?</strong><br>
+						<em>Stoprocentně. Každý chrup je jako otisk prstu – tvar, postavení, i počet výplní. Dokonce i materiál plomb se může lišit. Kdybyste si prohlíželi chrup pod lupou, poznáte člověka lépe než z občanky.</em>
+					</p>
+					<p>
+						<strong>Chystáte v ordinaci nějaké novinky?</strong><br>
+						<em>Bude zde moderní rentgen, možnost lokálního znecitlivění čerstvým chladivým větrem z okolních luk a zdarma kartáček za každou návštěvu bez kazu. Uvažuji i o „věrnostní kartě“ – po devíti plombách desátá zdarma.</em>
+					</p>
+					<p>
+						Od příštího týdne bude ordinace MDDr. Drtě otevřena každé pondělí, středu a pátek.
+						Doporučujeme rezervaci předem a pořádně čistit zuby. Opravdu říkal, že si všimne všeho.
+					</p>
+				</div>
+				<div class="crime">
+					<h4>Letem Sedlem</h4>
+					<ul>
+						<li>V táboře byl nalezen stín bez osoby. Po chvíli se ukázalo, že šlo o špinavý vchod do týpí.</li>
+						<li>V noci se z latríny ozývalo tesklivé „mňau“. Kontrola našla jen prázdnou konzervu od rybiček.</li>
+					</ul>
+				</div>
+				<div class="article">
+					<h4>Místo slávy ostuda - místo výhry dluhy</h4>
+					<p>
+						Dobrodruh Jedlička se nedávno pokusil překonat světový rekord v přeplavání Atlantiku. Po 62 dnech v moři,
+						desítkách medúzích štípanců a jednom útoku velkého bílého žraloka, se mu to podařilo téměř včas. Téměř.
+					</p>
+					<h5>Chybělo 33 vteřin</h5>
+					<p>
+						„Zachytil jsem proud a byl jsem přesvědčený, že mám náskok. Ale pak jsem se snažil otevřít pytlík bonbónů a… no...,“ přiznal vyčerpaný plavec novinářům.
+					</p>
+					<p>
+						Pan Jedlička se ale nevzdává. „Příště to dám! Už mám vymyšlenou novou strategii – budu jíst bonbóny až v cíli!“
+					</p>
+					<h5>Zklamání a vztek</h5>
+					<p>
+						Problém je, že na překonání rekordu vsadilo mnoho místních (i nemístních). Kurzy byly lákavé a výhra měla být sladká. Nyní ale vládne spíš hořkost.
+					</p>
+					<p>
+						„Prohrál jsem dědictví po pratetě,“ hlásil anonymní sázkař z Číměře. Jiní volají po trestním oznámení za „sportovní sabotáž“. Jedlička se nyní musí skrývat před sázkaři, kteří mu vyhrožují, že dokončí to, co bílý žralok začal.
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .main-header-title p {
-      margin: 0;
-      text-align: center;
-      font-style: italic;
-      font-size: 1rem;
-    }
+		<!-- STRANA 3 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
 
-    .meta {
-      font-size: 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid #000;
-    }
+			<div class="columns">
+				<div class="article">
+					<h2>Výprava mezi Šošony</h2>
+					<h3>Jak českou badatelku málem odplavil tisíciletý déšť</h3>
+					<p style="font-style: italic;">
+						Reportáž Lucie Borešové, Sedlo, srpen 2025
+					</p>
+					<p>
+						Zprvu to měla být jen krátká terénní návštěva mezi příslušníky západoamerického kmene Šošonů. Nakonec se ale expedice české cestovatelky a antropoložky Jany Kubové proměnila v dramatický příběh o kulturním poznání, přežití v extrémních podmínkách a přátelství.
+					</p>
+					<h5>Setkání s kmenem v údolí Cold Creek</h5>
+					<p>
+						Výprava začala nadějně. Badatelka dorazila do oblasti Cold Creek Reservation ve Wyomingu, kde se jí podařilo navázat kontakt s místní šošonskou komunitou. <em>„Byli překvapivě otevření a vstřícní,“</em> uvedla Kubová. <em>„Mluvila jsem s pamětníky, zúčastnila jsem se obřadů a pomáhala s dokumentací tradičních písní.“</em>
+					</p>
+					<p>
+						Cílem její mise bylo zaznamenat proměny současné šošonské identity a způsobu života v době klimatických změn a digitalizace. Kromě rozhovorů a záznamu orální historie měla s sebou i přenosné laboratoře pro analýzu půdy a vody, aby mohla zaznamenat environmentální otisky života komunity.
+					</p>
+					<img src="sosoni-1.jpg" style="width: 120mm; float: left">
+					<h5 >Vše změnil déšť</h5>
+					<p>
+						Jenže pak přišel sedmý den. A s ním déšť. Ne nějaký příjemný horský deštík, ale vytrvalý monzunový liják, jaký podle místních nepřišel dobrých tisíc let. Potok, který jindy líně protéká tábořištěm pod kopcem, se vzedmul do běsnícího proudu.
+					</p>
+					<p>
+						<em>„Slyšela jsem, jak se stany začínají bořit, a do dvaceti minut jsem stála v půl metru vody,“</em> vzpomíná Kubová. <em>„Jediné, co jsem stihla zachránit, byly nahrávky a notýsky. A samozřejmě čelovku.“</em>
+					</p>
+					<p>
+						Evakuace proběhla narychlo, za asistence místních mladíků, kteří badatelku na improvizovaných kánoích přepravili do vyššího terénu. Zbytek noci strávili v komunitním centru, kde jí starší ženy sušily ponožky nad ohněm.
+					</p>
+					<h5>Není to jen výzkum, je to vztah</h5>
+					<p>
+						Navzdory nepřízni počasí výprava přivezla zpět nejen cenný materiál, ale i důležité lidské zkušenosti. <em>„Ve chvíli, kdy jsem stála v bahně po pás a pomáhala stavět nové přístřešky, jsem pochopila, že můj výzkum není jen o sbírání dat,“</em> říká Kubová. <em>„Je to o vztahu, o důvěře a o tom, že i my se musíme stát součástí.“</em>
+					</p>
+					<p class="column-break">
+						Z výpravy si vědkyně přivezla více než jen záznamy a fotky – také nové přátele, pozvání na další obřady
+					</p>
+					<p style="margin-top: 90mm;">
+					a zcela nový pohled na význam komunitního života.
+					</p>
+					<h5>Epilog pod žlutým pláštěnkovým nebem</h5>
+					<p>
+						Ještě několik dní po povodni se v táboře nosila hlína v kotlících, sušily se kožešiny a opravovaly stany. A mezi tím vším pobíhala naše badatelka s diktafonem a lopatou, jakoby tu byla odjakživa.
+					</p>
+					<img src="sosoni-2.jpg">
+					<p>
+						Jak shrnula starší členka komunity, Mary Little Feather:
+					</p>
+					<p>
+						<em>„Tato žena přišla s otázkami a odešla jako sestra – jako velmi špinavá sestra.“</em>
+					</p>
+				</div>
+				<div class="joke">
+					<h5>Vtip dne</h5>
+					<p>
+						Povídá jeden policajt druhému: <em>„Ten rogalo, to je ale strašnej pták. Musel jsem na něj vystřílet celej zásobník, než toho chlapa pustil."</em>
+					</p>
+				</div>
+			</div>
+		</div>
 
-    .teaser {
-      border: 1px solid #000;
-      margin: 0px;
-      padding: 0.5rem;
-    }
-
-    .teaser h2 {
-      font-size: 1rem;
-      text-transform: uppercase;
-      margin: 0;
-      text-align: left;
-      hyphens: none;
-    }
-
-    .teaser ul {
-      font-size: 0.8rem;
-      list-style: square;
-      padding: 0;
-      margin: 0.2rem 0.8rem;
-      list-style-position: outside;
-    }
-
-    .main-article h2, .article h2 {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      margin: 0 0 0.5rem 0;
-      text-align: center;
-      hyphens: none;
-    }
-
-    .main-article h3, .article h3 {
-      font-size: 1.0rem;
-      font-style: italic;
-      text-align: center;
-      margin: 0 0 1rem 0;
-      hyphens: none;
-    }
-
-    .main-article h4, .article-first-part h4, .article-last-part h4, .article h4, .horoscope h4 {
-      font-size: 1.2rem;
-      margin: 0 0 0.8rem 0;
-      text-transform: uppercase;
-      text-align: left;
-      hyphens: none;
-    }
-
-    .main-article h5, .article-first-part h5, .article-last-part h5, .article h5, .horoscope h5, .joke h5 {
-      font-size: 1.0rem;
-      margin: 0 0 0.6rem 0;
-      text-transform: uppercase;
-      text-align: left;
-      hyphens: none;
-    }
-
-    .main-article p, .article-first-part p, .article-last-part p, .article p, .horoscope li {
-      font-size: 0.8rem;
-      text-align: justify;
-      line-height: 1.5;
-    }
-
-    .main-article p, .article-first-part p, .article-last-part p, .article p {
-      margin: 0;
-      padding: 0 0 0.5rem 0;
-    }
-
-    .main-article img {
-      float: left;
-      width: 120mm;
-      margin: 0 5mm 5mm 0;
-    }
-
-    .header {
-      font-size: 0.6rem;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      border-bottom: 2px solid #000;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .header h1 {
-      text-transform: uppercase;
-      font-size: inherit;
-      margin: 0px;
-      padding: 0px;
-      text-decoration: none;
-      hyphens: none;
-    }
-
-    .article-first-part p:last-of-type:after {
-      content: "podrobnosti najdete uvnitř čísla";
-      display: block;
-      font-style: italic;
-      font-size: 0.5rem;
-    }
-
-    .article p:last-of-type:after, .article-last-part p:last-of-type:after {
-      content: "\00A0\25A1";
-    }
-
-    .article-last-part p:first-of-type::before {
-      content: "pokračování z úvodní strany";
-      display: block;
-      font-style: italic;
-      font-size: 0.5rem;
-    }
-
-    .columns {
-      flex: 1;
-      column-count: 3;
-      column-gap: 10mm;
-      column-fill: auto;
-      overflow: hidden;
-    }
-
-    .columns > div {
-      margin-top: 1rem;
-    }
-
-    .columns > div:first-child {
-      margin-top: 0rem;
-    }
-
-    .columns img {
-      width: 100%;
-      margin: 0;
-    }
-
-    .joke {
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #000;
-      text-align: left;
-    }
-
-    .joke p {
-      font-size: 0.8rem;
-      line-height: 1;
-      margin: 0.2rem 0;
-    }
-
-    .crime {
-      border-left: 1px solid #000;
-      border-bottom: 1px solid #000;
-      padding: 0 0 0 0.5rem;
-      margin: 0 0 0.5rem 0;
-      font-size: 0.8rem;
-    }
-
-    .crime ul {
-      list-style: square;
-      list-style-position: inside;
-      padding: 0;
-      margin: 0.5rem 0 0 0;
-    }
-
-    .crime ul li {
-      margin-bottom: 0.2rem;
-    }
-
-    .horoscope ul {
-      list-style: none;
-      list-style-position: inside;
-      padding-left: 0;
-      margin: 0.8rem 0 0 0;
-      font-size: 0.8rem;
-    }
-
-    .horoscope ul li {
-      position: relative;
-      padding-left: 0rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .horoscope ul li::before {
-      content: attr(data-symbol);
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .horoscope ul li::first-letter {
-      margin-left: 1.5rem;
-    }
-
-    .imprint {
-      font-size: 0.7rem;
-      text-align: center;
-      margin-top: 1rem;
-      color: #666;
-      border-top: 1px solid #000;
-    }
-
-    .imprint p {
-      margin: 0.1rem 0;
-      text-align: left;
-    }
-
-    .date::before {
-      content: "Neděle 10. srpna 2025";
-    }
-
-    .issue-number::after {
-      content: "0002";
-    }
-
-    .page-number::before {
-      counter-increment: page_counter;
-      content: counter(page_counter);
-    }
-
-    @media print {
-      body {
-        background: white;
-        padding: 0;
-      }
-
-      .page {
-        width: 210mm;
-        height: 297mm;
-        padding: 10mm;
-        box-shadow: none;
-        margin: 0 auto;
-        page-break-after: always;
-        box-sizing: border-box;
-        overflow: hidden;
-        page-break-after: always;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body lang="cs">
-  <!-- STRANA 1 -->
-  <div class="page">
-    <div class="main-header">
-      <img src="logo.png" alt="Logo">
-      <div class="main-header-title">
-        <h1>Sedelská pravda</h1>
-        <p>Fakta, názory a konspirační teorie bez repelentu</p>
-      </div>
-    </div>
-
-    <div class="meta">
-      <span class="issue-number">Číslo </span>
-      <span class="date"></span>
-      <span>Cena: 1 úsměv</span>
-    </div>
-
-    <div class="main-article">
-      <div class="article-first-part">
-	<img src="bunkr.png">
-	<h2></h2>
-	<h3></h3>
-	<p>
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="article-first-part">
-        <h4></h4>
-      </div>
-      <div class="article">
-	<h4></h4>
-      </div>
-      <div class="teaser">
-	<h2>Dnes uvnitř</h2>
-	<ul>
-	  <li>
-	  <li>
-	  <li>
-	  <li>
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 2 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article-last-part">
-	<h4></h4>
-	<p>
-	<h5></h5>
-	<p>
-      </div>
-      <div class="article">
-	<h4></h4>
-	<p>
-      </div>
-      <div class="article-last-part">
-        <h4></h4>
-	<p>
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 3 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article">
-        <h2></h2>
-        <h3></h3>
-        <p>
-	<h5></h5>
-      </div>
-      <div class="article">
-        <h4></h4>
-	<p>
-        <div class="crime">
-	  <h4>Letem Sedlem</h4>
-	  <ul>
-	    <li>
-	    <li>
-	    <li>
-	  </ul>
-	</div>
-	<p style="font-weight: bold;">
-	<p>
-      </div>
-      <div class="joke">
-	<h5>Vtip dne</h5>
-	<p>
-      </div>
-    </div>
-  </div>
-
-  <!-- STRANA 4 -->
-  <div class="page">
-    <div class="header">
-      <span class="page-number"></span>
-      <h1>Sedelská pravda</h1>
-      <span class="date"></span>
-    </div>
-
-    <div class="columns">
-      <div class="article">
-        <h2 style="text-align: left; font-size: 1.3rem;">Ze světa sportu</h2>
-	<h4></h4>
-	<p>
-      </div>
-      <div class="imprint">
-        <p><strong>Název:</strong> <em>Sedelská pravda</em>
-	<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.
-	<p><strong>Adresa:</strong> Sedlo 47, Česká republika
-	<p><strong>Email:</strong> info@sedelska.cz
-	<p><strong>Telefon:</strong> +420 123 456 789
-	<p><strong>Šéfredaktorka:</strong> Karolína Bukovská
-	<p><strong>Výkonný redaktor:</strong> Michal Bukovský
-	<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi
-	<p><strong>Grafická úprava:</strong> Michal Bukovský
-	<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice
-	<p><strong>Datum vydání:</strong> <span class="date"></span>
-	<p><strong>Číslo vydání:</strong> <span class="issue-number"></span>
-	<p style="margin-top:2em; font-size:0.8em;">
-		&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
-		Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
-      </div>
-      <div class="article">
-	<h4></h4>
-	<p>
-      </div>
-      <div class="article">
-	<h4></h4>
-	<p>
-      </div>
-      <div class="horoscope">
-	<h4>Dnešní horoskop</h4>
-	<ul>
-	  <li data-symbol="♈️">
-	  <li data-symbol="♉️">
-	  <li data-symbol="♊️">
-	  <li data-symbol="♋️">
-	  <li data-symbol="♌️">
-	  <li data-symbol="♍️">
-	  <li data-symbol="♎️">
-	  <li data-symbol="♏️">
-	  <li data-symbol="♐️">
-	  <li data-symbol="♑️">
-	  <li data-symbol="♒️">
-	  <li data-symbol="♓️">
-	</ul>
-      </div>
-    </div>
-  </div>
-</body>
+		<!-- STRANA 4 -->
+		<div class="page">
+			<div class="header">
+				<span class="page-number"></span>
+				<h1>Sedelská pravda</h1>
+				<span class="date"></span>
+			</div>
+			<div class="columns">
+				<div class="article">
+					<h2 style="text-align: left; font-size: 23px;">Ze světa sportu</h2>
+			  	<h4>Domácí nestačili</h4>
+					<p>
+						Navzdory obrovskému nasazení tým FC Sedláci v zápase podlehl soupeři z města 2:3. <em>„Zápas byl na velmi dobré úrovni. Proti nám však kromě soupeřů hrál přefouklý balón a i rozhodčí,“</em> komentoval utkání trenér Michal Caudr.
+					</p>
+					<p>
+						Celou dobu byl zápas vyrovnaný, těsně před koncem však došlo ke spornému střídání, které zápas rozhodlo. AC Náplava vystřídala vyčerpaného hráče a čerstvá posila rozhodla zápas. Bohumil B. dostal nahrávku po lajně, bez váhání vystřelil. Ella B. se už jen mohla dívat na houpající síť. <em>„Měla to být remíza, on nebyl na soupisce!“</em> vysvětluje pan Caudr.
+					</p>
+					<p>
+						I přes prohru nešlo přehlédnout, že posila z pražské Sparty, Karolína Sekačka B., obrovsky pozvedla domácí hru. <em>„Její přínos je velkým příslibem do budoucna!“</em> myslí si trenér.
+            </p>
+					</p>
+				</div>
+				<div class="article">
+					<h4>Dýmovnice rozproudila atmosféru i sanitku</h4>
+					<img src="zapas.jpg">
+					<p>
+						V polovině zápasu došlo k nečekané události: dýmovnice, kterou někdo vhodil na okraj hřiště, nevydávala jen kouř, ale po krátkém syčení explodovala s takovou vervou, že odštěpek trefil nic netušícího fanouška, který si právě rozbaloval sekanou.
+					</p>
+					<p>
+						„Myslel jsem, že jsem zpátky na vojně,“ komentoval situaci pan A. po ošetření v nemocnici. „Naštěstí jsem jen přišel o kousek ucha a sekaná zůstala celá.“
+					</p>
+				</div>
+				<div class="article">
+					<h2 style="text-align: left; font-size: 23px;">Nad dopisy čtenářů</h2>
+					<h5>Dopis od M.B.</h5>
+					<p style="font-style: italic;">
+						Dobrý den rád bych upřesnil nějaké info o Sedle za 1. Sedlo není město. Za 2. V Sedle není školka. Za 3. Už vůbec tam není policie. A za 4. Máte v novinách špatně napsaný e-mail. Byl bych rád kdyby se už takové falešné informace nevyskytovaly a kdyby jste tam dávaly vtipnější vtipy. Předem děkuji.
+					</p>
+					<p>
+						Milý, pozorný čtenáři,</br>
+						velmi nás těší váš zájem o investigativní deník "Sedelská pravda". V zásadě nás vůbec nepřekvapuje, že nemáte o sedelské obecní policii naprosté tušení. Její existenci prozradil až zmiňovaný toaletní skandál, o kterém jste se v našich novinách dočetl. Všechno zlé je pro něco dobré, jak se říká a díky tomuto nevídanému skandálu jsme také zjistili, že jistá Eda Škrláková vede v obci mateřskou školku, o které do této doby také nikdo neměl ani tušení. Bylo to tolik nečekaných objevů, že náš sedelský tiskařský šotek využil situace a pořádně si zařádil. Samozřejmě víme, že Sedlo není město, ale obec, jsme seriózní, dobře informované vydavatelství. Tiskařský šotek dostane přes prsty, aby nám nadále nesahal do raznice na e-mailové adresy.
+					</p>
+					<p>
+						P.S. Přestaneme žrát suchary, aby ty vtipy za něco stály.
+					</p>
+				</div>
+				<div class="horoscope">
+					<h4>Dnešní horoskop</h4>
+					<ul>
+						<li data-symbol="♈">
+							Dnes hrozí, že se vydáte vpřed tak urputně, až dojdete tam, kam jste vůbec nechtěli.
+						</li>
+						<li data-symbol="♉">
+							Nechte si dnes poradit – mléko nevře navěky a tvrdohlavost taky ne.
+						</li>
+						<li data-symbol="♊">
+							Vymyslíte tři geniální věci, ale zapomenete si obout boty.
+						</li>
+						<li data-symbol="♋">
+							Vaše introverze dnes dosáhne vrcholu – úspěšně se schováte i před vlastní náladou.
+						</li>
+						<li data-symbol="♌">
+							Čeká vás potlesk – i když jen od automatického sušáku na ruce.
+						</li>
+						<li data-symbol="♍">
+							Dnešek bude ideální pro úklid emocí – začněte u těch ostatních.
+						</li>
+						<li data-symbol="♎">
+							Váháte tak dlouho, až se rozhodne za vás pes.
+						</li>
+						<li data-symbol="♏">
+							Opatrně s ironií – hvězdy vás slyší a mají smysl pro suchý humor.
+						</li>
+						<li data-symbol="♐">
+							Narazíte na velkou pravdu – bude napsaná fixou na zastávce.
+						</li>
+						<li data-symbol="♑">
+							Podaří se vám konečně někoho nadchnout – bohužel to bude tchoř.
+						</li>
+						<li data-symbol="♒">
+							Vaše vize dnes ohromí okolí – pokud si je nepleteme s divokým blábolením.
+						</li>
+						<li data-symbol="♓">
+							Ideální den ztratit se ve snech – nebo aspoň v cizím obchodě s nábytkem.
+						</li>
+					</ul>
+				</div>
+				<div class="imprint">
+					<p><strong>Název:</strong> <em>Sedelská pravda</em></p>
+					<p><strong>Vydavatel:</strong> Sedlo Media Group, s.r.o.</p>
+					<p><strong>Adresa:</strong> Sedlo 47, Česká republika</p>
+					<p><strong>Email:</strong> info@sedelska-pravda.cz</p>
+					<p><strong>Telefon:</strong> +420 123 456 789</p>
+					<p><strong>Šéfredaktorka:</strong> Karolína Bukovská</p>
+					<p><strong>Výkonný redaktor:</strong> Michal Bukovský</p>
+					<p><strong>Redakce:</strong> Lucie a Bohumil Borešovi</p>
+					<p><strong>Grafická úprava:</strong> Michal Bukovský</p>
+					<p><strong>Tisk:</strong> Česká Tiskárna a.s., Nová Bystřice</p>
+					<p><strong>Datum vydání:</strong> <span class="date"></span></p>
+					<p><strong>Číslo vydání:</strong> <span class="issue-number"></span></p>
+					<p style="margin-top:2em; font-size:0.8em;">
+						&copy; 2025 Sedlo Media Group. Všechna práva vyhrazena.<br />
+						Jakékoli šíření obsahu bez svolení vydavatele je zakázáno.
+					</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			fixFirefoxGap();
+		</script>
+	</body>
 </html>

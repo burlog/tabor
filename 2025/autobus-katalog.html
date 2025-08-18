@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta charset="UTF-8">
+		<title>autobus-katalog</title>
+		<style>
+:root{
+	--ink:#111; --ink2:#444; --muted:#777; --line:#ddd; --accent:#0b6; --bg:#f6f7f8;
+}
+	html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+	.page{max-width:900px;margin:0 auto;padding:20px 24px}
+	.head{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:10px}
+	.brand h1{font-size:22px;margin:0}
+	.brand p{margin:2px 0 0 0;color:var(--ink2);font-size:12px}
+	.badge{border:2px solid var(--accent); padding:10px 12px; border-radius:8px; font-weight:700; font-size:14px; color:var(--accent)}
+	.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;padding:16px 0}
+	.hero h2{font-size:26px; margin:0 0 8px}
+	.hero p{margin:6px 0; color:var(--ink2)}
+	.panel{background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:12px 14px}
+	.list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+	.list .item{border:1px solid var(--line); border-radius:8px; padding:10px}
+	.item h4{margin:0 0 6px; font-size:14px}
+	.item p{margin:0; font-size:13px; color:var(--ink2)}
+	.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+	table{width:100%; border-collapse:collapse; font-size:13px}
+	th,td{border:1px solid var(--line); padding:6px 8px; text-align:center}
+	th{background:#eee}
+	.stop{text-align:left; font-weight:600}
+	.cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+	.btn{border:2px solid var(--accent); color:#fff; background:var(--accent); padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px}
+	.btn.ghost{background:#fff; color:var(--accent)}
+	.fine{font-size:12px; color:var(--muted); margin-top:8px}
+	.quote{font-style:italic; color:#1a1a1a; border-left:3px solid var(--accent); padding-left:10px; margin:8px 0}
+	.features{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+	.chip{border:1px solid var(--line); border-radius:999px; padding:8px 10px; text-align:center; font-size:12px; background:#fff}
+	.foot{display:flex; gap:12px; justify-content:space-between; align-items:flex-end; margin-top:14px; border-top:2px solid var(--line); padding-top:10px}
+	.qrbox{border:2px dashed var(--line); border-radius:6px; padding:18px; text-align:center; font-size:12px; color:var(--muted)}
+	@media print {
+		.btn,.badge,.qrbox{border-color:#000}
+		a{color:#000; text-decoration:underline}
+	}
+	@media (max-width:780px){
+		.hero{grid-template-columns:1fr}
+		.list{grid-template-columns:1fr 1fr}
+		.grid{grid-template-columns:1fr}
+		.features{grid-template-columns:1fr 1fr}
+	}
+		</style>
+	</head>
+	<body lang="cs">
+		<div class="page">
+			<header class="head">
+				<div class="brand">
+					<h1>ČSAD Jindřichův Hradec s.r.o.</h1>
+					<p>Bezpečně a pohodlně — z jihu Čech až do srdce Prahy</p>
+				</div>
+				<div class="badge">AKTUÁLNĚ: Posílené páteční spoje</div>
+			</header>
+
+			<section class="hero">
+				<div>
+					<h2>Do Prahy snadno, pohodlně a bez starostí</h2>
+					<p>Vyrazte s námi z&nbsp;Jindřichohradecka do Prahy. Moderní dálkové autobusy, rozumné časy, férové ceny a řidiči, kteří to znají.</p>
+					<div class="features" aria-label="Výhody">
+						<div class="chip">Wi-Fi* a USB*</div>
+						<div class="chip">Zásuvky*</div>
+						<div class="chip">Klimatizace</div>
+						<div class="chip">Čitelné jízdné</div>
+					</div>
+					<div class="fine">* Vybavení dle konkrétního vozu a linky.</div>
+					<div class="cta">
+						<a class="btn" href="#">Rezervovat místo</a>
+						<a class="btn ghost" href="#">Stáhnout jízdní řád (PDF)</a>
+					</div>
+				</div>
+				<div class="panel">
+					<h3 style="margin:0 0 6px;">Proč jet autobusem do Prahy?</h3>
+					<ul style="margin:6px 0 0 18px; padding:0;">
+						<li>Bez přestupů na vybraných spojích, s přestupem výhodně přes J. Hradec.</li>
+						<li>Dojezd na metro (Praha–Roztyly / Florenc dle spoje).</li>
+						<li>Jdete hned z autobusu rovnou do města — bez parkování a kolon.</li>
+					</ul>
+					<p class="quote">„Za dvě hodinky v&nbsp;Praze, notebook nabitý, kafe dopité. V autě se mi tohle nepovede.“</p>
+				</div>
+			</section>
+
+			<section class="grid">
+				<div>
+					<h3 style="margin:0 0 6px;">Vybrané páteční odjezdy — směr Praha</h3>
+					<table aria-label="Ukázka pátečních spojů do Prahy">
+						<thead>
+							<tr>
+								<th>Zastávka</th>
+								<th>05:45</th>
+								<th>09:00</th>
+								<th>14:15</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td class="stop">Sedlo</td><td>05:45</td><td>09:00</td><td>14:15</td></tr>
+							<tr><td class="stop">Jindřichův Hradec (aut. nádr.)</td><td>06:10</td><td>09:25</td><td>14:40</td></tr>
+							<tr><td class="stop">Tábor</td><td>07:25</td><td>10:40</td><td>15:55</td></tr>
+							<tr><td class="stop">Praha (Roztyly / Florenc)</td><td>09:50</td><td>13:40</td><td>19:00</td></tr>
+						</tbody>
+					</table>
+					<p class="fine">Časy demonstrativní. Ověřte v aktuálním jízdním řádu dopravce před cestou.</p>
+				</div>
+				<div>
+					<h3 style="margin:0 0 6px;">Cenové příklady &amp; slevy</h3>
+					<div class="list">
+						<div class="item">
+							<h4>Sedlo → Praha</h4>
+							<p>od <strong>199 Kč</strong> (online)</p>
+						</div>
+						<div class="item">
+							<h4>J. Hradec → Praha</h4>
+							<p>od <strong>169 Kč</strong> (online)</p>
+						</div>
+						<div class="item">
+							<h4>Slevy</h4>
+							<p>Student / Senior / Dítě — dle tarifu</p>
+						</div>
+					</div>
+					<p class="fine">Ceny orientační. Finální jízdné dle platného tarifu a obsazenosti.</p>
+				</div>
+			</section>
+
+			<section class="grid" style="width: 1800px">
+				<div style="display:flex; gap:20px; align-items:flex-start; width:100%">
+					<img src="mapa-kancelar.png" style="width: 450px;">
+					<div>
+						<h3 style="margin:0 0 6px;">Tipy na cestu</h3>
+						<ul style="margin:6px 0 0 18px;">
+							<li>Doražte 10 min. před odjezdem, ať v klidu nastoupíte.</li>
+							<li>Lehké zavazadlo do kabiny, kufry do zavazadlového prostoru.</li>
+							<li>V Praze sledujte navazující MHD (metro C Roztyly / B Florenc).</li>
+							<li>V případě dotazů volejte na infolinku: <strong>+420 384 371 911</strong></li>
+							<li>Pro aktuální jízdní řád a rezervace navštivte <a href="https://www.csad-jh.cz" target="_blank">www.csad-jh.cz</a>.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<footer class="foot">
+				<div>
+					<strong>ČSAD Jindřichův Hradec s.r.o.</strong><br>
+					Tel.: +420&nbsp;384&nbsp;371&nbsp;911 &nbsp;|&nbsp; E-mail: info@csad-jh.cz
+					<div class="fine">Změna vyhrazena. Vybavení vozů a zastávky se mohou lišit dle konkrétní linky.</div>
+				</div>
+				<div class="fine" style="text-align:right">
+					Platí pro páteční spoje · Jednostránkový leták · © ČSAD JH
+				</div>
+			</footer>
+
+		</div>
+	</body>
+</html>

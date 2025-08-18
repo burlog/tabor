@@ -1,0 +1,55 @@
+<svg width="800" height="250" xmlns="http://www.w3.org/2000/svg" style="border:1px solid #ccc; font-family: sans-serif;">
+  <!-- Popis -->
+  <text x="400" y="20" text-anchor="middle" font-size="16" font-weight="bold">Schéma dospělého chrupu (FDI značení)</text>
+
+  <!-- Horní čelist -->
+  <text x="400" y="45" text-anchor="middle" font-size="14">Horní čelist</text>
+  <!-- Pravá strana (kvadrant 1) -->
+  <g font-size="12">
+    <text x="750" y="70">18</text>
+    <text x="700" y="70">17</text>
+    <text x="650" y="70">16</text>
+    <text x="600" y="70">15</text>
+    <text x="550" y="70">14</text>
+    <text x="500" y="70">13</text>
+    <text x="450" y="70">12</text>
+    <text x="400" y="70">11</text>
+
+    <!-- Levá strana (kvadrant 2) -->
+    <text x="350" y="70">21</text>
+    <text x="300" y="70">22</text>
+    <text x="250" y="70">23</text>
+    <text x="200" y="70">24</text>
+    <text x="150" y="70">25</text>
+    <text x="100" y="70">26</text>
+    <text x="50" y="70">27</text>
+    <text x="0" y="70">28</text>
+  </g>
+
+  <!-- Dělící čára -->
+  <line x1="400" y1="80" x2="400" y2="160" stroke="#aaa" stroke-dasharray="4"/>
+
+  <!-- Dolní čelist -->
+  <text x="400" y="180" text-anchor="middle" font-size="14">Dolní čelist</text>
+  <g font-size="12">
+    <!-- Levá strana (kvadrant 3) -->
+    <text x="0" y="210">38</text>
+    <text x="50" y="210">37</text>
+    <text x="100" y="210">36</text>
+    <text x="150" y="210">35</text>
+    <text x="200" y="210">34</text>
+    <text x="250" y="210">33</text>
+    <text x="300" y="210">32</text>
+    <text x="350" y="210">31</text>
+
+    <!-- Pravá strana (kvadrant 4) -->
+    <text x="400" y="210">41</text>
+    <text x="450" y="210">42</text>
+    <text x="500" y="210">43</text>
+    <text x="550" y="210">44</text>
+    <text x="600" y="210">45</text>
+    <text x="650" y="210">46</text>
+    <text x="700" y="210">47</text>
+    <text x="750" y="210">48</text>
+  </g>
+</svg>

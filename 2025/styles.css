@@ -1,0 +1,414 @@
+@font-face {
+  font-family: "Liberation Serif";
+  src: url("LiberationSerif-Regular.woff2") format("woff2"),
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+	background: #ccc;
+	margin: 0;
+	padding: 36px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	hyphens: auto;
+
+	font-family: "Liberation Serif", serif;
+
+	counter-reset: page_counter 1;
+}
+
+.page {
+	background: white;
+	width: 210mm;
+	height: 297mm;
+	padding: 10mm 10mm 9.5mm 10mm;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	margin-bottom: 18px;
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+	page-break-after: always;
+	display: flex;
+	flex-direction: column;
+}
+
+.main-header {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #000;
+	padding-bottom: 9px;
+	margin-bottom: 4px;
+}
+
+.main-header img {
+	height: 72px;
+	width: 72px;
+	margin-right: 18px;
+	position: absolute;
+}
+
+.main-header-title {
+	flex-grow: 1;
+}
+
+.main-header-title h1 {
+	line-height: 1.2;
+	margin: 0;
+	font-size: 56px;
+	text-transform: uppercase;
+	text-align: center;
+	hyphens: none;
+}
+
+.main-header-title p {
+	margin: 0;
+	text-align: center;
+	font-style: italic;
+	font-size: 18px;
+}
+
+.meta {
+	font-size: 16px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 36px;
+	border-bottom: 2px solid #000;
+}
+
+.teaser {
+	border: 1px solid #000;
+	margin: 0 !important;
+	padding: 9px 0 9px 0;
+}
+
+.teaser h2 {
+	line-height: 1.2;
+	font-size: 18px;
+	text-transform: uppercase;
+	margin: 0 0 0 9px;
+	text-align: left;
+	hyphens: none;
+}
+
+.teaser ul {
+	font-size: 14px;
+	list-style: square;
+	list-style-position: inside;
+	padding: 0;
+	margin: 4px 0px 4px 9px;
+}
+
+.main-article h2, .article h2 {
+	line-height: 1.2;
+	font-size: 27px;
+	text-transform: uppercase;
+	margin: 0 0 9px 0;
+	padding: 0;
+	text-align: center;
+	hyphens: none;
+}
+
+.main-article h3, .article h3 {
+	line-height: 1.2;
+	font-size: 18px;
+	font-style: italic;
+	text-align: center;
+	margin: 0 0 18px 0;
+	hyphens: none;
+}
+
+.main-article h4, .article-first-part h4, .article-last-part h4, .article h4, .horoscope h4 {
+	line-height: 1.2;
+	font-size: 21px;
+	margin: 0 0 15px 0;
+	text-transform: uppercase;
+	text-align: left;
+	hyphens: none;
+}
+
+.main-article h5, .article-first-part h5, .article-last-part h5, .article h5, .horoscope h5 {
+	line-height: 1.2;
+	font-size: 17px;
+	margin: 0 0 11px 0;
+	text-transform: uppercase;
+	text-align: left;
+	hyphens: none;
+}
+
+.main-article p, .article-first-part p, .article-last-part p, .article p, .horoscope li, .columns ul li {
+	font-size: 14.3px;
+	text-align: justify;
+	line-height: 1.5;
+}
+
+.main-article p, .article-first-part p, .article-last-part p, .article p {
+	margin: 0;
+	padding: 0 0 9px 0;
+	line-height: 1.5;
+}
+
+.main-article img {
+	float: left;
+	width: 120mm;
+	margin: 0 5mm 0 0;
+}
+
+.header {
+	font-size: 11px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 9px;
+	border-bottom: 2px solid #000;
+	padding-bottom: 9px;
+	margin-bottom: 27px;
+}
+
+.header h1 {
+	text-transform: uppercase;
+	font-size: inherit;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	hyphens: none;
+	line-height: 1.2;
+}
+
+.article-first-part p:last-of-type:after {
+	content: "▻ podrobnosti najdete uvnitř čísla";
+	font-style: italic;
+	font-size: 13px;
+}
+
+.article p:last-of-type:after, .article-last-part p:last-of-type:after {
+	content: "\00A0\25A1";
+}
+
+.article-last-part p:first-of-type::before {
+	content: "▻ pokračování z úvodní strany";
+	display: block;
+	font-style: italic;
+	font-size: 13px;
+}
+
+.columns {
+	flex: 1;
+	column-count: 3;
+	column-gap: 10mm;
+	column-fill: auto;
+	overflow: hidden;
+	widows: 1;
+	orphans: 1;
+}
+
+.columns > div {
+	margin-top: 18px;
+}
+
+.columns > div:first-child {
+	margin-top: 0;
+}
+
+.columns img {
+	width: 100%;
+	margin: 0;
+}
+
+.article ul, .article-first-part ul, .article-last-part ul {
+  list-style: square;
+	list-style-position: inside;
+  padding: 0;
+	margin: 0 0 9px 0;
+}
+
+.column-break {
+	break-after: column;
+	height: 0;
+}
+
+.no-break {
+	white-space: nowrap;
+}
+
+.joke {
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	text-align: left;
+}
+
+.joke h5 {
+	font-size: 22px;
+	margin: 4px 0 6px 0;
+	text-transform: uppercase;
+	text-align: left;
+	hyphens: none;
+	line-height: 1.2;
+}
+
+.joke p {
+	font-size: 14px;
+	line-height: 1;
+	margin: 4px 0;
+}
+
+.crime {
+	border-left: 1px solid #000;
+	border-bottom: 1px solid #000;
+	padding: 0 0 0 9px;
+	margin: 0 0 9px 0;
+	font-size: 14px;
+}
+
+.crime h4 {
+	font-size: 22px;
+	margin: 0 0 6px 0;
+	text-transform: uppercase;
+	text-align: left;
+	hyphens: none;
+	line-height: 1.2;
+}
+
+.crime ul {
+	list-style: square;
+	list-style-position: inside;
+	padding: 0;
+	margin: 9px 0 0 0;
+}
+
+.crime ul li {
+	margin-bottom: 4px;
+}
+
+.horoscope ul {
+	list-style: none;
+	list-style-position: inside;
+	padding-left: 0;
+	margin: 14px 0 0 0;
+	font-size: 14px;
+}
+
+.horoscope ul li {
+	position: relative;
+	padding-left: 0;
+	margin-bottom: 2px;
+	line-height: 1.4;
+}
+
+.horoscope ul li::before {
+	content: attr(data-symbol);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.horoscope ul li::first-letter {
+	margin-left: 27px;
+}
+
+.imprint {
+	font-size: 12px;
+	text-align: center;
+	margin-top: 18px;
+	color: #666;
+	border-top: 1px solid #000;
+}
+
+.imprint p {
+	margin: 2px 0;
+	text-align: left;
+	line-height: 1.2;
+}
+
+.page-number::before {
+	counter-increment: page_counter;
+	content: counter(page_counter);
+}
+
+@media print {
+	body {
+		background: white;
+		padding: 0;
+	}
+
+	.page {
+		width: 210mm;
+		height: 297mm;
+		padding: 10mm;
+		box-shadow: none;
+		margin: 0 auto;
+		page-break-after: always;
+		box-sizing: border-box;
+		overflow: hidden;
+		page-break-after: always;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.red {
+	color: red;
+	font-weight: bold;
+}
+
+.quote {
+	border-left: 1px solid #000;
+	padding-left: 9px !important;
+}
+
+.advert {
+	font-size: 14px;
+}
+
+.advert p {
+	margin: 0;
+}
+
+.advert ul {
+	margin: 0;
+}
+
+.advert::before {
+	content: "Reklama";
+	font-size: 8px;
+	text-transform: uppercase;
+	border-top: 1px solid #000;
+	display: block;
+	width: 100%;
+	text-align: right;
+}
+
+.illustrative::after {
+	content: "Ilustrační foto";
+	font-size: 8px;
+	text-transform: lowercase;
+	display: block;
+	width: 100%;
+	text-align: right;
+}
+
+div.olymp h5 {
+	text-transform: initial;
+	margin-bottom: 3px;
+	margin-top: 0px;
+}
+
+div.olymp h4:before {
+	content: "\00A0\25Aa  "
+}
+
+div.olymp h4 {
+	text-transform: initial;
+	margin: 0px;
+}
+
+div.olymp table {
+	font-size: 14px;
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+div.olymp table th {
+	text-align: left;
+	width: 50%;
+}
