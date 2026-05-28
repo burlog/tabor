@@ -1,0 +1,108 @@
+Táborová hra:
+    Na tema knihy Martan
+
+Den X:
+    Rozkaz k odletu na misi ARES III
+
+    Reinkarnace sedelsky pravdy?
+
+Sobota (Den 1):
+    Téma:
+        SOL 0: Pisecna boure
+    Odpoledne:
+        Ubytovani v HUBu a rychla evakuace
+            Rozdeleni do skupin - v dopise dostanou kazdy svoje logo mise
+            Kazda mise bude mit svoje Teepee
+            Tam budou mit deti skafandru - malirsky overal, lahve z PET
+            Pak pribehne rodic, take ve skafandru, a rekne, ze se musi evakuovat
+            Pri evakuaci budou deti ponechany na Marsu
+            Dostanou to rozebrany, budou si to muset sami vyrobit
+    Večer:
+        Martan
+
+Neděle (Den 2):
+    Téma:
+        SOL 1: Probuzeni na Marsu
+    Dopoledne:
+        Operace sebe sama
+            ? Osetrit clena tymu
+    Odpoledne:
+        Solarni panely
+            ? Napada nekoho neco
+    Večer:
+        Fotbal, volejbal, ...
+
+Pondělí (Den 3):
+    Téma:
+        SOL 2: Jsem nejlepsi botanik na teto planete
+    Dopoledne:
+        Vyroba vody
+            ? Destilace vody - viz destilator.txt
+            ? Ledovy vrt - studanka prinest v deravych nadobach vodu obarvenou a prefiltrovat pomoci uhli z ohniste
+    Odpoledne:
+        Sazdba brambor
+            ? Hledani a sbirani dehydratovane stolice (pytliku), v kazdem budou schovane ziviny (kosticky, pocet nahodne)
+            ? Sazeni brambor do substratu, kazda brambora bude mit dirky na ziviny, vyhrava ten, kdo bude mit nejvice zivych brambor
+    Večer:
+        Fotbal, volejbal, ...
+
+Úterý (Den 4):
+    Téma:
+        SOL 24: Vyprava do Ares Vallis
+    Dopoledne:
+        Navsteva hvezdarny v Jindrichove Hradci
+    Odpoledne:
+        Hledani Pathfindera
+            ? Vykopani reaktoru z pisku a jeho priprava na cestu
+            ? Vyprava do udoli Ares Vallis
+
+            ? kazeta, magnetofon, baterky, sestavit a poslechnout zpravu
+    Večer:
+        Fotbal, volejbal, ...
+    Noc:
+        Putovat po led svetylkach, mala baterka s ledkou.
+
+Středa (Den 5):
+    Téma:
+        SOL 83: Obnova komunikace s NASA
+    Dopoledne:
+        Olympiáda
+    Odpoledne:
+        Navazani komunikace s NASA
+            ? Oprava Pathfindera - vytistena skladacka modulu, kterou budou muset poskladat
+            ? Pochopeni hexadecimalniho kodu a posilani zpravy v hexadecimale
+    Večer:
+        Fotbal, volejbal, ...
+
+Čtvrtek (Den 6):
+    Téma:
+        SOL 110: Katastrofální dekomprese základny
+    Dopoledne:
+        Borůvky
+    Odpoledne:
+        Oprava základny
+            ? Lepici paskou zalepit vchod do Teepee
+            ? Chemicky pokus - vybuch
+    Večer:
+        Fotbal, volejbal, ...
+
+Pátek (Den 7):
+    Téma:
+        SOL 231: Velky skok ke hvezdam
+    Dopoledne:
+        Odlet z Marsu
+            ruzne ukoly simuluji pobyt ve vesmiru, let, ...
+            ? Tocit se okolo sebe sama a nekam dojit, neco posbirat, ...
+            ? Pretizeni, s tezkym batohem nekam dojit, ...
+            ? Stav beztize ve vode, dychat pres trubici
+            ? viset na sedaku na lane a posbirat rozveseny veci
+        PET raketa
+        Opravdova raketa
+    Odpoledne:
+    Večer:
+        Táborák, scénky, písničky.
+
+
+Doplnky:
+    - pozorovani prvoku/komarich larev/
+
