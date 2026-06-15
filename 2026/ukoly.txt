@@ -26,4 +26,5 @@ Michal + Kaja:
     5 pro jednotlivce,
     excel nasdilet,
     startovaci kit na rakety,
-    teleskop
+    teleskop,
+    skupinky
