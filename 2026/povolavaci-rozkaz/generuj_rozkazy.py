@@ -7,6 +7,7 @@ deti_nasa = ["Tomáš Jedno", "Lucie Hvězdná", "Jakub Vesmírný", "Kateřina 
 deti_esa = ["Jan Evropský", "Pierre Dupont", "Anna Schmidt", "Mateo Ricci"]
 deti_cnsa = ["Li Wang", "Mei Ling", "Chao Chang", "Zhi Wei"]
 deti_isro = ["Arjun Singh", "Priya Sharma", "Rohan Patel", "Deepika Padukone"]
+deti_jaxa = ["Hiroshi Tanaka", "Yuki Sato", "Akira Yamamoto", "Sakura Kobayashi"]
 
 # 2. Definice parametrů pro jednotlivé kosmické agentury
 agencies = {
@@ -41,6 +42,14 @@ agencies = {
         'prefix': 'ISRO-ARES-III',
         'footer': 'ISRO Headquarters • Antariksh Bhavan, New BEL Road, Bengaluru, India',
         'list': deti_isro
+    },
+    'JAXA': {
+        'full': 'Japan Aerospace Exploration Agency',
+        'sub': 'Human Spaceflight Technology Directorate',
+        'color': '#1B365D',
+        'prefix': 'JAXA-ARES3-JP',
+        'footer': 'JAXA Headquarters • 2-1-1 Sengen, Tsukuba, Ibaraki 305-8505, Japan',
+        'list': deti_jaxa
     }
 }
 

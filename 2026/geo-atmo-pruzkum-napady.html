@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ares III - Manuál vědeckého výzkumu</title>
+    <style>
+        :root {
+            --space-black: #0b0f19;
+            --mars-red: #cc4425;
+            --mars-dark: #7a220e;
+            --steel-gray: #202b3c;
+            --text-light: #f0f4f8;
+            --neon-blue: #00e5ff;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--space-black);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(32, 43, 60, 0.4);
+            border: 1px solid var(--steel-gray);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--mars-red);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .classification {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px dashed #ff3333;
+            color: #ff3333;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            color: var(--mars-red);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--neon-blue);
+            border-left: 4px solid var(--mars-red);
+            padding-left: 15px;
+            margin-top: 40px;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+        }
+
+        .mission-card {
+            background: rgba(11, 15, 25, 0.7);
+            border: 1px solid var(--steel-gray);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .mission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--steel-gray);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .mission-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        .badge {
+            background: var(--mars-dark);
+            color: #ffffff;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: var(--mars-red);
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .instructions {
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid var(--neon-blue);
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid var(--steel-gray);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--steel-gray);
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(32, 43, 60, 0.2);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #557093;
+            margin-top: 40px;
+            border-top: 1px solid var(--steel-gray);
+            padding-top: 15px;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 0;
+            }
+            .container {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                background: none;
+            }
+            .mission-card {
+                background: none;
+                border: 1px solid #000000;
+                page-break-inside: avoid;
+            }
+            th {
+                background-color: #eeeeee;
+                color: #000000;
+            }
+            h1, h2, .section-title { color: #000000; }
+            .subtitle, .classification { color: #555555; border-color: #555555; }
+            .instructions { background: #f9f9f9; border-left-color: #000000; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="classification">Přísně tajné • Level 5</div>
+        <h1>Expedice Ares III</h1>
+        <div class="subtitle">Protokoly vědecko-výzkumné činnosti posádky (Amicitia Program)</div>
+    </header>
+
+    <p>Tento dokument slouží jako oficiální vědecká příručka a záznamový arch pro kadety mezinárodního programu Ares III. Všechny níže uvedené experimentální procedury jsou kritické pro posouzení obyvatelnosti a surovinové udržitelnosti výzkumného biomu na Rudé planetě.</p>
+
+    <!-- SEKCE 1: GEOLOGIE -->
+    <h2>1. Geologický výzkum (Analýza marťanského regolitu)</h2>
+
+    <!-- Geologie - Kyselost -->
+    <div class="mission-card">
+        <div class="mission-header">
+            <div class="mission-title">Mise G-01: Detekce vulkanické kontaminace půdy</div>
+            <div class="badge">Geochemie</div>
+        </div>
+        <div class="section-title">Sci-Fi Briefing posádky:</div>
+        <div>Je nutné ověřit, zda regolit v okolí Habu neobsahuje toxické sírany z dávné činnosti sopky Olympus Mons, které by mohly zlikvidovat naše hydroponické systémy pro pěstování plodin.</div>
+        
+        <div class="section-title">Metodika a realita:</div>
+        <div class="instructions">Odeberte vzorek substrátu ze stanoveného sektoru, smíchejte jej v testovací zkumavce s destilovanou vodou (H₂O) a pomocí indikačního pH papírku nebo spektra přírodního indikátoru určete kyselost/zásaditost roztoku.</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Zkoumaný Sektor</th>
+                    <th style="width: 25%;">Naměřené pH</th>
+                    <th style="width: 25%;">Stav (Kyselý/Zásaditý)</th>
+                    <th style="width: 25%;">Hydroponická shoda (Ano/Ne)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Sektor Alfa (Pískoviště)</td><td></td><td></td><td></td></tr>
+                <tr><td>Sektor Beta (U lesa)</td><td></td><td></td><td></td></tr>
+                <tr><td>Sektor Gamma (Základna)</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Geologie - Železo -->
+    <div class="mission-card">
+        <div class="mission-header">
+            <div class="mission-title">Mise G-02: Spektrometrie magnetických anomálií</div>
+            <div class="badge">Mineralogie</div>
+        </div>
+        <div class="section-title">Sci-Fi Briefing posádky:</div>
+        <div>Rudá planeta je charakteristická vysokým zastoupením oxidů železa. Cílem posádky je lokalizovat ložisko čistého magnetitu pro budoucí metalurgické zpracování a výrobu náhradních dílů.</div>
+        
+        <div class="section-title">Metodika a realita:</div>
+        <div class="instructions">Využijte neodymové magnetické sondy v ochranném pouzdře k separaci magnetických částic ze sypkého marťanského substrátu. Separovaný materiál zvažte na digitálních vahách.</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Sektor sběru</th>
+                    <th style="width: 35%;">Celková hmotnost vzorku (g)</th>
+                    <th style="width: 35%;">Hmotnost čistého feromagnetika (g)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Sektor Delta</td><td></td><td></td></tr>
+                <tr><td>Sektor Epsilon</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Geologie - Voda / Fosilie -->
+    <div class="mission-card">
+        <div class="mission-header">
+            <div class="mission-title">Mise G-03: Analýza sedimentů a karbonátových struktur</div>
+            <div class="badge">Exobiologie</div>
+        </div>
+        <div class="section-title">Sci-Fi Briefing posádky:</div>
+        <div>Hledáme přímé důkazy o přítomnosti tekoucí vody v dávné historii Marsu a potenciální stopy zkamenělého marťanského mikro-života.</div>
+        
+        <div class="section-title">Metodika a realita:</div>
+        <div class="instructions">Pomocí optické lupy a pinzety vyhledejte porézní sedimenty. Aplikujte chemické činidlo (zředěnou kyselinu octovou) na povrch vzorku. Pokud kámen reaguje šuměním, potvrdila se přítomnost uhličitanů vázaných na vodní prostředí.</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">ID Vzorku kamene</th>
+                    <th style="width: 25%;">Vizuální struktura</th>
+                    <th style="width: 25%;">Chemická reakce (Šumí/Nešumí)</th>
+                    <th style="width: 25%;">Důkaz vody (Potvrzen/Zamítnut)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Vzorek #001</td><td></td><td></td><td></td></tr>
+                <tr><td>Vzorek #002</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SEKCE 2: ATMOSFÉRA -->
+    <h2>2. Atmosférický výzkum (Analýza marťanské biosféry)</h2>
+
+    <!-- Atmosféra - CO2 -->
+    <div class="mission-card">
+        <div class="mission-header">
+            <div class="mission-title">Mise A-01: Kontrola těsnosti přechodové komory Habu</div>
+            <div class="badge">Plynné směsi</div>
+        </div>
+        <div class="section-title">Sci-Fi Briefing posádky:</div>
+        <div>Atmosféra Marsu je z 95 % tvořena CO₂. Posádka musí provést kontrolní test vápennou vodou v uzávěru přechodové komory, zda nedochází k průniku toxické atmosféry dovnitř obytného modulu.</div>
+        
+        <div class="section-title">Metodika a realita:</div>
+        <div class="instructions">Vstříkněte vzorek vzduchu z testované zóny do indikačního roztoku (čiré vápenné vody). Sledujte mléčné zakalení roztoku, které indikuje chemickou reakci a přítomnost zvýšené koncentrace oxidu uhličitého.</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Místo odběru vzduchu</th>
+                    <th style="width: 40%;">Vizuální stav roztoku po reakci</th>
+                    <th style="width: 30%;">Závěr (Těsní / Netěsní)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Vnitřní okruh Habu</td><td></td><td> Bezpečné prostředí</td></tr>
+                <tr><td>Přechodová komora (Vzorek z povrchu)</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Atmosféra - Meteorologie -->
+    <div class="mission-card">
+        <div class="mission-header">
+            <div class="mission-title">Mise A-02: Telemetrie solární radiace a písečných bouří</div>
+            <div class="badge">Meteorologie</div>
+        </div>
+        <div class="section-title">Sci-Fi Briefing posádky:</div>
+        <div>K základně se blíží prachový mrak. Je nutné monitorovat rychlost větru, atmosférické výkyvy a aktuální propustnost UV záření pro včasné varování posádky před EVA výstupem.</div>
+        
+        <div class="section-title">Metodika a realita:</div>
+        <div class="instructions">V pravidelných směnách odečítejte data z mechanického anemometru a zkontrolujte barvu UV indikačních karet/korálků vystavených přímému slunci.</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Solární čas (Směna)</th>
+                    <th style="width: 25%;">Teplota povrchu (°C)</th>
+                    <th style="width: 25%;">Rychlost větru (m/s)</th>
+                    <th style="width: 25%;">Úroveň UV záření (Nízká/Kritická)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ranní hlídka (09:00)</td><td></td><td></td><td></td></tr>
+                <tr><td>Polední hlídka (13:00)</td><td></td><td></td><td></td></tr>
+                <tr><td>Večerní hlídka (18:00)</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- KRYOSFÉRA -->
+    <div class="mission-card">
+        <div class="mission-header">
+            <div class="mission-title">Mise A-03: Extrakce podpovrchového marťanského ledu</div>
+            <div class="badge">Kryosféra</div>
+        </div>
+        <div class="section-title">Sci-Fi Briefing posádky:</div>
+        <div>Zásoby vody v recyklačním systému klesly pod kritickou mez. Jedinou možností je vytěžit znečištěný podpovrchový permafrost, provést řízené tavení a následnou vícestupňovou filtraci.</div>
+        
+        <div class="section-title">Metodika a realita:</div>
+        <div class="instructions">Rozdrťte kryogenní vzorek (led), nechte jej roztát a následně přefiltrujte přes mechanické filtry (filtrační papír) a absorpční vrstvu (aktivní uhlí). Porovnejte čistotu kapaliny před a po procesu.</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Fáze analýzy</th>
+                    <th style="width: 40%;">Zbarvení a příměsi kapaliny</th>
+                    <th style="width: 30%;">Zápach / Vlastnosti</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Surová tavenina z regolitu</td><td></td><td></td></tr>
+                <tr><td>Kapalina po purifikačním cyklu</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer-note">
+        Mezinárodní výbor pro výzkum vesmíru • Dokument podléhá operačnímu protokolu Ares III (2026)
+    </div>
+</div>
+
+</body>
+</html>
