@@ -60,26 +60,26 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     private fun startLocationUpdates() {
         if (!hasLocationPermission()) return
-        binding.status.text = getString(R.string.status_searching)
 
-        val providers = buildList {
-            if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                add(LocationManager.GPS_PROVIDER)
-            }
-            if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-                add(LocationManager.NETWORK_PROVIDER)
-            }
-        }
-
-        if (providers.isEmpty()) {
-            binding.status.text = getString(R.string.status_no_provider)
+        // používáme výhradně GPS, síťovou (nepřesnou) polohu ignorujeme
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            showUnavailable()
             return
         }
 
-        for (provider in providers) {
-            locationManager.requestLocationUpdates(provider, 1000L, 0f, this)
-            locationManager.getLastKnownLocation(provider)?.let(::showLocation)
-        }
+        binding.status.text = getString(R.string.status_searching)
+        locationManager.requestLocationUpdates(
+            LocationManager.GPS_PROVIDER, 1000L, 0f, this
+        )
+        locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            ?.let(::showLocation)
+    }
+
+    private fun showUnavailable() {
+        binding.marsX.text = getString(R.string.placeholder)
+        binding.marsY.text = getString(R.string.placeholder)
+        binding.accuracy.text = getString(R.string.placeholder)
+        binding.status.text = getString(R.string.status_no_gps)
     }
 
     private fun showLocation(location: Location) {
@@ -101,5 +101,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
     }
 
     override fun onProviderDisabled(provider: String) {
+        if (provider == LocationManager.GPS_PROVIDER) showUnavailable()
     }
 }

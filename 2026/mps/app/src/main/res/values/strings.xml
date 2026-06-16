@@ -7,6 +7,6 @@
     <string name="status_searching">Hledám signál…</string>
     <string name="status_locked">Pozice zaměřena</string>
     <string name="status_no_permission">Bez oprávnění k poloze to nepůjde.</string>
-    <string name="status_no_provider">Zapni GPS / polohové služby.</string>
+    <string name="status_no_gps">GPS poloha není k dispozici.</string>
     <string name="accuracy_fmt">Přesnost: ±%.0f m</string>
 </resources>
