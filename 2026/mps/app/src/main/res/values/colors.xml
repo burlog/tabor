@@ -1,0 +1,8 @@
+<resources>
+    <color name="mars_bg">#1A0E0A</color>
+    <color name="mars_panel">#2E1A12</color>
+    <color name="mars_orange">#FF6A3D</color>
+    <color name="mars_amber">#FFB347</color>
+    <color name="mars_text">#F5E6DA</color>
+    <color name="mars_dim">#B38B79</color>
+</resources>

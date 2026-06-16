@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MPS" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/mars_orange</item>
+        <item name="colorOnPrimary">@color/mars_text</item>
+        <item name="android:windowBackground">@color/mars_bg</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/mars_bg</item>
+    </style>
+</resources>

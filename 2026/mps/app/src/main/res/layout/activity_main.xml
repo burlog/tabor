@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/mars_bg">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/logo_mise"
+        android:contentDescription="@string/title"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textColor="@color/mars_amber"
+        android:textSize="16sp"
+        android:letterSpacing="0.15"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_x"
+        android:textColor="@color/mars_dim"
+        android:textSize="18sp"
+        android:fontFamily="monospace" />
+
+    <TextView
+        android:id="@+id/marsX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder"
+        android:textColor="@color/mars_orange"
+        android:textSize="52sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="28dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_y"
+        android:textColor="@color/mars_dim"
+        android:textSize="18sp"
+        android:fontFamily="monospace" />
+
+    <TextView
+        android:id="@+id/marsY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder"
+        android:textColor="@color/mars_orange"
+        android:textSize="52sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace" />
+
+    <TextView
+        android:id="@+id/accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder"
+        android:textColor="@color/mars_dim"
+        android:textSize="14sp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_searching"
+        android:textColor="@color/mars_amber"
+        android:textSize="15sp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>
