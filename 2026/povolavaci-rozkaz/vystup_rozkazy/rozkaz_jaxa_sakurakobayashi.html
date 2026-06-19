@@ -1,403 +1,469 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-<meta charset="UTF-8">
-<title>Povolávací rozkaz - Ares III</title>
-<style>
-    /* Reset a základní tiskové nastavení */
-    *, *::before, *::after { 
-        box-sizing: border-box; 
-    }
-    
-    @page {
-        size: A4;
-        margin: 0; /* Okraje definujeme přímo v CSS pro lepší kontrolu pozicování */
-    }
-    
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 210mm;
-        height: 297mm;
-        background-color: #ffffff;
-    }
+	<head>
+		<meta charset="UTF-8">
+		<title>Povolávací rozkaz - Ares III</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Monsieur+La+Doulaise&family=Signature&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Dawning+of+a+New+Day&family=Homemade+Apple&family=Reenie+Beanie&family=Yellowtail&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Yuji+Syuku&display=swap" rel="stylesheet">
+		<style>
+/* Reset a základní tiskové nastavení */
+		*, *::before, *::after {
+			box-sizing: border-box;
+		}
 
-    body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #111111;
-        font-size: 11pt;
-        line-height: 1.5;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
+		@page {
+			size: A4;
+			margin: 0; /* Okraje definujeme přímo v CSS pro lepší kontrolu pozicování */
+		}
 
-    /* Definice samotné A4 stránky s bezpečnými tiskovými okraji */
-    .page {
-        position: relative;
-        width: 210mm;
-        height: 297mm;
-        padding: 15mm 15mm 15mm 15mm; /* Dostatečné okraje zamezující ořezu tiskárnou */
-        overflow: hidden;
-    }
-    
-    /* Šikmé razítko přes papír */
-    .razitko-tajne {
-        position: absolute;
-        top: 38%;
-        left: 5%;
-        width: 90%;
-        text-align: center;
-        border: 5px dashed #c8102e;
-        color: #c8102e;
-        font-size: 45pt;
-        font-weight: 900;
-        letter-spacing: 10px;
-        padding: 12px;
-        text-transform: uppercase;
-        transform: rotate(-22deg);
-        opacity: 0.14;
-        pointer-events: none;
-        user-select: none;
-        z-index: 10;
-    }
+		html, body {
+			margin: 0;
+			padding: 0;
+			width: 210mm;
+			height: 297mm;
+			background-color: #ffffff;
+		}
 
-    /* Hlavička s logem agentury */
-    .header-table {
-        display: table;
-        width: 100%;
-        border-bottom: 2px solid #111111;
-        padding-bottom: 18px;
-        margin-bottom: 25px;
-        border-collapse: collapse;
-    }
-    .header-row {
-        display: table-row;
-    }
-    .header-cell {
-        display: table-cell;
-        vertical-align: middle;
-    }
-    .header-logo {
-        width: 90px;
-    }
-    .header-logo img {
-        max-width: 85px;
-        max-height: 75px;
-        display: block;
-    }
-    .agency-title {
-        font-weight: bold;
-        font-size: 14pt;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        line-height: 1.2;
-    }
-    .agency-sub {
-        font-size: 9.5pt;
-        color: #444444;
-        margin-top: 4px;
-        font-weight: 500;
-    }
-    
-    /* Metadata rozkazu a čárový kód */
-    .order-meta-table {
-        display: table;
-        width: 100%;
-        margin-bottom: 30px;
-        font-size: 10.5pt;
-        border-collapse: collapse;
-    }
-    .order-meta-row {
-        display: table-row;
-    }
-    .order-meta-cell {
-        display: table-cell;
-        vertical-align: top;
-        line-height: 1.6;
-    }
-    
-    /* Generování čárového kódu pomocí CSS */
-    .barcode-container {
-        display: inline-block;
-        text-align: right;
-    }
-    .bars {
-        display: flex;
-        justify-content: flex-end;
-        height: 38px;
-        margin-bottom: 3px;
-    }
-    .bar-thin { width: 1px; background: #000; margin-right: 1px; }
-    .bar-thick { width: 3px; background: #000; margin-right: 1px; }
-    .bar-space { width: 2px; background: transparent; margin-right: 1px; }
-    .barcode-text {
-        font-family: 'Courier New', monospace;
-        font-size: 8.5pt;
-        color: #444444;
-        letter-spacing: 2px;
-    }
+		body {
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			color: #111111;
+			font-size: 11pt;
+			line-height: 1.5;
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+		}
 
-    /* Hlavní nadpisy */
-    .title-section {
-        text-align: center;
-        margin-bottom: 25px;
-    }
-    .main-title {
-        font-size: 22pt;
-        font-weight: bold;
-        letter-spacing: 1.5px;
-        margin: 0 0 6px 0;
-        text-transform: uppercase;
-    }
-    .sub-title {
-        font-size: 12pt;
-        font-weight: bold;
-        color: #333333;
-        margin: 0;
-        letter-spacing: 0.5px;
-    }
-    
-    .salutation {
-        font-size: 12pt;
-        font-weight: bold;
-        margin-bottom: 12px;
-        letter-spacing: 0.3px;
-    }
-    .content-paragraph {
-        text-align: justify;
-        margin-top: 0;
-        margin-bottom: 14px;
-        text-indent: 25px;
-        line-height: 1.6;
-    }
-    
-    /* Box s logem mise a detaily */
-    .details-table {
-        display: table;
-        width: 100%;
-        background-color: #f8f9fa;
-        border: 1px solid #cccccc;
-        margin: 15px 0;
-        border-collapse: collapse;
-    }
-    .details-row {
-        display: table-row;
-    }
-    .details-cell-info {
-        display: table-cell;
-        width: 72%;
-        padding: 18px;
-        vertical-align: middle;
-        line-height: 1.7;
-    }
-    .details-cell-logo {
-        display: table-cell;
-        width: 28%;
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-        border-left: 1px solid #cccccc;
-        background-color: #ffffff;
-    }
-    .details-cell-logo img {
-        max-width: 115px;
-        max-height: 115px;
-        vertical-align: middle;
-    }
-    
-    .info-line {
-        margin: 0 0 5px 0;
-        font-size: 11pt;
-    }
-    .info-label {
-        font-weight: bold;
-        display: inline-block;
-        width: 135px;
-        color: #333333;
-    }
-    
-    /* Vybavení */
-    .equipment-section {
-        margin-top: 25px;
-    }
-    .equipment-title {
-        font-size: 11pt;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-bottom: 1px solid #111111;
-        padding-bottom: 4px;
-        margin-bottom: 12px;
-        letter-spacing: 0.3px;
-    }
-    .equipment-list-table {
-        display: table;
-        width: 100%;
-        font-size: 10pt;
-        border-collapse: collapse;
-    }
-    .equipment-list-cell {
-        display: table-cell;
-        width: 50%;
-        vertical-align: top;
-    }
-    .equipment-list {
-        margin: 0;
-        padding-left: 18px;
-    }
-    .equipment-list li {
-        margin-bottom: 7px;
-        line-height: 1.4;
-        text-align: justify;
-    }
-    
-    /* Podpisy */
-    .signature-area {
-        margin-top: 5px;
-        display: table;
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .signature-cell {
-        display: table-cell;
-        width: 50%;
-        vertical-align: top;
-    }
-    .signature-line {
-        border-top: 1px solid #555555;
-        width: 85%;
-        margin-top: 25px;
-        padding-top: 6px;
-        font-size: 9pt;
-        color: #444444;
-        line-height: 1.4;
-    }
-    
-    /* Patička na pevném spodku A4 */
-    .footer {
-        position: absolute;
-        bottom: 10mm;
-        left: 20mm;
-        right: 20mm;
-        text-align: center;
-        font-size: 8.5pt;
-        color: #555555;
-        border-top: 1px solid #dddddd;
-        padding-top: 10px;
-    }
-</style>
-</head>
-<body>
+		/* Definice samotné A4 stránky s bezpečnými tiskovými okraji */
+		.page {
+			position: relative;
+			width: 210mm;
+			height: 297mm;
+			padding: 15mm 15mm 15mm 15mm; /* Dostatečné okraje zamezující ořezu tiskárnou */
+			overflow: hidden;
+		}
 
-<div class="page">
-    <div class="razitko-tajne">Přísně tajné</div>
+		/* Šikmé razítko přes papír */
+		.razitko-tajne {
+			position: absolute;
+			top: 38%;
+			left: 5%;
+			width: 90%;
+			text-align: center;
+			border: 5px dashed #c8102e;
+			color: #c8102e;
+			font-size: 45pt;
+			font-weight: 900;
+			letter-spacing: 10px;
+			padding: 12px;
+			text-transform: uppercase;
+			transform: rotate(-22deg);
+			opacity: 0.14;
+			pointer-events: none;
+			user-select: none;
+			z-index: 10;
+		}
 
-    <div class="header-table">
-        <div class="header-row">
-            <div class="header-cell header-logo">
-                <img src="../jaxa-logo.svg" alt="Logo Agentury">
-            </div>
-            <div class="header-cell" style="padding-left: 18px;">
-                <div class="agency-title" style="color: #1B365D;">Japan Aerospace Exploration Agency</div>
-                <div class="agency-sub">Human Spaceflight Technology Directorate</div>
-            </div>
-        </div>
-    </div>
+		.kulate-razitko {
+			position: absolute;
+			bottom: 5px;
+			left: 35px;
+			z-index: 2;
+			width: 90px;
+			height: 90px;
+			border: 3px double #c8102e;
+			border-radius: 50%;
+			color: #c8102e;
+			text-align: center;
+			font-family: 'Courier New', monospace;
+			font-size: 7pt;
+			font-weight: bold;
+			text-transform: uppercase;
+			padding: 10px 5px;
+			line-height: 1.2;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transform: rotate(-10deg); /* Lehce nakřivo, aby to vypadalo lidsky */
+			opacity: 0.85;
+		}
 
-    <div class="order-meta-table">
-        <div class="order-meta-row">
-            <div class="order-meta-cell" style="width: 60%;">
-                <strong>Číslo rozkazu:</strong> JAXA-ARES3-JP-X2026-3357<br>
-                <strong>Datum vydání:</strong> 1. června 2026<br>
-                <strong>Klasifikace:</strong> Úroveň 5 (Mezinárodní vesmírný program)
-            </div>
-            <div class="order-meta-cell" style="width: 40%; text-align: right;">
-                <div class="barcode-container">
-                    <div class="bars">
-                        <div class="bar-thick"></div><div class="bar-thin"></div><div class="bar-space"></div>
-                        <div class="bar-thin"></div><div class="bar-thick"></div><div class="bar-thin"></div>
-                        <div class="bar-space"></div><div class="bar-thick"></div><div class="bar-thick"></div>
-                        <div class="bar-thin"></div><div class="bar-space"></div><div class="bar-thin"></div>
-                        <div class="bar-thick"></div><div class="bar-thin"></div><div class="bar-space"></div>
-                        <div class="bar-thick"></div><div class="bar-thin"></div><div class="bar-thick"></div>
-                    </div>
-                    <div class="barcode-text">*JAXA*3357*2026*</div>
-                </div>
-            </div>
-        </div>
-    </div>
+		/* Hlavička s logem agentury */
+		.header-table {
+			display: table;
+			width: 100%;
+			border-bottom: 2px solid #111111;
+			padding-bottom: 18px;
+			margin-bottom: 25px;
+			border-collapse: collapse;
+		}
+		.header-row {
+			display: table-row;
+		}
+		.header-cell {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.header-logo {
+			width: 90px;
+		}
+		.header-logo img {
+			max-width: 85px;
+			max-height: 75px;
+			display: block;
+		}
+		.agency-title {
+			font-weight: bold;
+			font-size: 14pt;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			line-height: 1.2;
+		}
+		.agency-sub {
+			font-size: 9.5pt;
+			color: #444444;
+			margin-top: 4px;
+			font-weight: 500;
+		}
 
-    <div class="title-section">
-        <h1 class="main-title" style="color: #1B365D;">Povolávací rozkaz</h1>
-    </div>
+		/* Metadata rozkazu a čárový kód */
+		.order-meta-table {
+			display: table;
+			width: 100%;
+			margin-bottom: 30px;
+			font-size: 10.5pt;
+			border-collapse: collapse;
+		}
+		.order-meta-row {
+			display: table-row;
+		}
+		.order-meta-cell {
+			display: table-cell;
+			vertical-align: top;
+			line-height: 1.6;
+		}
 
-    <div class="salutation">VÁŽENÝ KADETE / VÁŽENÁ KADETKO,</div>
-    
-    <p class="content-paragraph">
-			Na základě dekretu Mezinárodního výboru pro výzkum hlubokého vesmíru a ve spolupráci s partnerskými kosmickými organizacemi jsi byl/a vybrán/a jako klíčový člen posádky nadcházející expedice <strong>Ares III</strong>. Tvoje výjimečná fyzická zdatnost, logické myšlení a morální integrita tě plně opravňují k účasti na nejvýznamnějším dobrodružství lidstva. Letu na Mars a vědeckém průzkumu této tajemné planety. <strong> Bude to malý krok pro tebe, ale obrovský skok pro celé lidstvo! </strong>
-    </p>
-    
-    <p class="content-paragraph">
-        Tímto se ti nařizuje povinný nástup k předletové přípravě a následujícímu startu.
-    </p>
+		/* Generování čárového kódu pomocí CSS */
+		.barcode-container {
+			display: inline-block;
+			text-align: right;
+		}
+		.bars {
+			display: flex;
+			justify-content: flex-end;
+			height: 38px;
+			margin-bottom: 3px;
+		}
+		.bar-thin { width: 1px; background: #000; margin-right: 1px; }
+		.bar-thick { width: 3px; background: #000; margin-right: 1px; }
+		.bar-space { width: 2px; background: transparent; margin-right: 1px; }
+		.barcode-text {
+			font-family: 'Courier New', monospace;
+			font-size: 8.5pt;
+			color: #444444;
+			letter-spacing: 2px;
+		}
 
-    <div class="details-table">
-        <div class="details-row">
-            <div class="details-cell-info">
-                <div class="info-line"><span class="info-label">Povolávaný kadet:</span> <strong style="font-size: 12pt; color: #1B365D;">Sakura Kobayashi</strong></div>
-                <div class="info-line"><span class="info-label">Termín nástupu:</span> <strong>1. srpna 2026, 17:00:00</strong></div>
-                <div class="info-line"><span class="info-label">Cíl cesty:</span> <strong>Mars</strong>, Acidalia Planitia</div>
-                <div class="info-line"><span class="info-label">Místo nástupu:</span> <strong>Základna Sedlo</strong> </div>
-                <div class="info-line"><span class="info-label">Statut mise:</span> <strong>Kritický</strong></div>
-            </div>
-            <div class="details-cell-logo">
-                <img src="../../logo-mise.png" alt="Logo Mise">
-            </div>
-        </div>
-    </div>
+		/* Hlavní nadpisy */
+		.title-section {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+		.main-title {
+			font-size: 22pt;
+			font-weight: bold;
+			letter-spacing: 1.5px;
+			margin: 0 0 6px 0;
+			text-transform: uppercase;
+		}
+		.sub-title {
+			font-size: 12pt;
+			font-weight: bold;
+			color: #333333;
+			margin: 0;
+			letter-spacing: 0.5px;
+		}
 
-    <div class="equipment-section">
-        <div class="equipment-title">Materiální zabezpečení pro přežití a výzkum v marťanských podmínkách:</div>
+		.salutation {
+			font-size: 12pt;
+			font-weight: bold;
+			margin-bottom: 12px;
+			letter-spacing: 0.3px;
+		}
+		.content-paragraph {
+			text-align: justify;
+			margin-top: 0;
+			margin-bottom: 14px;
+			text-indent: 25px;
+			line-height: 1.6;
+		}
 
-        <div class="equipment-list-table">
-            <div class="order-meta-row">
-                <div class="equipment-list-cell" style="padding-right: 5px;">
-                    <ul class="equipment-list">
-                        <li><strong>Modul pro spánek:</strong> Spací pytel, případně izolační karimatka pro pobyt v extrémních podmínkách.</li>
-                        <li><strong>Dekontaminační set:</strong> Kompletní hygienické potřeby a ručník pro osobní péči.</li>
-                        <li><strong>Ochranné prostředky EVA-MARS:</strong> Pevná obuv pro chůzi po marťanském regolitu, vrstvené oblečení do extrémních teplotních výkyvů.</li>
-                    </ul>
-                </div>
-                <div class="equipment-list-cell" style="padding-left: 5px;">
-                    <ul class="equipment-list">
-                        <li><strong>Chemicko-biologický defenzivní set:</strong> Osobní repelentní systém proti exobiologickým entitám.</li>
-                        <li><strong>Individuální rehydratační rezervoár:</strong> Lahev na vodu pro udržení hydratace v suchém marťanském prostředí.</li>
-                        <li><strong>Přístroj pro exteriérovou telemetrii (nepovinné):</strong> Osobní mobilní terminál, použitelný při navigaci během EVA protokolů, zaměřování geologických anomálií a sběru digitálních dat.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+		/* Box s logem mise a detaily */
+		.details-table {
+			display: table;
+			width: 100%;
+			background-color: #f8f9fa;
+			border: 1px solid #cccccc;
+			margin: 15px 0;
+			border-collapse: collapse;
+		}
+		.details-row {
+			display: table-row;
+		}
+		.details-cell-info {
+			display: table-cell;
+			width: 72%;
+			padding: 18px;
+			vertical-align: middle;
+			line-height: 1.7;
+		}
+		.details-cell-logo {
+			display: table-cell;
+			width: 28%;
+			padding: 15px;
+			text-align: center;
+			vertical-align: middle;
+			border-left: 1px solid #cccccc;
+			background-color: #ffffff;
+		}
+		.details-cell-logo img {
+			max-width: 115px;
+			max-height: 115px;
+			vertical-align: middle;
+		}
 
-    <div class="signature-area">
-        <div class="order-meta-row">
-            <div class="signature-cell">
-                <div class="signature-line">
-                    Otisk schvalovacího razítka a podpis velitele
-                </div>
-            </div>
-            <div class="signature-cell" style="text-align: right;">
-                <div class="signature-line" style="display: inline-block; text-align: left;">
-                    Letový ředitel mise Ares III<br>
-                    Mezinárodní velitelství sil hlubokého vesmíru
-                </div>
-            </div>
-        </div>
-    </div>
+		.info-line {
+			margin: 0 0 5px 0;
+			font-size: 11pt;
+		}
+		.info-label {
+			font-weight: bold;
+			display: inline-block;
+			width: 135px;
+			color: #333333;
+		}
 
-    <div class="footer">
-        JAXA Headquarters • 2-1-1 Sengen, Tsukuba, Ibaraki 305-8505, Japan
-    </div>
-</div>
+		/* Vybavení */
+		.equipment-section {
+			margin-top: 25px;
+		}
+		.equipment-title {
+			font-size: 11pt;
+			font-weight: bold;
+			text-transform: uppercase;
+			border-bottom: 1px solid #111111;
+			padding-bottom: 4px;
+			margin-bottom: 12px;
+			letter-spacing: 0.3px;
+		}
+		.equipment-list-table {
+			display: table;
+			width: 100%;
+			font-size: 10pt;
+			border-collapse: collapse;
+		}
+		.equipment-list-cell {
+			display: table-cell;
+			width: 50%;
+			vertical-align: top;
+		}
+		.equipment-list {
+			margin: 0;
+			padding-left: 18px;
+		}
+		.equipment-list li {
+			margin-bottom: 7px;
+			line-height: 1.4;
+			text-align: justify;
+		}
 
-</body>
+		/* Podpisy */
+		.signature-area {
+			position: absolute;
+			bottom: 18mm;
+			left: 15mm;
+			right: 15mm;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+		.signature-container {
+			position: relative;
+			width: 42%;
+		}
+		.signature-container.align-right {
+			text-align: right;
+		}
+		.signature-line {
+			border-top: 1px solid #555555;
+			width: 100%;
+			padding-top: 6px;
+			font-size: 9pt;
+			color: #444444;
+			line-height: 1.4;
+		}
+		.signature-handwritten {
+			position: absolute;
+			font-size: 28pt;
+			line-height: 1;
+			white-space: nowrap;
+			pointer-events: none;
+		}
+		.signature-velitel {
+			font-family: 'Caveat', cursive;
+			color: #000000;
+			left: 15px;
+			bottom: 42px;
+			transform: rotate(-2deg);
+			z-index: 1;
+		}
+		.signature-director {
+			font-family: 'Yuji Syuku', cursive;
+			color: #0b2545;
+			right: 15px;
+			bottom: 42px;
+			z-index: 1;
+		}
+
+		/* Patička na pevném spodku A4 */
+		.footer {
+			position: absolute;
+			bottom: 10mm;
+			left: 20mm;
+			right: 20mm;
+			text-align: center;
+			font-size: 8.5pt;
+			color: #555555;
+			border-top: 1px solid #dddddd;
+			padding-top: 10px;
+		}
+		</style>
+	</head>
+	<body>
+
+		<div class="page">
+			<div class="razitko-tajne">Přísně tajné</div>
+
+			<div class="header-table">
+				<div class="header-row">
+					<div class="header-cell header-logo">
+						<img src="../jaxa-logo.svg" alt="Logo Agentury">
+					</div>
+					<div class="header-cell" style="padding-left: 18px;">
+						<div class="agency-title" style="color: #1B365D;">Japan Aerospace Exploration Agency</div>
+						<div class="agency-sub">Human Spaceflight Technology Directorate</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="order-meta-table">
+				<div class="order-meta-row">
+					<div class="order-meta-cell" style="width: 60%;">
+						<strong>Číslo rozkazu:</strong> JAXA-ARES3-JP-X2026-3771<br>
+						<strong>Datum vydání:</strong> 1. června 2026<br>
+						<strong>Klasifikace:</strong> Úroveň 5 (Mezinárodní vesmírný program)
+					</div>
+					<div class="order-meta-cell" style="width: 40%; text-align: right;">
+						<div class="barcode-container">
+							<div class="bars">
+								<div class="bar-thick"></div><div class="bar-thin"></div><div class="bar-space"></div>
+								<div class="bar-thin"></div><div class="bar-thick"></div><div class="bar-thin"></div>
+								<div class="bar-space"></div><div class="bar-thick"></div><div class="bar-thick"></div>
+								<div class="bar-thin"></div><div class="bar-space"></div><div class="bar-thin"></div>
+								<div class="bar-thick"></div><div class="bar-thin"></div><div class="bar-space"></div>
+								<div class="bar-thick"></div><div class="bar-thin"></div><div class="bar-thick"></div>
+							</div>
+							<div class="barcode-text">*JAXA*3771*2026*</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="title-section">
+				<h1 class="main-title" style="color: #1B365D;">Povolávací rozkaz</h1>
+			</div>
+
+			<div class="salutation">VÁŽENÝ KADETE / VÁŽENÁ KADETKO,</div>
+
+			<p class="content-paragraph">
+				na&nbsp;základě dekretu Mezinárodního výboru pro&nbsp;výzkum hlubokého vesmíru a&nbsp;ve&nbsp;spolupráci s&nbsp;partnerskými kosmickými organizacemi jsi&nbsp;byl/a zařazen/a jako klíčový člen posádky vědecké expedice <strong>Ares&nbsp;III</strong> na&nbsp;povrchu Marsu. Tvoje výjimečná fyzická zdatnost, logické myšlení a&nbsp;morální integrita tě&nbsp;plně opravňují k&nbsp;účasti na&nbsp;tomto historickém dobrodružství lidstva. Nařizuje se&nbsp;ti povinný nástup do&nbsp;aktivní služby na&nbsp;marťanské základně Sedlo.
+			</p>
+
+			<p class="content-paragraph">
+				<strong>Bude to&nbsp;malý krok pro&nbsp;tebe, ale&nbsp;obrovský skok pro&nbsp;celé lidstvo!</strong>
+			</p>
+
+			<div class="details-table">
+				<div class="details-row">
+					<div class="details-cell-info">
+						<div class="info-line"><span class="info-label">Povolávaný kadet:</span> <strong style="font-size: 12pt; color: #1B365D;">Sakura Kobayashi</strong></div>
+						<div class="info-line"><span class="info-label">Termín nástupu:</span> <strong>1. srpna 2026, 17:00:00</strong></div>
+						<div class="info-line"><span class="info-label">Cíl cesty:</span> <strong>Mars</strong>, Acidalia Planitia</div>
+						<div class="info-line"><span class="info-label">Místo nástupu:</span> <strong>Základna Sedlo</strong> </div>
+						<div class="info-line"><span class="info-label">Statut mise:</span> <strong>Kritický</strong></div>
+					</div>
+					<div class="details-cell-logo">
+						<img src="../../logo-mise.png" alt="Logo Mise">
+					</div>
+				</div>
+			</div>
+
+			<div class="equipment-section">
+				<div class="equipment-title">Materiální zabezpečení pro&nbsp;přežití a&nbsp;výzkum v&nbsp;marťanských podmínkách:</div>
+
+				<div class="equipment-list-table">
+					<div class="order-meta-row">
+						<div class="equipment-list-cell" style="padding-right: 5px;">
+							<ul class="equipment-list">
+								<li><strong>Povolávací rozkaz:</strong> Vytiskni si tento dokument a&nbsp;vezmi ho&nbsp;s&nbsp;sebou.</li>
+								<li><strong>Modul pro&nbsp;spánek:</strong> Spací pytel, případně izolační karimatka pro&nbsp;pobyt v&nbsp;extrémních podmínkách.</li>
+								<li><strong>Dekontaminační set:</strong> Kompletní hygienické potřeby a&nbsp;ručník pro&nbsp;osobní péči.</li>
+								<li><strong>Ochranné prostředky EVA-MARS:</strong> Pevná obuv pro&nbsp;chůzi po&nbsp;marťanském regolitu, vrstvené oblečení do&nbsp;extrémních teplotních výkyvů.</li>
+							</ul>
+						</div>
+						<div class="equipment-list-cell" style="padding-left: 5px;">
+							<ul class="equipment-list">
+								<li><strong>Chemicko-biologický defenzivní set:</strong> Osobní repelentní systém proti&nbsp;exobiologickým entitám.</li>
+								<li><strong>Individuální rehydratační rezervoár:</strong> Lahev na&nbsp;vodu pro&nbsp;udržení hydratace v&nbsp;suchém marťanském prostředí.</li>
+								<li><strong>Přístroj pro&nbsp;exteriérovou telemetrii (nepovinné):</strong> Osobní mobilní terminál, použitelný při&nbsp;navigaci během EVA protokolů, zaměřování geologických anomálií a&nbsp;sběru digitálních dat.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="signature-area">
+				<div class="signature-container">
+					<div class="kulate-razitko">
+						ARES III<br>
+						* APPROVED *<br>
+						2026-HQ
+					</div>
+					<div class="signature-handwritten signature-velitel">
+						Bohumil Boreš
+					</div>
+					<div class="signature-line">
+						Otisk schvalovacího razítka a podpis velitele<br>
+						<span style="color: white">xxx</span>
+					</div>
+				</div>
+				<div class="signature-container align-right">
+					<div class="signature-handwritten signature-director">
+						山川 宏
+					</div>
+					<div class="signature-line">
+						Prezident JAXA<br>
+						Mezinárodní velitelství sil hlubokého vesmíru
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				JAXA Headquarters • 2-1-1 Sengen, Tsukuba, Ibaraki 305-8505, Japan
+			</div>
+		</div>
+
+	</body>
 </html>

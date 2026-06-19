@@ -17,7 +17,12 @@ agencies = {
         'color': '#0B3D91',
         'prefix': 'NASA-A3-2026',
         'footer': 'NASA Headquarters • 300 E Street SW, Washington, DC 20546, USA',
-        'list': deti_nasa
+        'list': deti_nasa,
+        'velitel_mise': 'Bohumil Boreš',
+        'font_velitel_mise': "'Caveat'",
+        'reditel_agentury': 'Bill Nelson',
+        'font_reditel_agentury': "'Homemade Apple'",
+        'titul_reditel_agentury': 'Administrátor NASA'
     },
     'ESA': {
         'full': 'European Space Agency • Agence spatiale européenne',
@@ -25,7 +30,12 @@ agencies = {
         'color': '#003210',
         'prefix': 'ESA-ARES3-EU',
         'footer': 'ESA Headquarters • 8-10 rue Mario Nikis, 75738 Paris, France',
-        'list': deti_esa
+        'list': deti_esa,
+        'velitel_mise': 'Bohumil Boreš',
+        'font_velitel_mise': "'Caveat'",
+        'reditel_agentury': 'Josef Aschbacher',
+        'font_reditel_agentury': "'Yellowtail'",
+        'titul_reditel_agentury': 'Generální ředitel ESA'
     },
     'CNSA': {
         'full': 'China National Space Administration',
@@ -33,7 +43,12 @@ agencies = {
         'color': '#C8102E',
         'prefix': 'CNSA-MARS-A3',
         'footer': 'CNSA Headquarters • 1A Fucheng Road, Haidian District, Beijing, China',
-        'list': deti_cnsa
+        'list': deti_cnsa,
+        'velitel_mise': 'Bohumil Boreš',
+        'font_velitel_mise': "'Caveat'",
+        'reditel_agentury': '张克俭',
+        'font_reditel_agentury': "'Zhi Mang Xing'",
+        'titul_reditel_agentury': 'Administrátor CNSA'
     },
     'ISRO': {
         'full': 'Indian Space Research Organisation',
@@ -41,7 +56,12 @@ agencies = {
         'color': '#FF9933',
         'prefix': 'ISRO-ARES-III',
         'footer': 'ISRO Headquarters • Antariksh Bhavan, New BEL Road, Bengaluru, India',
-        'list': deti_isro
+        'list': deti_isro,
+        'velitel_mise': 'Bohumil Boreš',
+        'font_velitel_mise': "'Caveat'",
+        'reditel_agentury': 'S. Somanath',
+        'font_reditel_agentury': "'Dawning of a New Day'",
+        'titul_reditel_agentury': 'Předseda ISRO'
     },
     'JAXA': {
         'full': 'Japan Aerospace Exploration Agency',
@@ -49,7 +69,12 @@ agencies = {
         'color': '#1B365D',
         'prefix': 'JAXA-ARES3-JP',
         'footer': 'JAXA Headquarters • 2-1-1 Sengen, Tsukuba, Ibaraki 305-8505, Japan',
-        'list': deti_jaxa
+        'list': deti_jaxa,
+        'velitel_mise': 'Bohumil Boreš',
+        'font_velitel_mise': "'Caveat'",
+        'reditel_agentury': '山川 宏',
+        'font_reditel_agentury': "'Yuji Syuku'",
+        'titul_reditel_agentury': 'Prezident JAXA'
     }
 }
 
@@ -86,6 +111,11 @@ def generuj_rozkazy():
             html_child = html_child.replace("{{ agentura_logo }}", f"../{kod.lower()}-logo.svg")
             html_child = html_child.replace("{{ logo_mise }}", LOGO_MISE)
             html_child = html_child.replace("{{ footer }}", data['footer'])
+            html_child = html_child.replace("{{ velitel_mise }}", data['velitel_mise'])
+            html_child = html_child.replace("{{ font_velitel_mise }}", data['font_velitel_mise'])
+            html_child = html_child.replace("{{ reditel_agentury }}", data['reditel_agentury'])
+            html_child = html_child.replace("{{ font_reditel_agentury }}", data['font_reditel_agentury'])
+            html_child = html_child.replace("{{ titul_reditel_agentury }}", data['titul_reditel_agentury'])
 
             # Uložení do samostatného souboru
             bez_diakritiky = "".join([c for c in jmeno.lower() if c.isalnum()])
