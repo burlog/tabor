@@ -76,7 +76,7 @@ EMAIL_BODY_HTML = """\
 #    Každá položka je tuple: (jmeno, email)
 deti_nasa = [
     ("Týna Kubová",          "jana.kubova@seznam.cz"),
-    ("Jakub Mikiska",        ""),
+    ("Jakub Mikiska",        "mikiskova.jana@gmail.com"),
     ("Dominik Vávra",        "andrejkavavrova@gmail.com"),
     ("Šárka Zavadilová",     "hela.zavadilova@gmail.com"),
     ("Matěj Boreš",          "boresova.lucie@gmail.com"),
@@ -95,7 +95,7 @@ deti_esa = [
 deti_cnsa = [
     ("Radomír Jedlička",     "jedlikar@email.cz"),
     ("Rozálie Hamzová",      "hamzova.hana@gmail.com"),
-    ("Matěj Mikiska",        ""),
+    ("Matěj Mikiska",        "mikiskova.jana@gmail.com"),
     ("Antonín Michek",       "lukas.michek@email.cz"),
     ("Martin Vondra",        "lubos.vondra@email.cz"),
     ("Ella Bukovská",        "kaja.bukovska@seznam.cz"),
@@ -189,7 +189,7 @@ agencies = {
     }
 }
 
-LOGO_MISE = "logo-mise.png"
+LOGO_MISE = "/home/burlog/tabor/2026/logo-mise.png"
 
 
 def html_na_pdf(html_soubor, pdf_soubor):
