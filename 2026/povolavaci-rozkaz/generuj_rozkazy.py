@@ -216,8 +216,8 @@ def odeslat_email(jmeno, email, pdf_soubor):
     """Odešle PDF rozkaz na zadaný email s HTML tělem a inline logem mise."""
     msg = EmailMessage()
     msg["From"] = f"Michal Bukovský <{EMAIL_FROM}>"
-    # msg["To"] = email
-    msg["To"] = "burlog@seznam.cz"
+    msg["To"] = email
+    # msg["To"] = "burlog@seznam.cz"
     msg["Subject"] = EMAIL_SUBJECT.replace("{{ jmeno }}", jmeno)
 
     # Prostý text jako fallback
@@ -336,7 +336,7 @@ def generuj_rozkazy(odeslat=False):
                 except Exception as e:
                     print(f"  ✗ Chyba při odesílání pro {jmeno}: {e}")
 
-            sys.exit(0)  # Pro testování generování pouze jednoho rozkazu, odkomentujte pro produkční běh
+            # sys.exit(0)  # Pro testování generování pouze jednoho rozkazu, odkomentujte pro produkční běh
 
     print(f"\nÚspěšně dokončeno! Celkem vygenerováno {celkovy_pocet} HTML souborů ve složce 'vystup_rozkazy'.")
     if odeslat:
