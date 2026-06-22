@@ -13,6 +13,10 @@ try:
 except ImportError:
     _PILLOW_OK = False
 
+# Cesta k lokálně embedovanému CSS s fonty (staženo z Google Fonts do base64)
+# Vygenerováno skriptem: stáhni pomocí `python3 generuj_rozkazy.py --stahni-fonty`
+LOKALNI_FONTY_CSS = os.path.join(os.path.dirname(__file__), "fonts", "embedded_fonts.css")
+
 LOGO_EMAIL_MAX_WIDTH = 200  # px, šířka loga v emailu
 
 # ============================================================
@@ -199,7 +203,7 @@ def html_na_pdf(html_soubor, pdf_soubor):
         if subprocess.call(["which", cmd], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) == 0:
             subprocess.run([
                 cmd, "--headless", "--disable-gpu", "--no-sandbox",
-                f"--print-to-pdf={pdf_soubor}", html_soubor
+                f"--print-to-pdf={pdf_soubor}", f"file://{html_soubor}"
             ], check=True)
             return
     # Fallback na wkhtmltopdf
@@ -280,7 +284,82 @@ def odeslat_email(jmeno, email, pdf_soubor):
     print(f"  → Email odeslán na {email} ({jmeno})")
 
 
-def generuj_rozkazy(odeslat=False):
+def nacti_lokalni_fonty_css():
+    """Načte lokální embedded CSS s fonty a vrátí ho jako <style> tag.
+    Pokud soubor neexistuje, vrátí prázdný řetězec (šablona pak použije Google Fonts)."""
+    if os.path.exists(LOKALNI_FONTY_CSS):
+        with open(LOKALNI_FONTY_CSS, "r", encoding="utf-8") as f:
+            css = f.read()
+        return f"<style>\n{css}\n</style>"
+    print(f"  ⚠ Lokální fonty nenalezeny ({LOKALNI_FONTY_CSS}).")
+    print("    Spusť: python3 generuj_rozkazy.py --stahni-fonty")
+    return ""
+
+
+def stahni_fonty():
+    """Stáhne všechny potřebné fonty z Google Fonts a uloží je jako base64 do fonts/embedded_fonts.css."""
+    try:
+        import requests
+        import base64
+        import re
+    except ImportError:
+        print("Chyba: Nainstalujte 'requests': pip install requests")
+        return
+
+    HEADERS = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    font_css_urls = [
+        "https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap",
+        "https://fonts.googleapis.com/css2?family=Yellowtail&display=swap",
+        "https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap",
+        "https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap",
+        "https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap",
+    ]
+    fonts_dir = os.path.join(os.path.dirname(__file__), "fonts")
+    os.makedirs(fonts_dir, exist_ok=True)
+    all_face_css = []
+    for css_url in font_css_urls:
+        family = css_url.split("family=")[1].split("&")[0].replace("+", " ")
+        print(f"Stahuji font: {family}")
+        css = requests.get(css_url, headers=HEADERS).text
+        blocks = re.findall(r'@font-face\s*\{[^}]+\}', css, re.DOTALL)
+        for block in blocks:
+            m = re.search(r'url\((https://fonts\.gstatic\.com/[^)]+\.woff2)\)', block)
+            if not m:
+                continue
+            woff2_url = m.group(1)
+            fname = re.sub(r'[^\w.]', '_', woff2_url.split('/')[-1])
+            fpath = os.path.join(fonts_dir, fname)
+            if not os.path.exists(fpath):
+                r = requests.get(woff2_url, headers=HEADERS)
+                with open(fpath, 'wb') as ff:
+                    ff.write(r.content)
+            with open(fpath, 'rb') as ff:
+                b64 = base64.b64encode(ff.read()).decode()
+            new_block = re.sub(
+                r'url\(https://fonts\.gstatic\.com/[^)]+\.woff2\)',
+                f"url('data:font/woff2;base64,{b64}')",
+                block
+            )
+            new_block = re.sub(r'\s*font-display:\s*swap;\s*\n', '\n', new_block)
+            all_face_css.append(new_block)
+    css_path = os.path.join(fonts_dir, "embedded_fonts.css")
+    with open(css_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(all_face_css))
+    print(f"\nFonty embedovány do {css_path}")
+    print(f"Celkem @font-face bloků: {len(all_face_css)}")
+
+
+def generuj_rozkazy(odeslat=False, pouze_agentura=None):
+    """Generuje povolávací rozkazy.
+
+    Args:
+        odeslat: Pokud True, převede na PDF a odešle emailem.
+        pouze_agentura: Pokud zadáno (např. 'CNSA'), zpracuje jen tuto agenturu.
+    """
     # Načtení univerzální šablony
     if not os.path.exists("sablona.html"):
         print("Chyba: Soubor 'sablona.html' nebyl nalezen!")
@@ -289,11 +368,35 @@ def generuj_rozkazy(odeslat=False):
     with open("sablona.html", "r", encoding="utf-8") as f:
         template = f.read()
 
+    # Nahrazení Google Fonts <link> tagů lokálními embedovanými fonty
+    lokalni_fonty = nacti_lokalni_fonty_css()
+    if lokalni_fonty:
+        import re
+        # Odstraníme všechny Google Fonts <link> tagy
+        template = re.sub(
+            r'<link[^>]+fonts\.googleapis\.com[^>]+>\s*\n?',
+            '',
+            template
+        )
+        # Vložíme lokální fonty těsně před uzavírací </head>
+        template = template.replace("</head>", f"{lokalni_fonty}\n\t</head>")
+
     os.makedirs("vystup_rozkazy", exist_ok=True)
     celkovy_pocet = 0
 
-    # Projdeme všechny agentury a vygenerujeme rozkaz pro každé dítě v poli
-    for kod, data in agencies.items():
+    # Filtrování agentur
+    agentury_k_zpracovani = agencies
+    if pouze_agentura:
+        kod_upper = pouze_agentura.upper()
+        if kod_upper not in agencies:
+            dostupne = ', '.join(agencies.keys())
+            print(f"Chyba: Agentura '{pouze_agentura}' neexistuje. Dostupné: {dostupne}")
+            return
+        agentury_k_zpracovani = {kod_upper: agencies[kod_upper]}
+        print(f"Zpracovávám pouze agenturu: {kod_upper}")
+
+    # Projdeme agentury a vygenerujeme rozkaz pro každé dítě v poli
+    for kod, data in agentury_k_zpracovani.items():
         for jmeno, email in data['list']:
             # Náhodné vygenerování unikátního čísla rozkazu a podkladu kódu
             nahodne_id = random.randint(1000, 9999)
@@ -352,6 +455,22 @@ if __name__ == "__main__":
         action="store_true",
         help="Kromě generování HTML také převede rozkazy na PDF a odešle je emailem.",
     )
+    parser.add_argument(
+        "--agentura",
+        metavar="KOD",
+        help=(
+            "Zpracuje (a případně odešle) pouze rozkazy pro zadanou agenturu. "
+            f"Dostupné kódy: {', '.join(agencies.keys())}"
+        ),
+    )
+    parser.add_argument(
+        "--stahni-fonty",
+        action="store_true",
+        help="Stáhne fonty z Google Fonts a uloží je lokálně jako base64 (fonts/embedded_fonts.css).",
+    )
     args = parser.parse_args()
 
-    generuj_rozkazy(odeslat=args.odeslat)
+    if args.stahni_fonty:
+        stahni_fonty()
+    else:
+        generuj_rozkazy(odeslat=args.odeslat, pouze_agentura=args.agentura)
