@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "cz.seznam.tabor.mps"
+    namespace = "cz.burlog.tabor.mps"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "cz.seznam.tabor.mps"
+        applicationId = "cz.burlog.tabor.mps"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

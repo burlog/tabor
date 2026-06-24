@@ -1,4 +1,4 @@
-package cz.seznam.tabor.mps
+package cz.burlog.tabor.mps
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -9,7 +9,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import cz.seznam.tabor.mps.databinding.ActivityMainBinding
+import cz.burlog.tabor.mps.databinding.ActivityMainBinding
 import java.util.Locale
 
 class MainActivity : AppCompatActivity(), LocationListener {

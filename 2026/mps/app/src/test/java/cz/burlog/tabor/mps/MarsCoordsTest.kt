@@ -1,4 +1,4 @@
-package cz.seznam.tabor.mps
+package cz.burlog.tabor.mps
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -6,7 +6,7 @@ transformaci jako MarsCoords.kt, takže z čísel MARS-X/MARS-Y, která hráč
 přečte v mobilu, lze zpětně dopočítat skutečnou GPS.
 
 NOTE(burlog): konstanty níže musí být shodné s MarsConfig v
-app/src/main/java/cz/seznam/tabor/mps/MarsCoords.kt
+app/src/main/java/cz/burlog/tabor/mps/MarsCoords.kt
 """
 
 import argparse
