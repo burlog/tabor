@@ -10,3 +10,7 @@
 local.properties
 app/build/
 build/
+
+# Release signing — never commit secrets
+*.jks
+*.keystore

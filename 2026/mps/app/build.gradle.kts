@@ -1,7 +1,17 @@
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
+
+// Release signing is configured from environment variables so no secrets
+// are ever written to disk or committed. Set these when building a release:
+//   MPS_STORE_FILE      path to the upload keystore (default: mps-upload.jks)
+//   MPS_STORE_PASSWORD  keystore password (required to enable signing)
+//   MPS_KEY_ALIAS       key alias (default: mps)
+//   MPS_KEY_PASSWORD    key password (default: same as MPS_STORE_PASSWORD)
+val storePasswordEnv: String? = System.getenv("MPS_STORE_PASSWORD")
+val hasReleaseSigning = !storePasswordEnv.isNullOrBlank()
 
 android {
     namespace = "cz.burlog.tabor.mps"
@@ -15,9 +25,26 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = rootProject.file(
+                    System.getenv("MPS_STORE_FILE") ?: "mps-upload.jks"
+                )
+                storePassword = storePasswordEnv
+                keyAlias = System.getenv("MPS_KEY_ALIAS") ?: "mps"
+                keyPassword = System.getenv("MPS_KEY_PASSWORD") ?: storePasswordEnv
+            }
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
